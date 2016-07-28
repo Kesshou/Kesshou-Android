@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+
+    productFlavors {
+        // Define separate dev and prod product flavors.
+        dev {
+            minSdkVersion 21
+        }
+        prod {
+            // The actual minSdkVersion for the application.
+            minSdkVersion 15
+        }
+    }
+
+    defaultConfig {
+        applicationId "kesshou.android.team"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath "io.realm:realm-gradle-plugin:1.1.0"
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.google.code.gson:gson:2.7'
+}
+
