@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kesshou</string>
+    <string name="app_name">木棉手札(大安高工學生助理)</string>
+    <string name="team_name">Kesshou</string>
+    <string name="unauthorized">帳號密碼錯誤</string>
+    <string name="illegalcontent">非法內容</string>
+    <string name="school_unauthorized">學校驗證失敗</string>
+    <string name="token_expired">Token過期</string>
+    <string name="id_used">帳號已被使用</string>
 
 </resources>
