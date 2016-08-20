@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Kesshou</string>
+    <string name="app_name">Dann Student Assistant</string>
+    <string name="team_name">Kesshou</string>
+    <string name="unauthorized">Unauthorized</string>
+    <string name="illegalcontent">Illegal Content</string>
+    <string name="school_unauthorized">School Unauthorized</string>
+    <string name="token_expired">Token Expired</string>
+    <string name="id_used">Account had already being used</string>
 </resources>
