@@ -1,9 +1,30 @@
 <resources>
-    <string name="app_name">Dann Student Assistant</string>
-    <string name="team_name">Kesshou</string>
-    <string name="unauthorized">Unauthorized</string>
-    <string name="illegalcontent">Illegal Content</string>
-    <string name="school_unauthorized">School Unauthorized</string>
-    <string name="token_expired">Token Expired</string>
-    <string name="id_used">Account had already being used</string>
+	<string name="app_name">Dann Student Assistant</string>
+	<string name="team_name">Kesshou</string>
+	<string name="unauthorized">Unauthorized</string>
+	<string name="illegalcontent">Illegal Content</string>
+	<string name="school_unauthorized">School Unauthorized</string>
+	<string name="token_expired">Token Expired</string>
+	<string name="id_used">Account had already being used</string>
+
+	<string name="regist_step_next">Next</string>
+	<string name="regist_step_pre">Previous</string>
+	<string name="regist_step_agree">I Agree</string>
+	<string name="regist_step_finish">Finish</string>
+
+	<string name="regist_school">School System</string>
+	<string name="regist_school_help">We will use this account for get data.</string>
+	<string name="regist_school_account">School Account</string>
+	<string name="regist_school_pwd">School Password</string>
+
+	<string name="regist_account">Regist Account</string>
+	<string name="regist_account_help">You will use this account to get service</string>
+	<string name="regist_account_nick">Nick</string>
+	<string name="regist_account_account">Account</string>
+	<string name="regist_account_pwd">Password</string>
+	<string name="regist_account_repwd">Repeat Passord</string>
+
+	<string name="regist_terms">User Terms</string>
+	<string name="regist_terms_help">Please read the user terms (link) \n if agreed, click Next,please.</string>
+	<string name="regist_terms_href">https://drive.google.com/file/d/0Bz-PYkk7mye2Y2hBcVlSUVlrblU/view?usp=sharing</string>
 </resources>
