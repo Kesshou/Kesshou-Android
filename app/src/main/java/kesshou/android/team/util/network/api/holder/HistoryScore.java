@@ -9,11 +9,11 @@ import com.google.gson.annotations.SerializedName;
 public class HistoryScore {
 
     @SerializedName("grade")
-    String grade;
+    public String grade;
 
     @SerializedName("semester")
-    String semester;
+    public String semester;
 
     @SerializedName("token")
-    String token;
+    public String token;
 }

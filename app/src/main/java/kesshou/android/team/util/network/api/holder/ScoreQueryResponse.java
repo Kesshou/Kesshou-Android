@@ -10,6 +10,6 @@ import com.google.gson.annotations.SerializedName;
 public class ScoreQueryResponse {
 
     @SerializedName("subjects")
-    JsonArray subjects;
+    public JsonArray subjects;
 
 }
