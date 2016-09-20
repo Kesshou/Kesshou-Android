@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+	<style name="AppTheme.NoActionBar">
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+	</style>
+
+	<style name="TextInputError" parent="TextAppearance.AppCompat.Small">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">#ff0000</item>
+	</style>
+
 </resources>
