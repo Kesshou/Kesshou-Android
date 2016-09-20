@@ -3,8 +3,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	tools:context=".views.Regist.SchoolFragment">
+	tools:context=".views.Regist.LoadingFragment">
+
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
 				android:id="@+id/topPanel"
 				android:layout_width="match_parent"
 				android:layout_height="200dp"
-				android:text="@string/regist_school"
+				android:text="@string/regist_loading"
 				android:textSize="30sp"
 				android:textColor="@color/white"
 				android:background="@color/colorPrimary"
@@ -30,6 +30,12 @@
 				android:elevation="5dp"
 
 				android:gravity="bottom"/>
+			<ProgressBar
+				android:layout_width="match_parent"
+				android:layout_height="25dp"
+				android:layout_marginTop="-10dp"
+				android:indeterminate="true"
+				style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 
 			<TextView
 				android:layout_width="match_parent"
@@ -37,55 +43,11 @@
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="32dp"
-				android:paddingBottom="32dp"
+				android:paddingBottom="16dp"
 				android:textSize="20sp"
 				android:textColor="@color/black"
-				android:text="@string/regist_school_help"/>
+				android:text="@string/regist_loading_help"/>
 
-			<!-- Account Label -->
-			<android.support.design.widget.TextInputLayout
-				android:id="@+id/til_input_account"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-
-				android:paddingStart="@dimen/regist_hl_padding"
-				android:paddingEnd="@dimen/regist_hl_padding"
-				android:paddingTop="0dp"
-				android:paddingBottom="0dp"
-
-				app:errorTextAppearance="@style/TextInputError">
-				<android.support.design.widget.TextInputEditText
-					android:id="@+id/input_account"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:inputType="text"
-					android:textSize="20sp"
-					android:hint="@string/regist_school_account" />
-			</android.support.design.widget.TextInputLayout>
-
-			<!-- Password Label -->
-			<android.support.design.widget.TextInputLayout
-				android:id="@+id/til_input_password"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-
-				android:paddingStart="@dimen/regist_hl_padding"
-				android:paddingEnd="@dimen/regist_hl_padding"
-				android:paddingTop="0dp"
-				android:paddingBottom="0dp"
-
-				app:counterEnabled="true"
-				app:counterMaxLength="10"
-				app:counterOverflowTextAppearance="@style/TextInputError"
-				app:errorTextAppearance="@style/TextInputError">
-				<android.support.design.widget.TextInputEditText
-					android:id="@+id/input_password"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:inputType="textPassword"
-					android:textSize="20sp"
-					android:hint="@string/regist_school_pwd"/>
-			</android.support.design.widget.TextInputLayout>
 		</LinearLayout>
 	</ScrollView>
 
@@ -111,8 +73,8 @@
 			android:text="@string/regist_step_pre"
 			android:textColor="@color/gray"
 			android:textSize="20sp"
-			style="?android:buttonBarButtonStyle"
-			android:visibility="invisible"/>
+			android:visibility="invisible"
+			style="?android:buttonBarButtonStyle"/>
 
 		<LinearLayout
 			android:layout_width="match_parent"
@@ -132,8 +94,10 @@
 			android:text="@string/regist_step_next"
 			android:textColor="@color/gray"
 			android:textSize="20sp"
+			android:visibility="invisible"
 			style="?android:buttonBarButtonStyle" />
 	</LinearLayout>
 </RelativeLayout>
+
 
 

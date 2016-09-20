@@ -1,9 +1,9 @@
-<!-- TODO: Update blank fragment layout -->
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	tools:context=".views.Regist.AccountFragment">
 
 	<ScrollView
@@ -45,13 +45,16 @@
 
 			<!-- Nick Label -->
 			<android.support.design.widget.TextInputLayout
+				android:id="@+id/til_input_nick"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="0dp"
-				android:paddingBottom="8dp">
+				android:paddingBottom="0dp"
+
+				app:errorTextAppearance="@style/TextInputError">
 				<android.support.design.widget.TextInputEditText
 					android:id="@+id/input_nick"
 					android:layout_width="match_parent"
@@ -63,13 +66,16 @@
 
 			<!-- Account Label -->
 			<android.support.design.widget.TextInputLayout
+				android:id="@+id/til_input_account"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="0dp"
-				android:paddingBottom="8dp">
+				android:paddingBottom="0dp"
+
+				app:errorTextAppearance="@style/TextInputError">
 				<android.support.design.widget.TextInputEditText
 					android:id="@+id/input_account"
 					android:layout_width="match_parent"
@@ -81,13 +87,19 @@
 
 			<!-- Password Label -->
 			<android.support.design.widget.TextInputLayout
+				android:id="@+id/til_input_password"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="0dp"
-				android:paddingBottom="8dp">
+				android:paddingBottom="0dp"
+
+				app:counterEnabled="true"
+				app:counterMaxLength="40"
+				app:counterOverflowTextAppearance="@style/TextInputError"
+				app:errorTextAppearance="@style/TextInputError">
 				<android.support.design.widget.TextInputEditText
 					android:id="@+id/input_password"
 					android:layout_width="match_parent"
@@ -99,13 +111,19 @@
 
 			<!-- Repeat Password Label -->
 			<android.support.design.widget.TextInputLayout
+				android:id="@+id/til_input_repassword"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="0dp"
-				android:paddingBottom="8dp">
+				android:paddingBottom="0dp"
+
+				app:counterEnabled="true"
+				app:counterMaxLength="40"
+				app:counterOverflowTextAppearance="@style/TextInputError"
+				app:errorTextAppearance="@style/TextInputError">
 				<android.support.design.widget.TextInputEditText
 					android:id="@+id/input_repassword"
 					android:layout_width="match_parent"

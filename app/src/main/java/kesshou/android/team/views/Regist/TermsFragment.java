@@ -1,9 +1,9 @@
 package kesshou.android.team.views.Regist;
 
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +25,7 @@ public class TermsFragment extends Fragment {
 		AppCompatButton PreButton= (AppCompatButton) view.findViewById(R.id.PreButton);
 		PreButton.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View view) {
+			public void onClick(View v) {
 				FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 				android.app.Fragment fg= new AccountFragment();
@@ -37,10 +37,10 @@ public class TermsFragment extends Fragment {
 		AppCompatButton NextButton= (AppCompatButton) view.findViewById(R.id.NextButton);
 		NextButton.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View view) {
+			public void onClick(View v) {
 				FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-				android.app.Fragment fg= new SchoolFragment();
+				android.app.Fragment fg= new LoadingFragment();
 				ft.replace(R.id.fm, fg, "f_m");
 				ft.commit();
 			}
