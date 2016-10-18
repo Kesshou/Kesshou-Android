@@ -1,13 +1,10 @@
 package kesshou.android.team.util.network;
 
 
-import android.content.res.Resources;
-import android.support.v4.util.Pair;
-import android.util.Log;
+import android.content.Context;
 
 import java.util.List;
 
-import kesshou.android.team.R;
 import kesshou.android.team.util.network.api.AccountApi;
 import kesshou.android.team.util.network.api.CalenderApi;
 import kesshou.android.team.util.network.api.ScoreApi;
@@ -20,223 +17,136 @@ import kesshou.android.team.util.network.api.holder.ScoreQueryResponse;
 import kesshou.android.team.util.network.api.holder.SectionalExamScore;
 import kesshou.android.team.util.network.api.holder.Token;
 import kesshou.android.team.util.network.api.holder.Update;
-import retrofit2.Response;
+import kesshou.android.team.util.network.client.RetrofitClient;
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /*
-   Author: Charles Lien(lienching)
+   Author: Charles Lien(lienching),IU(yoyo930021)
    Description: This class handle the communication of our RESTful API
 */
 
 public class NetworkingClient {
 
-    private final String TAG = "NetworkingClient";
-
-    private final Retrofit retrofit;
+	private Retrofit retrofit;
     private AccountApi accountApi;
     private ScoreApi scoreApi;
     private CalenderApi calenderApi;
 
 
-    public NetworkingClient() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl(Config.getAPIPath())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
+    public NetworkingClient(Context context) {
+        retrofit = RetrofitClient.getInstance(context);
 
         accountApi = retrofit.create(AccountApi.class);
         scoreApi = retrofit.create(ScoreApi.class);
         calenderApi = retrofit.create(CalenderApi.class);
     }
 
-
     // Account System
 
     /*
-        Author: Charles Lien( lienching)
+        Author: Charles Lien( lienching),IU(yoyo930021)
         Description:
             This function's purpose is to communicate with login api
         Usage:
             parameter:
                 Login usr: login information
-            return:
-                Pair<Integer, Response<Token>>
-                    Integer statuscode : Status Code
-                    Response<Token> response : Response Body
-
+                Callback<Token> callback: Callback
      */
-    public Pair<Integer, Response<Token>> login(Login usr) {
-        Response<Token> response = accountApi.login(usr);
-        int statuscode = response.code();
-
-        if ( statuscode == 401) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.unauthorized ) );
-        }
-        else if (statuscode == 406) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.illegalcontent) );
-        }
-        else if ( statuscode == 408 ) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.token_expired) );
-        }
-
-        return new Pair<>(statuscode, response);
+    public void login(Login usr,Callback<Token> callback) {
+        Call<Token> call = accountApi.login(usr);
+	    call.enqueue(callback);
     }
 
     /*
-        Author: Charles Lien( lienching)
+        Author: Charles Lien( lienching),IU(yoyo930021)
         Description:
             This function's purpose is to communicate with register api
         Usage:
             parameter:
                 Register register: register information
-            return:
-                Pair<Integer, Response<Token>>
-                    Integer statuscode : Status Code
-                    Response<Token> response : Response Body
+	            Callback<Token> callback: Callback
 
      */
-    public Pair<Integer, Response<Token>> register(Register register) {
-        Response<Token> response = accountApi.create(register);
-        int statuscode = response.code();
-
-        if ( statuscode == 401) {
-            Log.d(TAG, Resources.getSystem().getString(R.string.id_used));
-        }
-        else if (statuscode == 406) {
-            Log.d(TAG, Resources.getSystem().getString(R.string.school_unauthorized) +
-                    "or" +Resources.getSystem().getString(R.string.illegalcontent));
-        }
-
-
-        return new Pair<>(statuscode, response);
+    public void register(Register register,Callback<Token> callback) {
+        Call<Token> call = accountApi.create(register);
+        call.enqueue(callback);
     }
 
     /*
-        Author: Charles Lien( lienching)
+        Author: Charles Lien( lienching),IU(yoyo930021)
         Description:
             This function's purpose is to communicate with update api
         Usage:
             parameter:
                 Update usr: update information
-            return:
-                Integer : status code
+	            Callback<Object> callback: Callback
      */
-    public int update(Update usr) {
-        Response<Object> response = accountApi.update(usr);
-
-        return response.code();
+    public void update(Update usr,Callback<Object> callback) {
+	    Call<Object> call = accountApi.update(usr);
+	    call.enqueue(callback);
     }
 
     // Score System
 
 
     /*
-        Author: Charles Lien( lienching)
+        Author: Charles Lien( lienching),IU(yoyo930021)
         Description:
             This function's purpose is to communicate with history score query api
         Usage:
             parameter:
                 HistoryScore score : Query Information:
-            return:
-                Pair<Integer, Response<ScoreQueryResponse>>
-                    Integer statuscode : Status Code
-                    Response<ScoreQueryResponse> response : Response Body
+	            Callback<ScoreQueryResponse> callback: Callback
      */
-    public Pair<Integer, Response<ScoreQueryResponse>> queryHScore(HistoryScore score) {
-        Response<ScoreQueryResponse> response = scoreApi.queryHScore(score);
-        int statuscode = response.code();
-
-        if ( statuscode == 406 ) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.school_unauthorized) );
-        }
-        else if ( statuscode == 408 ) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.token_expired) );
-        }
-
-        return new Pair<>(statuscode, response);
-
+    public void queryHScore(HistoryScore score,Callback<ScoreQueryResponse> callback) {
+	    Call<ScoreQueryResponse> call = scoreApi.queryHScore(score);
+        call.enqueue(callback);
     }
 
     /*
-        Author: Charles Lien(lienching)
+        Author: Charles Lien(lienching),IU(yoyo930021)
         Description:
             This function's purpose is to communicate with sectional exam score query api
         Usage:
             parameter:
                 SectionalExamScore score : Query Information:
-            return:
-                Pair<Integer, Response<ScoreQueryResponse>>
-                    Integer statuscode : Status Code
-                    Response<ScoreQueryResponse> response : Response Body
+                Callback<ScoreQueryResponse> callback: Callback
      */
-    public Pair<Integer, Response<ScoreQueryResponse>> querySEScore(SectionalExamScore score) {
-        Response<ScoreQueryResponse> response = scoreApi.querySEScore(score);
-        int statuscode = response.code();
-
-        if ( statuscode == 406 ) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.school_unauthorized) );
-        }
-        else if ( statuscode == 408 ) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.token_expired) );
-        }
-
-        return new Pair<>(statuscode, response);
+    public void querySEScore(SectionalExamScore score,Callback<ScoreQueryResponse> callback) {
+        Call<ScoreQueryResponse> call = scoreApi.querySEScore(score);
+        call.enqueue(callback);
     }
 
     /*
-       Author: Charles Lien(lienching)
+       Author: Charles Lien(lienching),IU(yoyo930021)
        Description:
            This function's purpose is to communicate with attitude status query api
        Usage:
            parameter:
                SectionalExamScore score : Query Information:
-           return:
-               Pair<Integer, Response<List<AttitudeStatusResponse>>
-                   Integer statuscode : Status Code
-                   Response<List<AttitudeStatusResponse>> response : Response Body
+	           Callback<List<AttitudeStatusResponse>> callback: Callback
     */
-    public Pair<Integer, Response<List<AttitudeStatusResponse>>> queryAS(Token token) {
-        Response<List<AttitudeStatusResponse>> response = scoreApi.queryAS(token);
-        int statuscode = response.code();
-
-        if ( statuscode == 406 ) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.school_unauthorized) );
-        }
-        else if ( statuscode == 408 ) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.token_expired) );
-        }
-
-        return new Pair<>(statuscode, response);
+    public void queryAS(Token token,Callback<List<AttitudeStatusResponse>> callback) {
+        Call<List<AttitudeStatusResponse>> call = scoreApi.queryAS(token);
+        call.enqueue(callback);
     }
 
     // Calender
 
     /*
-      Author: Charles Lien(lienching)
+      Author: Charles Lien(lienching),IU(yoyo930021)
       Description:
           This function's purpose is to communicate with calender query api
       Usage:
           parameter:
               SectionalExamScore score : Query Information:
-          return:
-              Pair<Integer, Response<List<CalenderResponse>>
-                  Integer statuscode : Status Code
-                  Response<List<CalenderResponse>> response : Response Body
+	          Callback<List<CalenderResponse>> callback: Callback
    */
-    public Pair<Integer, Response<List<CalenderResponse>>> getCurrentCalender(Token token) {
-        Response<List<CalenderResponse>> response = calenderApi.getCurrentCalender(token);
-        int statuscode = response.code();
-
-        if ( statuscode == 406 ) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.school_unauthorized) );
-        }
-        else if ( statuscode == 408 ) {
-            Log.d(TAG, Resources.getSystem().getString( R.string.token_expired) );
-        }
-
-        return new Pair<>(statuscode, response);
+    public void getCurrentCalender(Token token,Callback<List<CalenderResponse>> callback) {
+        Call<List<CalenderResponse>> call = calenderApi.getCurrentCalender(token);
+        call.enqueue(callback);
     }
 
 

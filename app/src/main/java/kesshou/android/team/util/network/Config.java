@@ -8,7 +8,7 @@ public class Config {
     public enum Env {
 
         PROD("kesshou.org"),
-        DEV("dev.kesshou.org"); // PROD: Production website ,DEV: Developement website
+        DEV("dev.dacsc.club"); // PROD: Production website ,DEV: Developement website
 
 
         public final String host;
@@ -29,7 +29,7 @@ public class Config {
     }
 
     private static String getAPIPath( Env env, double version ) {
-        return String.format("https://%1$s/api%2$f", env.host, version);
+        return String.format("https://%1$s/", env.host);
     }
 
 }

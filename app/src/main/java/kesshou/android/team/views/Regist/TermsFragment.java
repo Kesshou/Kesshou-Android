@@ -1,9 +1,9 @@
 package kesshou.android.team.views.Regist;
 
 
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,10 +25,10 @@ public class TermsFragment extends Fragment {
 		AppCompatButton PreButton= (AppCompatButton) view.findViewById(R.id.PreButton);
 		PreButton.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View view) {
-				FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
+			public void onClick(View v) {
+				FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-				android.app.Fragment fg= new AccountFragment();
+				Fragment fg= new AccountFragment();
 				ft.replace(R.id.fm, fg, "f_m");
 				ft.commit();
 			}
@@ -37,10 +37,10 @@ public class TermsFragment extends Fragment {
 		AppCompatButton NextButton= (AppCompatButton) view.findViewById(R.id.NextButton);
 		NextButton.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View view) {
-				FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
+			public void onClick(View v) {
+				FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-				android.app.Fragment fg= new SchoolFragment();
+				Fragment fg= new LoadingFragment();
 				ft.replace(R.id.fm, fg, "f_m");
 				ft.commit();
 			}

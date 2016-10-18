@@ -1,9 +1,9 @@
-<!-- TODO: Update blank fragment layout -->
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	tools:context=".views.Regist.AccountFragment">
 
 	<ScrollView
@@ -45,13 +45,16 @@
 
 			<!-- Nick Label -->
 			<android.support.design.widget.TextInputLayout
+				android:id="@+id/til_input_nick"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="0dp"
-				android:paddingBottom="8dp">
+				android:paddingBottom="0dp"
+
+				app:errorTextAppearance="@style/TextInputError">
 				<android.support.design.widget.TextInputEditText
 					android:id="@+id/input_nick"
 					android:layout_width="match_parent"
@@ -63,13 +66,16 @@
 
 			<!-- Account Label -->
 			<android.support.design.widget.TextInputLayout
+				android:id="@+id/til_input_account"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="0dp"
-				android:paddingBottom="8dp">
+				android:paddingBottom="0dp"
+
+				app:errorTextAppearance="@style/TextInputError">
 				<android.support.design.widget.TextInputEditText
 					android:id="@+id/input_account"
 					android:layout_width="match_parent"
@@ -81,13 +87,19 @@
 
 			<!-- Password Label -->
 			<android.support.design.widget.TextInputLayout
+				android:id="@+id/til_input_password"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="0dp"
-				android:paddingBottom="8dp">
+				android:paddingBottom="0dp"
+
+				app:counterEnabled="true"
+				app:counterMaxLength="40"
+				app:counterOverflowTextAppearance="@style/TextInputError"
+				app:errorTextAppearance="@style/TextInputError">
 				<android.support.design.widget.TextInputEditText
 					android:id="@+id/input_password"
 					android:layout_width="match_parent"
@@ -99,13 +111,21 @@
 
 			<!-- Repeat Password Label -->
 			<android.support.design.widget.TextInputLayout
+				android:id="@+id/til_input_repassword"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="0dp"
-				android:paddingBottom="8dp">
+				android:paddingBottom="0dp"
+
+				android:layout_marginBottom="60dp"
+
+				app:counterEnabled="true"
+				app:counterMaxLength="40"
+				app:counterOverflowTextAppearance="@style/TextInputError"
+				app:errorTextAppearance="@style/TextInputError">
 				<android.support.design.widget.TextInputEditText
 					android:id="@+id/input_repassword"
 					android:layout_width="match_parent"
@@ -125,29 +145,25 @@
 		android:orientation="horizontal"
 		android:layout_alignParentBottom="true"
 		android:background="@color/grey_300"
-		android:paddingStart="@dimen/regist_hl_padding"
-		android:paddingEnd="@dimen/regist_hl_padding"
-		android:paddingTop="16dp"
-		android:paddingBottom="16dp">
+		android:paddingStart="26dp"
+		android:paddingEnd="26dp"
+		android:paddingTop="8dp"
+		android:paddingBottom="8dp">
 
 		<android.support.v7.widget.AppCompatButton
 			android:id="@+id/PreButton"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:background="@color/grey_300"
 			android:text="@string/regist_step_pre"
-			android:textColor="@color/gray"
 			android:textSize="20sp"
-			style="?android:buttonBarButtonStyle"/>
+			style="@style/GreyButton"/>
 
-		<LinearLayout
+		<ImageView
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:orientation="horizontal"
-			android:layout_weight="1">
-
-		</LinearLayout>
+			android:layout_weight="1"
+			android:src="@drawable/flow3"/>
 
 
 		<android.support.v7.widget.AppCompatButton
@@ -155,11 +171,9 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:background="@color/grey_300"
 			android:text="@string/regist_step_next"
-			android:textColor="@color/gray"
 			android:textSize="20sp"
-			style="?android:buttonBarButtonStyle" />
+			style="@style/GreyButton" />
 	</LinearLayout>
 </RelativeLayout>
 

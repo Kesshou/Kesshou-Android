@@ -9,9 +9,9 @@ import com.google.gson.annotations.SerializedName;
 public class SectionalExamScore {
 
     @SerializedName("semester")
-    String semester;
+    public String semester;
 
     @SerializedName("token")
-    String token;
+    public String token;
 
 }

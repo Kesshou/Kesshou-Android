@@ -9,11 +9,11 @@ import com.google.gson.annotations.SerializedName;
 public class AttitudeStatusResponse {
 
     @SerializedName("date")
-    String date;
+    public String date;
 
     @SerializedName("item")
-    String item;
+    public String item;
 
     @SerializedName("text")
-    String content;
+    public String content;
 }

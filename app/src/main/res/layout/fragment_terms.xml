@@ -1,4 +1,3 @@
-<!-- TODO: Update blank fragment layout -->
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
@@ -49,7 +48,7 @@
 				android:textSize="20sp"
 				android:textColor="@color/black"
 				android:autoLink="web"
-				android:singleLine="true"
+				android:maxLines="1"
 				android:text="@string/regist_terms_href"/>
 
 
@@ -64,29 +63,25 @@
 		android:orientation="horizontal"
 		android:layout_alignParentBottom="true"
 		android:background="@color/grey_300"
-		android:paddingStart="@dimen/regist_hl_padding"
-		android:paddingEnd="@dimen/regist_hl_padding"
-		android:paddingTop="16dp"
-		android:paddingBottom="16dp">
+		android:paddingStart="26dp"
+		android:paddingEnd="26dp"
+		android:paddingTop="8dp"
+		android:paddingBottom="8dp">
 
 		<android.support.v7.widget.AppCompatButton
 			android:id="@+id/PreButton"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:background="@color/grey_300"
 			android:text="@string/regist_step_pre"
-			android:textColor="@color/gray"
 			android:textSize="20sp"
-			style="?android:buttonBarButtonStyle"/>
+			style="@style/GreyButton"/>
 
-		<LinearLayout
+		<ImageView
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:orientation="horizontal"
-			android:layout_weight="1">
-
-		</LinearLayout>
+			android:layout_weight="1"
+			android:src="@drawable/flow5"/>
 
 
 		<android.support.v7.widget.AppCompatButton
@@ -94,11 +89,9 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:background="@color/grey_300"
 			android:text="@string/regist_step_agree"
-			android:textColor="@color/gray"
 			android:textSize="20sp"
-			style="?android:buttonBarButtonStyle" />
+			style="@style/GreyButton" />
 	</LinearLayout>
 </RelativeLayout>
 

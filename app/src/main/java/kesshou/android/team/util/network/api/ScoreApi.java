@@ -7,7 +7,8 @@ import kesshou.android.team.util.network.api.holder.HistoryScore;
 import kesshou.android.team.util.network.api.holder.ScoreQueryResponse;
 import kesshou.android.team.util.network.api.holder.SectionalExamScore;
 import kesshou.android.team.util.network.api.holder.Token;
-import retrofit2.Response;
+import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 /*
@@ -17,12 +18,12 @@ import retrofit2.http.POST;
 public interface ScoreApi {
 
     @POST("/scorequery/historyscore")
-    Response<ScoreQueryResponse> queryHScore(HistoryScore score); // History Score
+    Call<ScoreQueryResponse> queryHScore(@Body HistoryScore score); // History Score
 
     @POST("/scorequery/sectionalexamscore")
-    Response<ScoreQueryResponse> querySEScore(SectionalExamScore score); // Sectional Exam Score
+    Call<ScoreQueryResponse> querySEScore(@Body SectionalExamScore score); // Sectional Exam Score
 
     @POST("/scorequery/attitudestatus")
-    Response<List<AttitudeStatusResponse>> queryAS(Token token); // Attitude Status
+    Call<List<AttitudeStatusResponse>> queryAS(@Body Token token); // Attitude Status
 
 }

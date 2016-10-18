@@ -7,10 +7,21 @@
 	<string name="token_expired">Token Expired</string>
 	<string name="id_used">Account had already being used</string>
 
+	<string name="login_account">Login</string>
+	<string name="login_account_account">Account(email)</string>
+	<string name="login_account_pwd">Password</string>
+	<string name="login_account_new">New Account</string>
+
 	<string name="regist_step_next">Next</string>
 	<string name="regist_step_pre">Previous</string>
 	<string name="regist_step_agree">I Agree</string>
 	<string name="regist_step_finish">Finish</string>
+
+	<string name="regist_group">User Group</string>
+	<string name="regist_group_help">We will defer to the different user, provides the different service</string>
+	<string name="regist_group_stu">Day School Student</string>
+	<string name="regist_group_night">Evening School student</string>
+	<string name="regist_group_gud">Graduated student</string>
 
 	<string name="regist_school">School System</string>
 	<string name="regist_school_help">We will use this account for get data.</string>
@@ -18,13 +29,23 @@
 	<string name="regist_school_pwd">School Password</string>
 
 	<string name="regist_account">Regist Account</string>
-	<string name="regist_account_help">You will use this account to get service</string>
+	<string name="regist_account_help">You will use this account to get service.</string>
 	<string name="regist_account_nick">Nick</string>
-	<string name="regist_account_account">Account</string>
+	<string name="regist_account_account">Email</string>
 	<string name="regist_account_pwd">Password</string>
 	<string name="regist_account_repwd">Repeat Passord</string>
 
 	<string name="regist_terms">User Terms</string>
 	<string name="regist_terms_help">Please read the user terms (link) \n if agreed, click Next,please.</string>
 	<string name="regist_terms_href">https://drive.google.com/file/d/0Bz-PYkk7mye2Y2hBcVlSUVlrblU/view?usp=sharing</string>
+
+	<string name="regist_loading">Loading to Start&#8230;&#8230;&#8230;</string>
+	<string name="regist_loading_help">Bless happy to school life.</string>
+
+	<string name="regist_error_empty">Can\'t empty</string>
+	<string name="regist_error_email">Email is not true.</string>
+	<string name="regist_error_pwd">Password and re-password is not same.</string>
+
+	<!-- TODO: Remove or change this placeholder text -->
+	<string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -9,21 +9,21 @@ import com.google.gson.annotations.SerializedName;
 public class Register {
 
     @SerializedName("email")
-    String usr_email;
+    public String usr_email;
 
     @SerializedName("password")
-    String usr_passwd;
+    public String usr_passwd;
 
     @SerializedName("user_group")
-    String usr_group;
+    public String usr_group;
 
     @SerializedName("school_account")
-    String school_account;
+    public String school_account;
 
     @SerializedName("school_pwd")
-    String school_pwd;
+    public String school_pwd;
 
     @SerializedName("nick")
-    String nickname;
+    public String nickname;
 
 }

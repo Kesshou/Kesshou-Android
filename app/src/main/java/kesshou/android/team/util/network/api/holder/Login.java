@@ -9,9 +9,9 @@ import com.google.gson.annotations.SerializedName;
 public class Login {
 
     @SerializedName("account")
-    String usr_account;
+    public String usr_account;
 
     @SerializedName("password")
-    String usr_password;
+    public String usr_password;
 
 }
