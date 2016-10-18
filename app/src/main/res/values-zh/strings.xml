@@ -8,10 +8,21 @@
     <string name="token_expired">Token過期</string>
     <string name="id_used">帳號已被使用</string>
 
+	<string name="login_account">登入</string>
+	<string name="login_account_account">請輸入帳號(email)</string>
+	<string name="login_account_pwd">請輸入密碼</string>
+	<string name="login_account_new">申請新帳號</string>
+
 	<string name="regist_step_next">下一步</string>
 	<string name="regist_step_pre">上一步</string>
 	<string name="regist_step_agree">我同意</string>
 	<string name="regist_step_finish">完成</string>
+
+	<string name="regist_group">身份別</string>
+	<string name="regist_group_help">我們將依照不同使用者，提供不同服務</string>
+	<string name="regist_group_stu">日校學生</string>
+	<string name="regist_group_night">夜校學生</string>
+	<string name="regist_group_gud">畢業校友</string>
 
 	<string name="regist_school">學校系統</string>
 	<string name="regist_school_help">我們將使用此帳號密碼，獲取成績等相關訊息。</string>

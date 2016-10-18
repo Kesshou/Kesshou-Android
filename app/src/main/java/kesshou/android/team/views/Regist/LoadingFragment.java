@@ -1,7 +1,7 @@
 package kesshou.android.team.views.Regist;
 
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +35,7 @@ public class LoadingFragment extends Fragment {
 
 		final Register register=((StartActivity) getActivity()).register;
 
-		NetworkingClient.getInstance(getActivity().getApplicationContext()).register(register, new Callback<Token>() {
+		new NetworkingClient(getActivity().getApplicationContext()).register(register, new Callback<Token>() {
 			@Override
 			public void onResponse(Call<Token> call, Response<Token> response) {
 				if(response.isSuccessful()){
@@ -79,7 +79,7 @@ public class LoadingFragment extends Fragment {
 
 
 
-		return inflater.inflate(R.layout.fragment_loding, container, false);
+		return inflater.inflate(R.layout.fragment_loading, container, false);
 	}
 
 }

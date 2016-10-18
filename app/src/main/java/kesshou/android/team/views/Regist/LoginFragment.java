@@ -1,5 +1,6 @@
 package kesshou.android.team.views.Regist;
 
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
@@ -11,37 +12,47 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import java.util.regex.Pattern;
 
 import kesshou.android.team.R;
-import kesshou.android.team.util.network.api.holder.Register;
-import kesshou.android.team.views.StartActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SchoolFragment extends Fragment {
+public class LoginFragment extends Fragment {
+
+
+	public LoginFragment() {
+		// Required empty public constructor
+	}
+
 
 	@Override
-	public View onCreateView(final LayoutInflater inflater, ViewGroup container,
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		final View view = inflater.inflate(R.layout.fragment_school, container, false);
+		View view = inflater.inflate(R.layout.fragment_login, container, false);
 
 		final TextInputLayout tilInputAccount=(TextInputLayout)view.findViewById(R.id.til_input_account);
 		final TextInputEditText inputAccount=(TextInputEditText)view.findViewById(R.id.input_account);
 		TextViewCheckEmpty(tilInputAccount,inputAccount);
+		TextViewCheckEmail(tilInputAccount,inputAccount);
 
 		final TextInputLayout tilInputPassword=(TextInputLayout)view.findViewById(R.id.til_input_password);
 		final TextInputEditText inputPassword=(TextInputEditText) view.findViewById(R.id.input_password);
 		TextViewCheckEmpty(tilInputPassword,inputPassword);
 
-		final Register register=((StartActivity) getActivity()).register;
-		if(register.school_account!=null) inputAccount.setText(register.school_account);
-		if(register.school_pwd!=null) inputPassword.setText(register.school_pwd);
+		AppCompatButton LoginButton = (AppCompatButton) view.findViewById(R.id.LoginButton);
+		LoginButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
 
-		AppCompatButton PreButton= (AppCompatButton) view.findViewById(R.id.PreButton);
-		PreButton.setOnClickListener(new View.OnClickListener() {
+			}
+		});
+
+		AppCompatButton RegistButton = (AppCompatButton) view.findViewById(R.id.RegistButton);
+		RegistButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
@@ -49,29 +60,6 @@ public class SchoolFragment extends Fragment {
 				Fragment fg= new GroupFragment();
 				ft.replace(R.id.fm, fg, "f_m");
 				ft.commit();
-			}
-		});
-
-		AppCompatButton NextButton= (AppCompatButton) view.findViewById(R.id.NextButton);
-		NextButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-				String strInputAccount=inputAccount.getText().toString();
-				String strInputPassword=inputPassword.getText().toString();
-
-				if(strInputAccount.equals("")||strInputPassword.equals("")){
-					Toast.makeText(getActivity().getApplicationContext(),R.string.regist_error_empty,Toast.LENGTH_SHORT).show();
-				}else{
-					register.school_account = strInputAccount;
-					register.school_pwd = strInputPassword.toUpperCase();
-
-					FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-					ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-					Fragment fg = new AccountFragment();
-					ft.replace(R.id.fm, fg, "f_m");
-					ft.commit();
-				}
 			}
 		});
 
@@ -107,4 +95,42 @@ public class SchoolFragment extends Fragment {
 		});
 	}
 
+	private void TextViewCheckEmail(final TextInputLayout textInputLayout, final TextInputEditText textInputEditText){
+		textInputEditText.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+				// null
+			}
+
+			@Override
+			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+				if(!isValidEmail(textInputEditText.getText().toString())) {
+					textInputLayout.setError(getResources().getString(R.string.regist_error_email));
+				}else {
+					textInputLayout.setError(null);
+					textInputLayout.setErrorEnabled(false);
+				}
+			}
+
+			@Override
+			public void afterTextChanged(Editable editable) {
+				if(!isValidEmail(textInputEditText.getText().toString())) {
+					textInputLayout.setError(getResources().getString(R.string.regist_error_email));
+				}else {
+					textInputLayout.setError(null);
+					textInputLayout.setErrorEnabled(false);
+				}
+			}
+		});
+	}
+
+	public static final Pattern EMAIL_PATTERN = Pattern
+		.compile("^\\w+\\.*\\w+@(\\w+\\.){1,5}[a-zA-Z]{2,3}$");
+	public static boolean isValidEmail(String email) {
+		boolean result = false;
+		if (EMAIL_PATTERN.matcher(email).matches()) {
+			result = true;
+		}
+		return result;
+	}
 }

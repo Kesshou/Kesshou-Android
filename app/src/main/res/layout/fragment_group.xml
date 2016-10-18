@@ -1,14 +1,16 @@
 <RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	tools:context=".views.Regist.SchoolFragment">
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:id="@+id/rel"
+tools:context=".views.Regist.GroupFragment">
+
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentTop="true">
+		android:layout_alignParentTop="true"
+		android:layout_alignParentStart="true">
 		<LinearLayout
 			android:orientation="vertical"
 			android:layout_width="match_parent"
@@ -17,7 +19,7 @@
 				android:id="@+id/topPanel"
 				android:layout_width="match_parent"
 				android:layout_height="200dp"
-				android:text="@string/regist_school"
+				android:text="@string/regist_group"
 				android:textSize="30sp"
 				android:textColor="@color/white"
 				android:background="@color/colorPrimary"
@@ -37,71 +39,63 @@
 				android:paddingStart="@dimen/regist_hl_padding"
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="32dp"
-				android:paddingBottom="32dp"
+				android:paddingBottom="14dp"
 				android:textSize="20sp"
 				android:textColor="@color/black"
-				android:text="@string/regist_school_help"/>
+				android:text="@string/regist_group_help"/>
 
-			<!-- Account Label -->
-			<android.support.design.widget.TextInputLayout
-				android:id="@+id/til_input_account"
+			<LinearLayout
+				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-
 				android:paddingStart="@dimen/regist_hl_padding"
-				android:paddingEnd="@dimen/regist_hl_padding"
-				android:paddingTop="0dp"
-				android:paddingBottom="0dp"
+				android:paddingEnd="@dimen/regist_hl_padding">
 
-				app:errorTextAppearance="@style/TextInputError">
-				<android.support.design.widget.TextInputEditText
-					android:id="@+id/input_account"
+				<android.support.v7.widget.AppCompatButton
+					android:id="@+id/DayButton"
+					android:layout_weight="1"
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:inputType="text"
-					android:textSize="20sp"
-					android:hint="@string/regist_school_account" />
-			</android.support.design.widget.TextInputLayout>
+					android:layout_height="100dp"
+					android:padding="0dp"
+					android:theme="@style/BlueButton"
+					android:text="@string/regist_group_stu"
+					android:textSize="16sp"/>
 
-			<!-- Password Label -->
-			<android.support.design.widget.TextInputLayout
-				android:id="@+id/til_input_password"
+				<android.support.v7.widget.AppCompatButton
+					android:id="@+id/NightButton"
+					android:layout_weight="1"
+					android:layout_width="match_parent"
+					android:layout_height="100dp"
+					android:padding="0dp"
+					android:theme="@style/RedButton"
+					android:text="@string/regist_group_night"
+					android:textSize="16sp"/>
+			</LinearLayout>
+
+			<android.support.v7.widget.AppCompatButton
+				android:id="@+id/GudButton"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
+				android:layout_height="100dp"
+				android:layout_marginStart="@dimen/regist_hl_padding"
+				android:layout_marginEnd="@dimen/regist_hl_padding"
+				android:theme="@style/GreyButton"
+				android:text="@string/regist_group_gud"
+				android:textSize="16sp"/>
 
-				android:paddingStart="@dimen/regist_hl_padding"
-				android:paddingEnd="@dimen/regist_hl_padding"
-				android:paddingTop="0dp"
-				android:paddingBottom="0dp"
 
-				app:counterEnabled="true"
-				app:counterMaxLength="10"
-				app:counterOverflowTextAppearance="@style/TextInputError"
-				app:errorTextAppearance="@style/TextInputError">
-				<android.support.design.widget.TextInputEditText
-					android:id="@+id/input_password"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:inputType="textPassword"
-					android:textSize="20sp"
-					android:hint="@string/regist_school_pwd"/>
-			</android.support.design.widget.TextInputLayout>
 		</LinearLayout>
 	</ScrollView>
-
-
 	<LinearLayout
 		android:id="@+id/footer"
 		android:layout_width="fill_parent"
 		android:layout_height="60dp"
 		android:orientation="horizontal"
+		android:layout_alignParentBottom="true"
 		android:background="@color/grey_300"
 		android:paddingStart="26dp"
 		android:paddingEnd="26dp"
 		android:paddingTop="8dp"
-		android:paddingBottom="8dp"
-		android:layout_alignParentBottom="true"
-		android:layout_alignParentStart="true">
+		android:paddingBottom="8dp">
 
 		<android.support.v7.widget.AppCompatButton
 			android:id="@+id/PreButton"
@@ -116,7 +110,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:src="@drawable/flow2"/>
+			android:src="@drawable/flow1"/>
 
 
 		<android.support.v7.widget.AppCompatButton
@@ -126,8 +120,10 @@
 			android:layout_weight="1"
 			android:text="@string/regist_step_next"
 			android:textSize="20sp"
+			android:visibility="invisible"
 			style="@style/GreyButton" />
 	</LinearLayout>
 </RelativeLayout>
+
 
 
