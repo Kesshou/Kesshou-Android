@@ -2,6 +2,8 @@ package kesshou.android.team.util.network.client;
 
 import android.content.Context;
 
+import java.io.File;
+
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -11,11 +13,11 @@ import okhttp3.logging.HttpLoggingInterceptor;
  */
 public class OkHttpUtil {
 
-	private static Context mContext;
+	private static File mContext;
 	private static final int HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 10 * 1024 * 1024;
 
 	private static class OkHttpUtilHolder{
-		static Cache cache = new Cache(mContext.getCacheDir(), HTTP_RESPONSE_DISK_CACHE_MAX_SIZE);
+		static Cache cache = new Cache(mContext, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE);
 
 		public static OkHttpClient instance = new OkHttpClient.Builder()
 			.addInterceptor(getHttpLoggingInterceptor())
@@ -30,7 +32,7 @@ public class OkHttpUtil {
 
 	public static OkHttpClient getInstance(Context context){
 		if (context != null) {
-			mContext = context;
+			mContext = context.getCacheDir();
 		}
 		return OkHttpUtilHolder.instance;
 	}

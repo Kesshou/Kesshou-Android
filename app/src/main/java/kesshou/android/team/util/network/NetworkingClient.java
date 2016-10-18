@@ -29,17 +29,11 @@ import retrofit2.Retrofit;
 
 public class NetworkingClient {
 
-	private static Context mContext;
-
-	Retrofit retrofit;
+	private Retrofit retrofit;
     private AccountApi accountApi;
     private ScoreApi scoreApi;
     private CalenderApi calenderApi;
 
-	private static class NetworkingClientHolder{
-
-		public static NetworkingClient instance = new NetworkingClient(mContext);
-	}
 
     public NetworkingClient(Context context) {
         retrofit = RetrofitClient.getInstance(context);
@@ -48,13 +42,6 @@ public class NetworkingClient {
         scoreApi = retrofit.create(ScoreApi.class);
         calenderApi = retrofit.create(CalenderApi.class);
     }
-
-	public static NetworkingClient getInstance(Context context){
-		if (context != null) {
-			mContext = context;
-		}
-		return NetworkingClientHolder.instance;
-	}
 
     // Account System
 
