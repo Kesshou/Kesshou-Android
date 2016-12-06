@@ -1,0 +1,103 @@
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".views.Regist.LoadingFragment">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true">
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+			<TextView
+				android:id="@+id/topPanel"
+				android:layout_width="match_parent"
+				android:layout_height="200dp"
+				android:text="@string/regist_loading"
+				android:textSize="30sp"
+				android:textColor="@color/white"
+				android:background="@color/colorPrimary"
+
+				android:paddingStart="@dimen/regist_hl_padding"
+				android:paddingEnd="@dimen/regist_hl_padding"
+				android:paddingTop="16dp"
+				android:paddingBottom="16dp"
+
+				android:elevation="5dp"
+
+				android:gravity="bottom"/>
+			<ProgressBar
+				android:layout_width="match_parent"
+				android:layout_height="25dp"
+				android:layout_marginTop="-10dp"
+				android:indeterminate="true"
+				style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingStart="@dimen/regist_hl_padding"
+				android:paddingEnd="@dimen/regist_hl_padding"
+				android:paddingTop="32dp"
+				android:paddingBottom="16dp"
+				android:textSize="20sp"
+				android:textColor="@color/black"
+				android:text="@string/regist_loading_help"/>
+
+		</LinearLayout>
+	</ScrollView>
+
+
+	<LinearLayout
+		android:id="@+id/footer"
+		android:layout_width="fill_parent"
+		android:layout_height="60dp"
+		android:orientation="horizontal"
+		android:layout_alignParentBottom="true"
+		android:background="@color/grey_300"
+		android:paddingStart="@dimen/regist_hl_padding"
+		android:paddingEnd="@dimen/regist_hl_padding"
+		android:paddingTop="16dp"
+		android:paddingBottom="16dp">
+
+		<android.support.v7.widget.AppCompatButton
+			android:id="@+id/PreButton"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:background="@color/grey_300"
+			android:text="@string/regist_step_pre"
+			android:textColor="@color/gray"
+			android:textSize="20sp"
+			android:visibility="invisible"
+			style="?android:buttonBarButtonStyle"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="horizontal"
+			android:layout_weight="1">
+
+		</LinearLayout>
+
+
+		<android.support.v7.widget.AppCompatButton
+			android:id="@+id/NextButton"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:background="@color/grey_300"
+			android:text="@string/regist_step_next"
+			android:textColor="@color/gray"
+			android:textSize="20sp"
+			android:visibility="invisible"
+			style="?android:buttonBarButtonStyle" />
+	</LinearLayout>
+</RelativeLayout>
+
+
+

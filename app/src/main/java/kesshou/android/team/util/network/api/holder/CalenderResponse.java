@@ -12,10 +12,9 @@ import java.util.Date;
 public class CalenderResponse{
 
     @SerializedName("date")
-    Date data;
+    public Date data;
 
     @SerializedName("content")
-    String String;
-
+    public String content;
 
 }

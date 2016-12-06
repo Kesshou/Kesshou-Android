@@ -1,10 +1,15 @@
 package kesshou.android.team.util.network.api;
 
-import kesshou.android.team.util.network.api.holder.Register;
+import kesshou.android.team.util.network.api.holder.CheckRegist;
 import kesshou.android.team.util.network.api.holder.Login;
+import kesshou.android.team.util.network.api.holder.Register;
+import kesshou.android.team.util.network.api.holder.StatusResponse;
 import kesshou.android.team.util.network.api.holder.Token;
 import kesshou.android.team.util.network.api.holder.Update;
-import retrofit2.Response;
+import kesshou.android.team.util.network.api.holder.UserInfoResponse;
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
@@ -16,18 +21,31 @@ import retrofit2.http.PUT;
 public interface AccountApi {
 
     // Login
-    @POST("/actmanage/login")
-    Response<Token> login(Login usr);
-
+    @POST("actmanage/login")
+    Call<Token> login(@Body Login usr);
 
     //Register
-    @POST("/actmanage/register")
-    Response<Token> create(Register register);
+    @POST("actmanage/register")
+    Call<Token> create(@Body Register register);
 
     // Edit Account
-    @PUT("/actmanage/updateinfo")
-    Response<Object> update(Update usr);
+    @PUT("actmanage/updateinfo")
+    Call<StatusResponse> update(@Body Update usr);
 
+	//Check Account
+	@POST("actmanage/confirmAccount")
+	Call<StatusResponse> checkAccount(@Body CheckRegist checkAccount);
 
+	//CheckNick
+	@POST("actmanage/confirmNick")
+	Call<StatusResponse> checkNick(@Body CheckRegist checkNick);
+
+	//CheckSchoolAccount
+	@POST("actmanage/confirmSchool")
+	Call<StatusResponse> checkSchool(@Body CheckRegist checkSchoolAccount);
+
+	//GetUserInfo
+	@GET("actmanage/getUserInfo")
+	Call<UserInfoResponse> getUserInfo();
 
 }

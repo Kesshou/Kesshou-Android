@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+	android:gravity="center">
+
+	<TextView
+		android:id="@+id/date"
+		android:textSize="20sp"
+		android:text="2015/12/29"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="3"
+		android:gravity="center"/>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:gravity="end"
+		android:layout_weight="2">
+		<TextView
+			android:text="第"
+			android:textSize="20sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+		<TextView
+			android:id="@+id/num"
+			android:text=""
+			android:textSize="20sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+		<TextView
+			android:text="節"
+			android:textSize="20sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/text"
+		android:textSize="24sp"
+		android:layout_width="0dp"
+		android:padding="10dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="2"/>
+</LinearLayout>

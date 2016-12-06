@@ -1,0 +1,88 @@
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:id="@+id/grade3"
+			android:background="@color/white"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:paddingStart="16dp"
+			android:paddingEnd="16dp"
+			android:paddingLeft="16dp"
+			android:paddingRight="16dp">
+			<TextView
+				android:textSize="24sp"
+				android:textColor="@color/black"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:text="@string/infor_grade2_grade3"/>
+
+			<com.github.mikephil.charting.charts.BarChart
+				android:id="@+id/chart3"
+				android:layout_width="match_parent"
+				android:layout_height="400dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/grade2"
+			android:background="@color/white"
+			android:layout_marginTop="16dp"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:paddingStart="16dp"
+			android:paddingEnd="16dp"
+			android:paddingLeft="16dp"
+			android:paddingRight="16dp">
+			<TextView
+				android:textSize="24sp"
+				android:textColor="@color/black"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:text="@string/infor_grade2_grade2"/>
+
+			<com.github.mikephil.charting.charts.BarChart
+				android:id="@+id/chart2"
+				android:layout_width="match_parent"
+				android:layout_height="400dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/grade1"
+			android:background="@color/white"
+			android:layout_marginTop="16dp"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:paddingStart="16dp"
+			android:paddingEnd="16dp"
+			android:paddingLeft="16dp"
+			android:paddingRight="16dp">
+			<TextView
+				android:textSize="24sp"
+				android:textColor="@color/black"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:text="@string/infor_grade2_grade1"/>
+
+			<com.github.mikephil.charting.charts.BarChart
+				android:id="@+id/chart1"
+				android:layout_width="match_parent"
+				android:layout_height="400dp" />
+		</LinearLayout>
+
+	</LinearLayout>
+</ScrollView>

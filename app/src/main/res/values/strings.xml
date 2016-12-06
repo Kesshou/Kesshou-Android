@@ -1,9 +1,113 @@
 <resources>
-    <string name="app_name">Dann Student Assistant</string>
-    <string name="team_name">Kesshou</string>
-    <string name="unauthorized">Unauthorized</string>
-    <string name="illegalcontent">Illegal Content</string>
-    <string name="school_unauthorized">School Unauthorized</string>
-    <string name="token_expired">Token Expired</string>
-    <string name="id_used">Account had already being used</string>
+	<string name="app_name">Dann Student Assistant</string>
+	<string name="team_name">Kesshou</string>
+	<string name="unauthorized">Unauthorized</string>
+	<string name="illegalcontent">Illegal Content</string>
+	<string name="school_unauthorized">School Unauthorized</string>
+	<string name="token_expired">Token Expired</string>
+	<string name="id_used">Account had already being used</string>
+
+	<string name="login_account">Login</string>
+	<string name="login_account_account">Account(email)</string>
+	<string name="login_account_pwd">Password</string>
+	<string name="login_account_new">New Account</string>
+
+	<string name="regist_step_next">Next</string>
+	<string name="regist_step_pre">Previous</string>
+	<string name="regist_step_agree">I Agree</string>
+	<string name="regist_step_finish">Finish</string>
+
+	<string name="regist_group">User Group</string>
+	<string name="regist_group_help">We will defer to the different user, provides the different service</string>
+	<string name="regist_group_stu">Day School Student</string>
+	<string name="regist_group_night">Evening School student</string>
+	<string name="regist_group_gud">Graduated student</string>
+
+	<string name="regist_school">School System</string>
+	<string name="regist_school_help">We will use this account for get data.</string>
+	<string name="regist_school_account">School Account</string>
+	<string name="regist_school_pwd">School Password</string>
+
+	<string name="regist_account">Regist Account</string>
+	<string name="regist_account_help">You will use this account to get service.</string>
+	<string name="regist_account_nick">Nick</string>
+	<string name="regist_account_account">Email</string>
+	<string name="regist_account_pwd">Password</string>
+	<string name="regist_account_repwd">Repeat Passord</string>
+
+	<string name="regist_terms">User Terms</string>
+	<string name="regist_terms_help">Please read the user terms (link) \n if agreed, click Next,please.</string>
+	<string name="regist_terms_href">https://drive.google.com/file/d/0Bz-PYkk7mye2Y2hBcVlSUVlrblU/view?usp=sharing</string>
+
+	<string name="regist_loading">Loading to Start&#8230;&#8230;&#8230;</string>
+	<string name="regist_loading_help">Bless happy to school life.</string>
+
+	<string name="regist_error_empty">Can\'t empty</string>
+	<string name="regist_error_email">Email is not true.</string>
+	<string name="regist_error_pwd">Password and re-password is not same.</string>
+
+	<string name="loading_text">Loading</string>
+
+	<string name="main_infor_timetable">Curriculum</string>
+	<string name="main_infor_timetable_help">Curriculum</string>
+	<string name="main_infor_record">Attendance record</string>
+	<string name="main_infor_record_help">Attendance record</string>
+	<string name="main_infor_prize">Reward and punishment record</string>
+	<string name="main_infor_prize_help">Reward and punishment record</string>
+	<string name="main_infor_grade1">Section test results</string>
+	<string name="main_infor_grade1_help">Section test results</string>
+	<string name="main_infor_grade2">Semester results</string>
+	<string name="main_infor_grade2_help">Semester results</string>
+
+	<string name="main_news_calc">Calendar</string>
+	<string name="main_news_calc_help">Calendar</string>
+	<string name="main_news_news">School announcement</string>
+	<string name="main_news_news_help">School announcement</string>
+	<string name="main_news_map">School map</string>
+	<string name="main_news_map_help">School map</string>
+	<string name="main_news_foodmap">Food map</string>
+	<string name="main_news_foodmap_help">Food map</string>
+	<string name="main_news_seatstate">Study room seat status</string>
+	<string name="main_news_seatstate_help">Study room seat status</string>
+	<string name="main_news_rule">School rules</string>
+	<string name="main_news_rule_help">School rules</string>
+	<string name="main_news_qanda">School Q&#38;A</string>
+	<string name="main_news_qanda_help">School Q&#38;A</string>
+	<string name="main_news_daanabout">Daan about</string>
+	<string name="main_news_daanabout_help">Daan about</string>
+
+	<string name="main_menu_medata">Personal information</string>
+	<string name="main_menu_medata_help">{ersonal information</string>
+	<string name="main_meun_wifi">Automatic Wi-fi</string>
+	<string name="main_meun_wifi_help">Automatic Wi-fi</string>
+	<string name="main_menu_noti">Notification settings</string>
+	<string name="main_menu_noti_help">Notification settings</string>
+	<string name="main_menu_opinion">Feedback</string>
+	<string name="main_menu_opinion_help">Feedback</string>
+	<string name="main_menu_about">About</string>
+	<string name="main_menu_about_help">About</string>
+	
+	<string name="infor_top_item_absence">Absence</string>
+	<string name="infor_top_item_late">Late</string>
+	<string name="infor_top_item_cutting">Cutting</string>
+	<string name="infor_top_item_public_leave">Public_leave</string>
+	<string name="infor_top_item_sick_leave">Sick_leave</string>
+	<string name="infor_top_item_thing_leave">Thing_leave</string>
+	<string name="infor_top_item_dead_leave">Dead_leave</string>
+	
+	<string name="infor_top_item_smallcite">Smallcite</string>
+	<string name="infor_top_item_middlecite">Middlecite</string>
+	<string name="infor_top_item_bigcite">Bigcite</string>
+	<string name="infor_top_item_smallfault">Smallfault</string>
+	<string name="infor_top_item_middlefault">Middlefault</string>
+	<string name="infor_top_item_bigfault">Bigfault</string>
+
+	<string name="infor_grade2_grade1">First grade</string>
+	<string name="infor_grade2_grade2">Second grade</string>
+	<string name="infor_grade2_grade3">Third grade</string>
+	
+	<string name="title_activity_content">   </string>
+
+	<!-- TODO: Remove or change this placeholder text -->
+	<string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

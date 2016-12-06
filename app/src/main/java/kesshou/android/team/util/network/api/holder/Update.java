@@ -9,17 +9,17 @@ import com.google.gson.annotations.SerializedName;
 public class Update {
 
     @SerializedName("password")
-    String password;
+    public String password;
 
     @SerializedName("new_school_pwd")
-    String new_spwd;
+    public String new_spwd;
 
     @SerializedName("new_nick")
-    String new_nick;
+    public String new_nick;
 
     @SerializedName("new_password")
-    String new_password;
+    public String new_password;
 
     @SerializedName("new_email")
-    String new_email;
+    public String new_email;
 }

@@ -1,0 +1,26 @@
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:paddingStart="20dp"
+		android:paddingEnd="20dp"
+		android:paddingLeft="20dp"
+		android:paddingRight="20dp">
+
+		<!-- TODO: Update blank fragment layout -->
+		<com.github.mikephil.charting.charts.RadarChart
+			android:id="@+id/chart1"
+			android:layout_width="match_parent"
+			android:layout_height="500dp" />
+		<com.github.mikephil.charting.charts.RadarChart
+			android:id="@+id/chart2"
+			android:layout_marginTop="24dp"
+			android:layout_width="match_parent"
+			android:layout_height="500dp"/>
+	</LinearLayout>
+</ScrollView>

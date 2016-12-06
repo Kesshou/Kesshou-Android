@@ -1,0 +1,162 @@
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:background="@color/white"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="100dp"
+			android:padding="10dp">
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:gravity="center">
+				<TextView
+					android:text="@string/infor_top_item_smallcite"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_name"
+					android:textColor="@color/black"/>
+				<TextView
+					android:id="@+id/smallcite"
+					android:text=""
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_value"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:gravity="center">
+				<TextView
+					android:text="@string/infor_top_item_middlecite"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_name"
+					android:textColor="@color/black"/>
+				<TextView
+					android:id="@+id/middlecite"
+					android:text=""
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_value"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:gravity="center">
+				<TextView
+					android:text="@string/infor_top_item_bigcite"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_name"
+					android:textColor="@color/black"/>
+				<TextView
+					android:id="@+id/bigcite"
+					android:text=""
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_value"/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:background="@color/white"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="100dp"
+			android:padding="10dp">
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:gravity="center">
+				<TextView
+					android:text="@string/infor_top_item_smallfault"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_name"
+					android:textColor="@color/black"/>
+				<TextView
+					android:id="@+id/smallfault"
+					android:text=""
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_value"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:gravity="center">
+				<TextView
+					android:text="@string/infor_top_item_middlefault"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_name"
+					android:textColor="@color/black"/>
+				<TextView
+					android:id="@+id/middlefault"
+					android:text=""
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_value"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:gravity="center">
+				<TextView
+					android:text="@string/infor_top_item_bigfault"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_name"
+					android:textColor="@color/black"/>
+				<TextView
+					android:id="@+id/bigfault"
+					android:text=""
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/attend_top_item_value"/>
+			</LinearLayout>
+
+
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/body"
+			android:orientation="vertical"
+			android:layout_marginTop="16dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white">
+
+		</LinearLayout>
+	</LinearLayout>
+</ScrollView>
+
