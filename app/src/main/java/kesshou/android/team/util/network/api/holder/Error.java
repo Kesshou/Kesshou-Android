@@ -11,9 +11,10 @@ import com.google.gson.annotations.SerializedName;
 */
 public class Error {
 
-	@SerializedName("statuscode")
-	public int statusCode;
-
-	@SerializedName("message")
+	@SerializedName("error")
 	public String message;
+
+	@SerializedName("code")
+	public int code;
+
 }

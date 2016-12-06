@@ -1,21 +1,26 @@
 package kesshou.android.team.views.Regist;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.AppCompatButton;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import kesshou.android.team.R;
+import kesshou.android.team.util.network.MyCallBack;
+import kesshou.android.team.util.network.NetworkingClient;
+import kesshou.android.team.util.network.api.holder.CheckRegist;
+import kesshou.android.team.util.network.api.holder.Error;
 import kesshou.android.team.util.network.api.holder.Register;
+import kesshou.android.team.util.network.api.holder.StatusResponse;
 import kesshou.android.team.views.StartActivity;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,21 +62,31 @@ public class SchoolFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 
-				String strInputAccount=inputAccount.getText().toString();
-				String strInputPassword=inputPassword.getText().toString();
+				final String strInputAccount=inputAccount.getText().toString();
+				final String strInputPassword=inputPassword.getText().toString().toUpperCase();
 
-				if(strInputAccount.equals("")||strInputPassword.equals("")){
-					Toast.makeText(getActivity().getApplicationContext(),R.string.regist_error_empty,Toast.LENGTH_SHORT).show();
-				}else{
-					register.school_account = strInputAccount;
-					register.school_pwd = strInputPassword.toUpperCase();
+				CheckRegist checkSchool = new CheckRegist();
+				checkSchool.schoolAccount = strInputAccount;
+				checkSchool.schoolPwd = strInputPassword;
+				new NetworkingClient(getActivity().getApplicationContext()).checkSchool(checkSchool, new MyCallBack<StatusResponse>(getActivity().getApplicationContext()) {
+					@Override
+					public void onSuccess(Response<StatusResponse> response) {
+						register.school_account = strInputAccount;
+						register.school_pwd = strInputPassword;
 
-					FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-					ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-					Fragment fg = new AccountFragment();
-					ft.replace(R.id.fm, fg, "f_m");
-					ft.commit();
-				}
+						FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+						ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+						Fragment fg = new AccountFragment();
+						ft.replace(R.id.fm, fg, "f_m");
+						ft.commit();
+					}
+
+					@Override
+					public void onErr(Error error) {
+
+					}
+				});
+
 			}
 		});
 

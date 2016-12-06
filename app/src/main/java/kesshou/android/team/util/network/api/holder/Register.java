@@ -26,4 +26,7 @@ public class Register {
     @SerializedName("nick")
     public String nickname;
 
+	@SerializedName("name")
+	public String name;
+
 }

@@ -5,7 +5,6 @@
         android:width="400dp"
         android:height="40dp">
 	<group android:name="layer1" android:translateY="-712.36218" android:translateX="-70">
-		<path android:pathData="" android:name="path4058" android:fillColor="#FF6600"/>
 		<path android:strokeAlpha="1"
 		      android:pathData="M70,732.36218a20,20.0 0 0,1 40,0a20,20.0 0 0,1 -40,0z"
 		      android:strokeLineJoin="miter"

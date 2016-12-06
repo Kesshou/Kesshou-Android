@@ -5,18 +5,24 @@ import android.content.Context;
 
 import java.util.List;
 
+import io.realm.Realm;
+import kesshou.android.team.models.Setting;
 import kesshou.android.team.util.network.api.AccountApi;
 import kesshou.android.team.util.network.api.CalenderApi;
-import kesshou.android.team.util.network.api.ScoreApi;
+import kesshou.android.team.util.network.api.InforApi;
+import kesshou.android.team.util.network.api.holder.AbsentstateResponse;
 import kesshou.android.team.util.network.api.holder.AttitudeStatusResponse;
 import kesshou.android.team.util.network.api.holder.CalenderResponse;
-import kesshou.android.team.util.network.api.holder.HistoryScore;
+import kesshou.android.team.util.network.api.holder.CheckRegist;
+import kesshou.android.team.util.network.api.holder.HistoryScoreResponse;
 import kesshou.android.team.util.network.api.holder.Login;
 import kesshou.android.team.util.network.api.holder.Register;
-import kesshou.android.team.util.network.api.holder.ScoreQueryResponse;
-import kesshou.android.team.util.network.api.holder.SectionalExamScore;
+import kesshou.android.team.util.network.api.holder.SectionalExamResponse;
+import kesshou.android.team.util.network.api.holder.StatusResponse;
+import kesshou.android.team.util.network.api.holder.TimeTableResponse;
 import kesshou.android.team.util.network.api.holder.Token;
 import kesshou.android.team.util.network.api.holder.Update;
+import kesshou.android.team.util.network.api.holder.UserInfoResponse;
 import kesshou.android.team.util.network.client.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,19 +37,36 @@ public class NetworkingClient {
 
 	private Retrofit retrofit;
     private AccountApi accountApi;
-    private ScoreApi scoreApi;
+    private InforApi inforApi;
     private CalenderApi calenderApi;
+	private Context mContext;
 
 
     public NetworkingClient(Context context) {
-        retrofit = RetrofitClient.getInstance(context);
+	    mContext=context.getApplicationContext();
+        retrofit = RetrofitClient.getInstance(mContext);
 
         accountApi = retrofit.create(AccountApi.class);
-        scoreApi = retrofit.create(ScoreApi.class);
+        inforApi = retrofit.create(InforApi.class);
         calenderApi = retrofit.create(CalenderApi.class);
     }
 
     // Account System
+
+	/*
+        Author: IU(yoyo930021)
+        Description:
+            This function's purpose is to communicate with login api
+        Usage:
+            parameter:
+                Login usr: login information
+                Callback<Token> callback: Callback
+     */
+	public void login(Login login,Callback<Token> callback) {
+
+		Call<Token> call = accountApi.login(login);
+		call.enqueue(callback);
+	}
 
     /*
         Author: Charles Lien( lienching),IU(yoyo930021)
@@ -54,9 +77,22 @@ public class NetworkingClient {
                 Login usr: login information
                 Callback<Token> callback: Callback
      */
-    public void login(Login usr,Callback<Token> callback) {
+    public void login() {
+	    Realm realm = Realm.getDefaultInstance();
+	    Setting setting = realm.where(Setting.class).findFirst();
+	    Login usr = new Login();
+	    usr.usr_account = setting.email;
+	    usr.usr_password = setting.password;
         Call<Token> call = accountApi.login(usr);
-	    call.enqueue(callback);
+	    String token = "";
+	    try {
+		    token = call.execute().body().token;
+	    }catch (Exception e){}
+
+	    realm.beginTransaction();
+	    setting.token = token;
+		realm.commitTransaction();
+	    realm.close();
     }
 
     /*
@@ -74,6 +110,48 @@ public class NetworkingClient {
         call.enqueue(callback);
     }
 
+	/*
+        Author: IU(yoyo930021)
+        Description:
+            This function's purpose is to communicate with checkAccount api
+        Usage:
+            parameter:
+
+
+     */
+	public void checkAccount(CheckRegist checkAccount, Callback<StatusResponse> callback) {
+		Call<StatusResponse> call = accountApi.checkAccount(checkAccount);
+		call.enqueue(callback);
+	}
+
+	/*
+        Author: IU(yoyo930021)
+        Description:
+            This function's purpose is to communicate with checkNick api
+        Usage:
+            parameter:
+
+
+     */
+	public void checkNick(CheckRegist checkNick, Callback<StatusResponse> callback) {
+		Call<StatusResponse> call = accountApi.checkNick(checkNick);
+		call.enqueue(callback);
+	}
+
+	/*
+        Author: IU(yoyo930021)
+        Description:
+            This function's purpose is to communicate with checkNick api
+        Usage:
+            parameter:
+
+
+     */
+	public void checkSchool(CheckRegist checkSchool, Callback<StatusResponse> callback) {
+		Call<StatusResponse> call = accountApi.checkSchool(checkSchool);
+		call.enqueue(callback);
+	}
+
     /*
         Author: Charles Lien( lienching),IU(yoyo930021)
         Description:
@@ -83,12 +161,56 @@ public class NetworkingClient {
                 Update usr: update information
 	            Callback<Object> callback: Callback
      */
-    public void update(Update usr,Callback<Object> callback) {
-	    Call<Object> call = accountApi.update(usr);
+    public void update(Update usr,Callback<StatusResponse> callback) {
+	    Call<StatusResponse> call = accountApi.update(usr);
 	    call.enqueue(callback);
     }
 
-    // Score System
+	/*
+        Author: IU(yoyo930021)
+        Description:
+            This function's purpose is to communicate with  api
+        Usage:
+            parameter:
+
+
+     */
+	public void getUserInfo(Callback<UserInfoResponse> callback) {
+		Call<UserInfoResponse> call = accountApi.getUserInfo();
+		call.enqueue(callback);
+	}
+
+
+
+    // Infor System
+
+	/*
+        Author: IU(yoyo930021)
+        Description:
+            This function's purpose is to communicate with  api
+        Usage:
+            parameter:
+
+
+     */
+	public void queryTimeTable(Callback<TimeTableResponse> callback) {
+		Call<TimeTableResponse> call = inforApi.getTimeTable();
+		call.enqueue(callback);
+	}
+
+	/*
+        Author: IU(yoyo930021)
+        Description:
+            This function's purpose is to communicate with  api
+        Usage:
+            parameter:
+
+
+     */
+	public void getABS(Callback<List<AbsentstateResponse>> callback) {
+		Call<List<AbsentstateResponse>> call = inforApi.getABS();
+		call.enqueue(callback);
+	}
 
 
     /*
@@ -98,10 +220,10 @@ public class NetworkingClient {
         Usage:
             parameter:
                 HistoryScore score : Query Information:
-	            Callback<ScoreQueryResponse> callback: Callback
+	            Callback<SectionalExamResponse> callback: Callback
      */
-    public void queryHScore(HistoryScore score,Callback<ScoreQueryResponse> callback) {
-	    Call<ScoreQueryResponse> call = scoreApi.queryHScore(score);
+    public void queryHScore(int grade,int semester,Callback<List<HistoryScoreResponse>> callback) {
+	    Call<List<HistoryScoreResponse>> call = inforApi.queryHScore(grade,semester);
         call.enqueue(callback);
     }
 
@@ -112,10 +234,10 @@ public class NetworkingClient {
         Usage:
             parameter:
                 SectionalExamScore score : Query Information:
-                Callback<ScoreQueryResponse> callback: Callback
+                Callback<SectionalExamResponse> callback: Callback
      */
-    public void querySEScore(SectionalExamScore score,Callback<ScoreQueryResponse> callback) {
-        Call<ScoreQueryResponse> call = scoreApi.querySEScore(score);
+    public void querySEScore(int semester,Callback<List<SectionalExamResponse>> callback) {
+        Call<List<SectionalExamResponse>> call = inforApi.querySEScore(semester);
         call.enqueue(callback);
     }
 
@@ -128,8 +250,8 @@ public class NetworkingClient {
                SectionalExamScore score : Query Information:
 	           Callback<List<AttitudeStatusResponse>> callback: Callback
     */
-    public void queryAS(Token token,Callback<List<AttitudeStatusResponse>> callback) {
-        Call<List<AttitudeStatusResponse>> call = scoreApi.queryAS(token);
+    public void getATS(Callback<AttitudeStatusResponse> callback) {
+        Call<AttitudeStatusResponse> call = inforApi.getATS();
         call.enqueue(callback);
     }
 
@@ -144,8 +266,8 @@ public class NetworkingClient {
               SectionalExamScore score : Query Information:
 	          Callback<List<CalenderResponse>> callback: Callback
    */
-    public void getCurrentCalender(Token token,Callback<List<CalenderResponse>> callback) {
-        Call<List<CalenderResponse>> call = calenderApi.getCurrentCalender(token);
+    public void getCalender(Callback<List<CalenderResponse>> callback) {
+        Call<List<CalenderResponse>> call = calenderApi.getCalender();
         call.enqueue(callback);
     }
 

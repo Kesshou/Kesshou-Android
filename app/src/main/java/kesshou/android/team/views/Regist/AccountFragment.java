@@ -1,11 +1,11 @@
 package kesshou.android.team.views.Regist;
 
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.AppCompatButton;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,9 +14,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+
 import kesshou.android.team.R;
+import kesshou.android.team.util.network.MyCallBack;
+import kesshou.android.team.util.network.NetworkingClient;
+import kesshou.android.team.util.network.api.holder.CheckRegist;
+import kesshou.android.team.util.network.api.holder.Error;
 import kesshou.android.team.util.network.api.holder.Register;
+import kesshou.android.team.util.network.api.holder.StatusResponse;
 import kesshou.android.team.views.StartActivity;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +41,34 @@ public class AccountFragment extends Fragment {
 		final TextInputLayout tilInputNick = (TextInputLayout)view.findViewById(R.id.til_input_nick);
 		final TextInputEditText inputNick = (TextInputEditText)view.findViewById(R.id.input_nick);
 		TextViewCheckEmpty(tilInputNick,inputNick);
+		inputNick.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+			}
+			@Override
+			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+			}
+			@Override
+			public void afterTextChanged(Editable editable) {
+				CheckRegist checkNick = new CheckRegist();
+				checkNick.nick = inputNick.getText().toString();
+				new NetworkingClient(getActivity().getApplicationContext()).checkNick(checkNick, new MyCallBack<StatusResponse>(getActivity().getApplicationContext()) {
+					@Override
+					public void onSuccess(Response<StatusResponse> response) {
+						tilInputNick.setError(null);
+						tilInputNick.setErrorEnabled(false);
+					}
+
+					@Override
+					public void onErr(Error error) {
+						tilInputNick.setError(error.message);
+					}
+				});
+			}
+		});
+
 
 		final TextInputLayout tilInputAccount = (TextInputLayout)view.findViewById(R.id.til_input_account);
 		final TextInputEditText inputAccount = (TextInputEditText)view.findViewById(R.id.input_account);
@@ -149,7 +185,7 @@ public class AccountFragment extends Fragment {
 
 			@Override
 			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-				if(!textInputEditText.getText().toString().contains("@")) {
+				if(!isValidEmail(textInputEditText.getText().toString())) {
 					textInputLayout.setError(getResources().getString(R.string.regist_error_email));
 				}else {
 					textInputLayout.setError(null);
@@ -159,11 +195,26 @@ public class AccountFragment extends Fragment {
 
 			@Override
 			public void afterTextChanged(Editable editable) {
-				if(!textInputEditText.getText().toString().contains("@")) {
+				if(!isValidEmail(textInputEditText.getText().toString())) {
 					textInputLayout.setError(getResources().getString(R.string.regist_error_email));
 				}else {
 					textInputLayout.setError(null);
 					textInputLayout.setErrorEnabled(false);
+
+					CheckRegist checkAccount = new CheckRegist();
+					checkAccount.account = textInputEditText.getText().toString();
+					new NetworkingClient(getActivity().getApplicationContext()).checkAccount(checkAccount, new MyCallBack<StatusResponse>(getActivity().getApplicationContext()) {
+						@Override
+						public void onSuccess(Response<StatusResponse> response) {
+							textInputLayout.setError(null);
+							textInputLayout.setErrorEnabled(false);
+						}
+
+						@Override
+						public void onErr(Error error) {
+							textInputLayout.setError(error.message);
+						}
+					});
 				}
 			}
 		});
@@ -196,6 +247,16 @@ public class AccountFragment extends Fragment {
 				}
 			}
 		});
+	}
+
+	public static final Pattern EMAIL_PATTERN = Pattern
+		.compile("^\\w+\\.*\\w+@(\\w+\\.){1,5}[a-zA-Z]{2,3}$");
+	public static boolean isValidEmail(String email) {
+		boolean result = false;
+		if (EMAIL_PATTERN.matcher(email).matches()) {
+			result = true;
+		}
+		return result;
 	}
 
 }

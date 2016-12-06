@@ -5,11 +5,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import kesshou.android.team.R;
+import kesshou.android.team.util.component.ToastUtils;
 import kesshou.android.team.util.network.api.holder.Register;
 import kesshou.android.team.views.StartActivity;
 
@@ -65,6 +68,8 @@ public class GroupFragment extends Fragment {
 				register.usr_group="night";
 				register.school_account="";
 				register.school_pwd="";
+
+				ToastUtils.makeTextAndShow(getActivity().getApplicationContext(),"請注意夜校不開放查詢成績課表等等功能", Toast.LENGTH_LONG, Gravity.CENTER);
 
 				FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);

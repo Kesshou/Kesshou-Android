@@ -46,6 +46,68 @@
 	<string name="regist_error_email">Email is not true.</string>
 	<string name="regist_error_pwd">Password and re-password is not same.</string>
 
+	<string name="loading_text">Loading</string>
+
+	<string name="main_infor_timetable">Curriculum</string>
+	<string name="main_infor_timetable_help">Curriculum</string>
+	<string name="main_infor_record">Attendance record</string>
+	<string name="main_infor_record_help">Attendance record</string>
+	<string name="main_infor_prize">Reward and punishment record</string>
+	<string name="main_infor_prize_help">Reward and punishment record</string>
+	<string name="main_infor_grade1">Section test results</string>
+	<string name="main_infor_grade1_help">Section test results</string>
+	<string name="main_infor_grade2">Semester results</string>
+	<string name="main_infor_grade2_help">Semester results</string>
+
+	<string name="main_news_calc">Calendar</string>
+	<string name="main_news_calc_help">Calendar</string>
+	<string name="main_news_news">School announcement</string>
+	<string name="main_news_news_help">School announcement</string>
+	<string name="main_news_map">School map</string>
+	<string name="main_news_map_help">School map</string>
+	<string name="main_news_foodmap">Food map</string>
+	<string name="main_news_foodmap_help">Food map</string>
+	<string name="main_news_seatstate">Study room seat status</string>
+	<string name="main_news_seatstate_help">Study room seat status</string>
+	<string name="main_news_rule">School rules</string>
+	<string name="main_news_rule_help">School rules</string>
+	<string name="main_news_qanda">School Q&#38;A</string>
+	<string name="main_news_qanda_help">School Q&#38;A</string>
+	<string name="main_news_daanabout">Daan about</string>
+	<string name="main_news_daanabout_help">Daan about</string>
+
+	<string name="main_menu_medata">Personal information</string>
+	<string name="main_menu_medata_help">{ersonal information</string>
+	<string name="main_meun_wifi">Automatic Wi-fi</string>
+	<string name="main_meun_wifi_help">Automatic Wi-fi</string>
+	<string name="main_menu_noti">Notification settings</string>
+	<string name="main_menu_noti_help">Notification settings</string>
+	<string name="main_menu_opinion">Feedback</string>
+	<string name="main_menu_opinion_help">Feedback</string>
+	<string name="main_menu_about">About</string>
+	<string name="main_menu_about_help">About</string>
+	
+	<string name="infor_top_item_absence">Absence</string>
+	<string name="infor_top_item_late">Late</string>
+	<string name="infor_top_item_cutting">Cutting</string>
+	<string name="infor_top_item_public_leave">Public_leave</string>
+	<string name="infor_top_item_sick_leave">Sick_leave</string>
+	<string name="infor_top_item_thing_leave">Thing_leave</string>
+	<string name="infor_top_item_dead_leave">Dead_leave</string>
+	
+	<string name="infor_top_item_smallcite">Smallcite</string>
+	<string name="infor_top_item_middlecite">Middlecite</string>
+	<string name="infor_top_item_bigcite">Bigcite</string>
+	<string name="infor_top_item_smallfault">Smallfault</string>
+	<string name="infor_top_item_middlefault">Middlefault</string>
+	<string name="infor_top_item_bigfault">Bigfault</string>
+
+	<string name="infor_grade2_grade1">First grade</string>
+	<string name="infor_grade2_grade2">Second grade</string>
+	<string name="infor_grade2_grade3">Third grade</string>
+	
+	<string name="title_activity_content">   </string>
+
 	<!-- TODO: Remove or change this placeholder text -->
 	<string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

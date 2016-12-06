@@ -17,5 +17,4 @@ public class CalenderResponse{
     @SerializedName("content")
     public String content;
 
-
 }

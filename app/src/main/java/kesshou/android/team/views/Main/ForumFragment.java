@@ -14,6 +14,7 @@ import kesshou.android.team.R;
  */
 public class ForumFragment extends Fragment {
 
+	private View rootView;
 
 	public ForumFragment() {
 		// Required empty public constructor
@@ -24,7 +25,17 @@ public class ForumFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_forum, container, false);
+		if(rootView == null){
+			rootView = inflater.inflate(R.layout.fragment_forum, container, false);
+		}
+		return rootView;
 	}
 
+	@Override
+	public void onDestroyView(){
+		super.onDestroyView();
+		if(rootView != null){
+			((ViewGroup) rootView.getParent()).removeView(rootView);
+		}
+	}
 }

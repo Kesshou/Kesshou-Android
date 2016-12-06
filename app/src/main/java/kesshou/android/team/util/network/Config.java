@@ -19,17 +19,17 @@ public class Config {
     }
 
     // API Version
-    public final static double VERSION = 0.1;
+    private final static String VERSION = "1";
 
     // Using Env
-    public final static Env env = Env.DEV;
+    private final static Env env = Env.DEV;
 
     public static String getAPIPath() {
-        return getAPIPath( Config.env, VERSION);
+        return getAPIPath( Config.env, Config.VERSION);
     }
 
-    private static String getAPIPath( Env env, double version ) {
-        return String.format("https://%1$s/", env.host);
+    private static String getAPIPath( Env env, String version ) {
+        return "https://"+env.host+"/v"+version+"/";
     }
 
 }

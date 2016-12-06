@@ -33,8 +33,10 @@
 				android:id="@+id/tabs"
 				android:layout_width="match_parent"
 				android:layout_height="?attr/actionBarSize"
-				android:background="@color/white"
-				app:tabIndicatorColor="@color/white"/>
+				app:tabBackground="@drawable/touch_tab"
+				android:theme="@style/ThemeOverlay.AppCompat.Dark"
+				app:tabIndicatorColor="@android:color/transparent"/>
+			<!--android:background="@color/white"-->
 		</android.support.design.widget.CollapsingToolbarLayout>
 
 	</android.support.design.widget.AppBarLayout>

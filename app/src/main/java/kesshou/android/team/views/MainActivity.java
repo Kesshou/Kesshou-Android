@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -41,19 +42,18 @@ public class MainActivity extends AppCompatActivity {
 	    TabLayout tabLayout=(TabLayout) findViewById(R.id.tabs);
 	    tabLayout.setupWithViewPager(viewPager);
 
-	    ImageView imgInfor = (ImageView) getLayoutInflater().inflate(R.layout.custom_tab,null);
-	    imgInfor.setImageDrawable(getDrawable(R.drawable.btn_infor_selector));
+	    View imgInfor = getLayoutInflater().inflate(R.layout.custom_tab,null);
+	    ((ImageView)imgInfor.findViewById(R.id.tab)).setImageResource(R.drawable.btn_infor_selector);
 	    tabLayout.getTabAt(0).setCustomView(imgInfor);
-	    ImageView imgForum = (ImageView) getLayoutInflater().inflate(R.layout.custom_tab,null);
-	    imgForum.setImageDrawable(getDrawable(R.drawable.btn_forum_selector));
+	    View imgForum =  getLayoutInflater().inflate(R.layout.custom_tab,null);
+	    ((ImageView)imgForum.findViewById(R.id.tab)).setImageResource(R.drawable.btn_forum_selector);
 	    tabLayout.getTabAt(1).setCustomView(imgForum);
-	    ImageView imgNews = (ImageView) getLayoutInflater().inflate(R.layout.custom_tab,null);
-	    imgNews.setImageDrawable(getDrawable(R.drawable.btn_new_selector));
+	    View imgNews =  getLayoutInflater().inflate(R.layout.custom_tab,null);
+	    ((ImageView)imgNews.findViewById(R.id.tab)).setImageResource(R.drawable.btn_new_selector);
 	    tabLayout.getTabAt(2).setCustomView(imgNews);
-	    ImageView imgMenu = (ImageView) getLayoutInflater().inflate(R.layout.custom_tab,null);
-	    imgMenu.setImageDrawable(getDrawable(R.drawable.btn_menu_selector));
+	    View imgMenu =  getLayoutInflater().inflate(R.layout.custom_tab,null);
+	    ((ImageView)imgMenu.findViewById(R.id.tab)).setImageResource(R.drawable.btn_menu_selector);
 	    tabLayout.getTabAt(3).setCustomView(imgMenu);
-
 
     }
 

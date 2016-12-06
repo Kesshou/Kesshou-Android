@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="kesshou.android.team">
 
+	<uses-permission android:name="android.permission.INTERNET"/>
+
 	<application
-		android:name="MyApplication"
+		android:name=".MyApplication"
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
@@ -12,24 +14,34 @@
 		<activity
 			android:name=".views.MainActivity"
 			android:screenOrientation="portrait">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN"/>
-
-				<category android:name="android.intent.category.LAUNCHER"/>
-			</intent-filter>
-		</activity>
-		<activity
-			android:name=".views.StartActivity"
-			android:screenOrientation="portrait"
-			android:windowSoftInputMode="adjustPan"
-			android:theme="@style/AppTheme.NoActionBar">
 			<!--<intent-filter>-->
 				<!--<action android:name="android.intent.action.MAIN"/>-->
 
 				<!--<category android:name="android.intent.category.LAUNCHER"/>-->
 			<!--</intent-filter>-->
 		</activity>
+		<activity
+			android:name=".views.StartActivity"
+			android:screenOrientation="portrait"
+			android:theme="@style/AppTheme.NoActionBar"
+			android:windowSoftInputMode="adjustPan">
+
+			 <intent-filter>
+			 <action android:name="android.intent.action.MAIN"/>
+
+
+			 <category android:name="android.intent.category.LAUNCHER"/>
+			 </intent-filter>
+		</activity>
+		<activity
+			android:name=".views.ContentActivity"
+			android:label="@string/title_activity_content"
+			android:parentActivityName=".views.MainActivity"
+			android:theme="@style/AppTheme.NoActionBar">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="kesshou.android.team.views.MainActivity"/>
+		</activity>
 	</application>
 
-	<uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

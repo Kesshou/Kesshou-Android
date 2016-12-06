@@ -2,6 +2,9 @@ package kesshou.android.team.util.network.client;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import kesshou.android.team.util.network.Config;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -12,12 +15,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
 
 	private static Context mContext;
+	private static Gson gson;
 
 	private static class RetrofitClientHolder{
 		public static Retrofit instance = new Retrofit.Builder()
 			.baseUrl(Config.getAPIPath())
 			.client(OkHttpUtil.getInstance(mContext))
-			.addConverterFactory(GsonConverterFactory.create())
+			.addConverterFactory(GsonConverterFactory.create(gson))
 			.build();
 	}
 
@@ -27,8 +31,13 @@ public class RetrofitClient {
 
 	public static Retrofit getInstance(Context context){
 		if (context != null) {
-			mContext = context;
+			mContext = context.getApplicationContext();
 		}
+
+		gson = new GsonBuilder()
+			.setDateFormat("yyyy/MM/dd")
+			.serializeNulls()
+			.create();
 		return RetrofitClientHolder.instance;
 	}
 

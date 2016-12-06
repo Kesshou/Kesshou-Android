@@ -10,20 +10,20 @@ import android.support.v7.widget.Toolbar;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import kesshou.android.team.R;
+import kesshou.android.team.models.NetWorkCache;
 import kesshou.android.team.models.Setting;
 import kesshou.android.team.util.network.api.holder.Register;
 import kesshou.android.team.views.Regist.LoginFragment;
 
 public class StartActivity extends AppCompatActivity {
 
-	private Realm realm;
 	public Register register;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		realm=Realm.getDefaultInstance();
+		Realm realm=Realm.getDefaultInstance();
 
 		RealmResults<Setting> settings = realm.where(Setting.class).findAll();
 		if(settings.size()==0||!settings.first().logined){
@@ -37,12 +37,24 @@ public class StartActivity extends AppCompatActivity {
 			Fragment fg= new LoginFragment();
 			ft.replace(R.id.fm, fg, "f_m");
 			ft.commit();
+		}else{
+			toMainActivity();
 		}
 
-
+		realm.close();
 	}
 
 	public void toMainActivity(){
+		Realm realm=Realm.getDefaultInstance();
+		if(realm.where(NetWorkCache.class).findAll().size()==0){
+			realm.executeTransaction(new Realm.Transaction() {
+				@Override
+				public void execute(Realm realm) {
+					NetWorkCache netWorkCache = realm.createObject(NetWorkCache.class);
+				}
+			});
+		}
+		realm.close();
 		Intent intent = new Intent();
 		intent.setClass(StartActivity.this, MainActivity.class);
 		startActivity(intent);
@@ -52,6 +64,5 @@ public class StartActivity extends AppCompatActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		realm.close();
 	}
 }

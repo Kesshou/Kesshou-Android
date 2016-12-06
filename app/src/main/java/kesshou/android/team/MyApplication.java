@@ -14,11 +14,14 @@ public class MyApplication extends Application {
 	public void onCreate(){
 		super.onCreate();
 
-		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
+		Realm.init(getApplicationContext());
+
+		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
 			.name("default.realm")
 			.schemaVersion(1)
 			.deleteRealmIfMigrationNeeded()
 			.build();
 		Realm.setDefaultConfiguration(realmConfiguration);
+
 	}
 }

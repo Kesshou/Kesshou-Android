@@ -1,21 +1,30 @@
 package kesshou.android.team.views.Regist;
 
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.AppCompatButton;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.regex.Pattern;
-
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import kesshou.android.team.R;
+import kesshou.android.team.models.Setting;
+import kesshou.android.team.util.component.DialogUtils;
+import kesshou.android.team.util.network.MyCallBack;
+import kesshou.android.team.util.network.NetworkingClient;
+import kesshou.android.team.util.network.api.holder.Error;
+import kesshou.android.team.util.network.api.holder.Login;
+import kesshou.android.team.util.network.api.holder.Token;
+import kesshou.android.team.util.network.api.holder.UserInfoResponse;
+import kesshou.android.team.views.StartActivity;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,18 +45,81 @@ public class LoginFragment extends Fragment {
 
 		final TextInputLayout tilInputAccount=(TextInputLayout)view.findViewById(R.id.til_input_account);
 		final TextInputEditText inputAccount=(TextInputEditText)view.findViewById(R.id.input_account);
-		TextViewCheckEmpty(tilInputAccount,inputAccount);
-		TextViewCheckEmail(tilInputAccount,inputAccount);
 
 		final TextInputLayout tilInputPassword=(TextInputLayout)view.findViewById(R.id.til_input_password);
 		final TextInputEditText inputPassword=(TextInputEditText) view.findViewById(R.id.input_password);
-		TextViewCheckEmpty(tilInputPassword,inputPassword);
 
 		AppCompatButton LoginButton = (AppCompatButton) view.findViewById(R.id.LoginButton);
 		LoginButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				final Dialog dialog = DialogUtils.createLoadingDialog(getActivity());
+				dialog.show();
+				Login user = new Login();
+				user.usr_account = inputAccount.getText().toString();
+				user.usr_password = inputPassword.getText().toString();
 
+				final NetworkingClient networkingClient = new NetworkingClient(getActivity().getApplicationContext());
+
+				networkingClient.login(user, new MyCallBack<Token>(getActivity().getApplicationContext()) {
+					@Override
+					public void onSuccess(final Response<Token> token) {
+
+						Realm realm = Realm.getDefaultInstance();
+						RealmConfiguration realmConfiguration = realm.getConfiguration();
+						realm.close();
+						Realm.deleteRealm(realmConfiguration);
+						realm = Realm.getDefaultInstance();
+
+						realm.executeTransaction(new Realm.Transaction() {
+							@Override
+							public void execute(Realm realm) {
+								Setting setting=realm.createObject(Setting.class);
+								setting.logined=true;
+								setting.email=inputAccount.getText().toString();
+								setting.password=inputPassword.getText().toString();
+								setting.token=token.body().token;
+							}
+						});
+
+						realm.close();
+
+						networkingClient.getUserInfo(new MyCallBack<UserInfoResponse>(getActivity().getApplicationContext()) {
+							@Override
+							public void onSuccess(final Response<UserInfoResponse> response) {
+								Realm realm = Realm.getDefaultInstance();
+
+								realm.executeTransaction(new Realm.Transaction() {
+									@Override
+									public void execute(Realm realm) {
+										Setting setting=realm.where(Setting.class).findFirst();
+										setting.nick=response.body().nick;
+										setting.usr_group=response.body().group;
+										setting.classX=response.body().classX;
+										setting.name=response.body().name;
+									}
+								});
+
+								realm.close();
+
+								((StartActivity)getActivity()).toMainActivity();
+
+								dialog.dismiss();
+							}
+
+							@Override
+							public void onErr(Error error) {
+								dialog.dismiss();
+							}
+						});
+
+
+					}
+					@Override
+					public void onErr(Error error1) {
+						dialog.dismiss();
+					}
+				});
 			}
 		});
 
@@ -66,71 +138,4 @@ public class LoginFragment extends Fragment {
 		return view;
 	}
 
-	private void TextViewCheckEmpty(final TextInputLayout textInputLayout, final TextInputEditText textInputEditText){
-		textInputEditText.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-				// null
-			}
-
-			@Override
-			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-				if(textInputEditText.getText().toString().equals("")) {
-					textInputLayout.setError(getResources().getString(R.string.regist_error_empty));
-				}else {
-					textInputLayout.setError(null);
-					textInputLayout.setErrorEnabled(false);
-				}
-			}
-
-			@Override
-			public void afterTextChanged(Editable editable) {
-				if(textInputEditText.getText().toString().equals("")) {
-					textInputLayout.setError(getResources().getString(R.string.regist_error_empty));
-				}else {
-					textInputLayout.setError(null);
-					textInputLayout.setErrorEnabled(false);
-				}
-			}
-		});
-	}
-
-	private void TextViewCheckEmail(final TextInputLayout textInputLayout, final TextInputEditText textInputEditText){
-		textInputEditText.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-				// null
-			}
-
-			@Override
-			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-				if(!isValidEmail(textInputEditText.getText().toString())) {
-					textInputLayout.setError(getResources().getString(R.string.regist_error_email));
-				}else {
-					textInputLayout.setError(null);
-					textInputLayout.setErrorEnabled(false);
-				}
-			}
-
-			@Override
-			public void afterTextChanged(Editable editable) {
-				if(!isValidEmail(textInputEditText.getText().toString())) {
-					textInputLayout.setError(getResources().getString(R.string.regist_error_email));
-				}else {
-					textInputLayout.setError(null);
-					textInputLayout.setErrorEnabled(false);
-				}
-			}
-		});
-	}
-
-	public static final Pattern EMAIL_PATTERN = Pattern
-		.compile("^\\w+\\.*\\w+@(\\w+\\.){1,5}[a-zA-Z]{2,3}$");
-	public static boolean isValidEmail(String email) {
-		boolean result = false;
-		if (EMAIL_PATTERN.matcher(email).matches()) {
-			result = true;
-		}
-		return result;
-	}
 }
