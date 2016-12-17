@@ -4,8 +4,13 @@ package kesshou.android.team.views.infor;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.support.v4.util.ArrayMap;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.RadarChart;
@@ -31,6 +36,7 @@ import io.realm.Realm;
 import kesshou.android.team.R;
 import kesshou.android.team.models.NetWorkCache;
 import kesshou.android.team.util.BeautifulColor;
+import kesshou.android.team.util.UnitConvert;
 import kesshou.android.team.util.network.MyCallBack;
 import kesshou.android.team.util.network.NetworkingClient;
 import kesshou.android.team.util.network.api.holder.Error;
@@ -47,6 +53,8 @@ public class Grade1Fragment {
 		// Required empty public constructor
 	}
 
+	private ArrayMap<Integer,Boolean> whoLast;
+	private int nowPager;
 
 	public View onCreateView(final Context context) {
 		// Inflate the layout for this fragment
@@ -60,105 +68,120 @@ public class Grade1Fragment {
 
 		final Gson gson = new Gson();
 
-		final RadarChart radarChart1 = (RadarChart) view.findViewById(R.id.chart1);
-		final RadarChart radarChart2 = (RadarChart) view.findViewById(R.id.chart2);
+		whoLast = new ArrayMap<>();
+		nowPager = 0;
 
 		if(netWorkCache.sectionalexamscore1==null&&netWorkCache.sectionalexamscore2==null){
-
-			networkingClient.querySEScore(1, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
+			networkingClient.querySEScore(2, new MyCallBack<List<SectionalExamResponse>>(context) {
 				@Override
-				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
-					Realm realm = Realm.getDefaultInstance();
-					realm.executeTransaction(new Realm.Transaction() {
-						@Override
-						public void execute(Realm realm) {
-							NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
-							netWorkCache.sectionalexamscore1=gson.toJson(response.body());
-						}
-					});
-					realm.close();
-					drawChart(radarChart1,"上學期",response.body());
+				public void onSuccess(Response<List<SectionalExamResponse>> response) {
+					if(!response.body().isEmpty()){
+						Realm realm = Realm.getDefaultInstance();
+						realm.beginTransaction();
+						NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+						netWorkCache.sectionalexamscore2=gson.toJson(response.body());
+						realm.commitTransaction();
+						realm.close();
+						isLast(context,view,2,true);
+					}else{
+						isLast(context,view,2,false);
+					}
 				}
-
 				@Override
 				public void onErr(Error error) {
-
+					isLast(context,view,2,false);
 				}
 			});
 
-			networkingClient.querySEScore(2, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
+			networkingClient.querySEScore(1, new MyCallBack<List<SectionalExamResponse>>(context) {
 				@Override
-				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
-					Realm realm = Realm.getDefaultInstance();
-					realm.executeTransaction(new Realm.Transaction() {
-						@Override
-						public void execute(Realm realm) {
-							NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
-							netWorkCache.sectionalexamscore2=gson.toJson(response.body());
-						}
-					});
-					realm.close();
-					drawChart(radarChart2,"下學期",response.body());
+				public void onSuccess(Response<List<SectionalExamResponse>> response) {
+					if(!response.body().isEmpty()){
+						Realm realm = Realm.getDefaultInstance();
+						realm.beginTransaction();
+						NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+						netWorkCache.sectionalexamscore1=gson.toJson(response.body());
+						realm.commitTransaction();
+						realm.close();
+						isLast(context,view,1,true);
+					}else{
+						isLast(context,view,1,false);
+					}
 				}
-
 				@Override
 				public void onErr(Error error) {
-
+					isLast(context,view,1,false);
 				}
 			});
-
 		}else{
-
 			Type listType = new TypeToken<List<SectionalExamResponse>>() {}.getType();
 			List<SectionalExamResponse> examResponses1= gson.fromJson(netWorkCache.sectionalexamscore1,listType);
-			drawChart(radarChart1,"上學期",examResponses1);
-
 			List<SectionalExamResponse> examResponses2= gson.fromJson(netWorkCache.sectionalexamscore2,listType);
-			drawChart(radarChart2,"上學期",examResponses2);
+			if(examResponses2==null||examResponses2.isEmpty()) isLast(context,view,2,false);
+			else isLast(context,view,2,true);
+			if(examResponses1==null||examResponses1.isEmpty()) isLast(context,view,1,false);
+			else isLast(context,view,1,true);
 
-			networkingClient.querySEScore(1, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
+
+			networkingClient.querySEScore(2, new MyCallBack<List<SectionalExamResponse>>(context) {
 				@Override
-				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
-					//Log.d("oao",response.body().toString());
-					Realm realm = Realm.getDefaultInstance();
-					realm.executeTransaction(new Realm.Transaction() {
-						@Override
-						public void execute(Realm realm) {
-							NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
-							netWorkCache.sectionalexamscore1=gson.toJson(response.body());
-						}
-					});
-					realm.close();
-					drawChart(radarChart1,"上學期",response.body());
+				public void onSuccess(Response<List<SectionalExamResponse>> response) {
+					if(!response.body().isEmpty()){
+						Realm realm = Realm.getDefaultInstance();
+						realm.beginTransaction();
+						NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+						netWorkCache.sectionalexamscore2=gson.toJson(response.body());
+						realm.commitTransaction();
+						realm.close();
+						isLast(context,view,2,true);
+					}else{
+						isLast(context,view,2,false);
+					}
 				}
-
 				@Override
 				public void onErr(Error error) {
-
+					isLast(context,view,2,false);
 				}
 			});
 
-			networkingClient.querySEScore(2, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
+			networkingClient.querySEScore(1, new MyCallBack<List<SectionalExamResponse>>(context) {
 				@Override
-				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
-					Realm realm = Realm.getDefaultInstance();
-					realm.executeTransaction(new Realm.Transaction() {
-						@Override
-						public void execute(Realm realm) {
-							NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
-							netWorkCache.sectionalexamscore2=gson.toJson(response.body());
-						}
-					});
-					realm.close();
-					drawChart(radarChart2,"下學期",response.body());
+				public void onSuccess(Response<List<SectionalExamResponse>> response) {
+					if(!response.body().isEmpty()){
+						Realm realm = Realm.getDefaultInstance();
+						realm.beginTransaction();
+						NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+						netWorkCache.sectionalexamscore1=gson.toJson(response.body());
+						realm.commitTransaction();
+						realm.close();
+						isLast(context,view,1,true);
+					}else{
+						isLast(context,view,1,false);
+					}
 				}
-
 				@Override
 				public void onErr(Error error) {
-
+					isLast(context,view,1,false);
 				}
 			});
 		}
+
+		TextView btnUp = (TextView) view.findViewById(R.id.btn_up);
+		btnUp.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				serPager(context,view,1);
+			}
+		});
+
+		TextView btnDown = (TextView) view.findViewById(R.id.btn_down);
+		btnDown.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				serPager(context,view,2);
+			}
+		});
+
 
 
 		realm.close();
@@ -166,7 +189,164 @@ public class Grade1Fragment {
 		return view;
 	}
 
-	private void drawChart(RadarChart radarChart,String title,List<SectionalExamResponse> sectionalExamResponses){
+	private void isLast(Context context,View view,int i,boolean b){
+		whoLast.put(i,b);
+		if(whoLast.size()==2){
+			if(whoLast.get(2) && (i == 2 || nowPager == 0)){
+				nowPager = 2;
+				Realm realm = Realm.getDefaultInstance();
+				NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+				Type listType = new TypeToken<List<SectionalExamResponse>>() {}.getType();
+				Gson gson = new Gson();
+				List<SectionalExamResponse> examResponses2= gson.fromJson(netWorkCache.sectionalexamscore2,listType);
+				drawBody(context,view,examResponses2);
+			}else if(whoLast.get(1) && (i == 1 || nowPager == 0)){
+				nowPager = 1;
+				Realm realm = Realm.getDefaultInstance();
+				NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+				Type listType = new TypeToken<List<SectionalExamResponse>>() {}.getType();
+				Gson gson = new Gson();
+				List<SectionalExamResponse> examResponses1= gson.fromJson(netWorkCache.sectionalexamscore1,listType);
+				drawBody(context,view,examResponses1);
+			}else if(!whoLast.get(2)&&!whoLast.get(1)){
+				nowPager = 0;
+				drawNull(context,view);
+			}
+		}
+	}
+
+	private void serPager(Context context,View view,int i){
+		switch (i){
+			case 1:
+				if(whoLast.get(i)) {
+					nowPager = 1;
+					Realm realm = Realm.getDefaultInstance();
+					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+					Type listType = new TypeToken<List<SectionalExamResponse>>() {
+					}.getType();
+					Gson gson = new Gson();
+					List<SectionalExamResponse> examResponses1 = gson.fromJson(netWorkCache.sectionalexamscore1, listType);
+					drawBody(context, view, examResponses1);
+				}else{
+					nowPager = 1;
+					drawNull(context,view);
+				}
+				break;
+			case 2:
+				if(whoLast.get(i)) {
+					nowPager = 2;
+					Realm realm = Realm.getDefaultInstance();
+					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+					Type listType = new TypeToken<List<SectionalExamResponse>>() {
+					}.getType();
+					Gson gson = new Gson();
+					List<SectionalExamResponse> examResponses2 = gson.fromJson(netWorkCache.sectionalexamscore2, listType);
+					drawBody(context, view, examResponses2);
+				}else{
+					nowPager = 2;
+					drawNull(context,view);
+				}
+				break;
+		}
+	}
+
+	private void drawBody(Context context,View view,List<SectionalExamResponse> sectionalExams){
+		LinearLayout layout = (LinearLayout) view.findViewById(R.id.list);
+		layout.removeAllViews();
+
+		View item1 = LayoutInflater.from(context).inflate(R.layout.grade1_list_item, null);
+		TextView textView1 = (TextView) item1.findViewById(R.id.subject);
+		textView1.setText("");
+		textView1 = (TextView) item1.findViewById(R.id.first);
+		textView1.setText("一");
+		textView1 = (TextView) item1.findViewById(R.id.second);
+		textView1.setText("二");
+		textView1 = (TextView) item1.findViewById(R.id.third);
+		textView1.setText("三");
+		textView1 = (TextView) item1.findViewById(R.id.per);
+		textView1.setText("平時");
+		textView1 = (TextView) item1.findViewById(R.id.avg);
+		textView1.setText("平均");
+		layout.addView(item1);
+
+
+		for(int i=0;i<sectionalExams.size();i++){
+			View item = LayoutInflater.from(context).inflate(R.layout.grade1_list_item, null);
+			TextView textView = (TextView) item.findViewById(R.id.subject);
+			textView.setText(sectionalExams.get(i).subject);
+			textView = (TextView) item.findViewById(R.id.first);
+			textView.setText(String.valueOf(sectionalExams.get(i).firstSection));
+			textView.setTextColor(whatColor(60,sectionalExams.get(i).firstSection));
+			textView = (TextView) item.findViewById(R.id.second);
+			textView.setText(String.valueOf(sectionalExams.get(i).secondSection));
+			textView.setTextColor(whatColor(60,sectionalExams.get(i).secondSection));
+			textView = (TextView) item.findViewById(R.id.third);
+			textView.setText(String.valueOf(sectionalExams.get(i).lastSection));
+			textView.setTextColor(whatColor(60,sectionalExams.get(i).lastSection));
+			textView = (TextView) item.findViewById(R.id.per);
+			textView.setText(String.valueOf(sectionalExams.get(i).performance));
+			textView.setTextColor(whatColor(60,sectionalExams.get(i).performance));
+			textView = (TextView) item.findViewById(R.id.avg);
+			textView.setText(String.valueOf(sectionalExams.get(i).average));
+			textView.setTextColor(whatColor(60,sectionalExams.get(i).average));
+
+			layout.addView(item);
+		}
+
+		RadarChart radarChart = new RadarChart(context);
+		LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+			TableRow.LayoutParams.MATCH_PARENT,
+			(int)UnitConvert.Dp2Pixel(400,context));
+		radarChart.setLayoutParams(param);
+		drawChart(radarChart,"",sectionalExams);
+
+		layout.addView(radarChart);
+
+		drawTop(view);
+	}
+
+	private void drawTop(View view){
+		TextView txtChoose = (TextView) view.findViewById(R.id.chooses);
+		switch (nowPager){
+			case 1:
+				txtChoose.setText(view.getResources().getString(R.string.infor_grade2_semember1));
+				break;
+			case 2:
+				txtChoose.setText(view.getResources().getString(R.string.infor_grade2_semember2));
+				break;
+			default:
+				txtChoose.setText("");
+				break;
+		}
+
+	}
+
+	private int whatColor(int qu,int score){
+		if(score>=qu){
+			return BeautifulColor.getColor(4);
+		}else{
+			return BeautifulColor.getColor(0);
+		}
+	}
+
+	private void drawNull(Context context,View view){
+		LinearLayout layout = (LinearLayout) view.findViewById(R.id.list);
+		layout.removeAllViews();
+		TextView textView = new TextView(context);
+		TableRow.LayoutParams param = new TableRow.LayoutParams(
+			TableRow.LayoutParams.MATCH_PARENT,
+			TableRow.LayoutParams.MATCH_PARENT, 1.0f);
+		textView.setLayoutParams(param);
+		textView.setGravity(Gravity.CENTER);
+		textView.setTextColor(Color.GRAY);
+		textView.setText(context.getString(R.string.no_data));
+		layout.addView(textView);
+
+		drawTop(view);
+	}
+
+
+	private void drawChart(RadarChart radarChart, String title, List<SectionalExamResponse> sectionalExamResponses){
 
 		if(sectionalExamResponses.size()>0) {
 
@@ -335,4 +515,6 @@ public class Grade1Fragment {
 			radarChart.invalidate();
 		}
 	}
+
+
 }

@@ -61,7 +61,7 @@
 			android:layout_height="wrap_content"
 			android:background="@color/white"
 			android:paddingTop="5dp">
-			<TextView
+			<me.grantland.widget.AutofitTextView
 				android:text="學務處/陳育誠"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
@@ -69,8 +69,9 @@
 				android:textColor="@color/gray"
 				android:textSize="16sp"
 				android:gravity="left"
+				android:lines="1"
 				android:layout_weight="1"/>
-			<TextView
+			<me.grantland.widget.AutofitTextView
 				android:text="學生事務"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
@@ -78,8 +79,9 @@
 				android:textColor="@color/gray"
 				android:textSize="16sp"
 				android:gravity="center"
+				android:lines="1"
 				android:layout_weight="1"/>
-			<TextView
+			<me.grantland.widget.AutofitTextView
 				android:text="2016/12/5"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
@@ -87,6 +89,7 @@
 				android:textColor="@color/gray"
 				android:textSize="16sp"
 				android:gravity="right"
+				android:lines="1"
 				android:layout_weight="1"/>
 		</LinearLayout>
 

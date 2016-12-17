@@ -66,7 +66,8 @@ public class NewsFragment extends Fragment {
 					CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
 					builder.setToolbarColor(ContextCompat.getColor(getActivity().getApplicationContext(),R.color.colorPrimary));
 					CustomTabsIntent customTabsIntent = builder.build();
-					customTabsIntent.launchUrl(getActivity().getApplicationContext(), Uri.parse("http://www.taivs.tp.edu.tw/images/img-building.jpg"));
+					customTabsIntent.intent.setPackage("com.android.chrome");
+					customTabsIntent.launchUrl(getActivity(), Uri.parse("http://www.taivs.tp.edu.tw/images/img-building.jpg"));
 				}
 			});
 			menus.add(map);
@@ -83,7 +84,8 @@ public class NewsFragment extends Fragment {
 					CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
 					builder.setToolbarColor(ContextCompat.getColor(getActivity().getApplicationContext(),R.color.colorPrimary));
 					CustomTabsIntent customTabsIntent = builder.build();
-					customTabsIntent.launchUrl(getActivity().getApplicationContext(), Uri.parse("https://dev.dacsc.club/v1/seatstate"));
+					customTabsIntent.intent.setPackage("com.android.chrome");
+					customTabsIntent.launchUrl(getActivity(), Uri.parse("https://dev.dacsc.club/v1/seatstate"));
 				}
 			});
 			menus.add(seatState);
@@ -93,7 +95,8 @@ public class NewsFragment extends Fragment {
 					CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
 					builder.setToolbarColor(ContextCompat.getColor(getActivity().getApplicationContext(),R.color.colorPrimary));
 					CustomTabsIntent customTabsIntent = builder.build();
-					customTabsIntent.launchUrl(getActivity().getApplicationContext(), Uri.parse("http://military.taivs.tp.edu.tw/node/51"));
+					customTabsIntent.intent.setPackage("com.android.chrome");
+					customTabsIntent.launchUrl(getActivity(), Uri.parse("http://military.taivs.tp.edu.tw/node/51"));
 				}
 			});
 			menus.add(rule);

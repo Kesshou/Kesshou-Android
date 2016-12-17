@@ -108,4 +108,6 @@
 
 	<string name="infor_grade2_semember1">Last semester</string>
 	<string name="infor_grade2_semember2">Next semester</string>
+
+	<string name="no_data">No Data</string>
 </resources>

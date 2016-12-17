@@ -53,7 +53,7 @@ public class NewsActivity extends AppCompatActivity {
 			TextView textView = new TextView(this);
 			textView.setText(type);
 			textView.setTextColor(Color.WHITE);
-			textView.setTextSize(20);
+			textView.setTextSize(14);
 			textView.setBackground(gd);
 			textView.setPadding((int)UnitConvert.Dp2Pixel(6,getApplicationContext()),(int)UnitConvert.Dp2Pixel(6,getApplicationContext()),(int)UnitConvert.Dp2Pixel(6,getApplicationContext()),(int)UnitConvert.Dp2Pixel(6,getApplicationContext()));
 			LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:gravity="center_vertical"
+	android:paddingTop="2dp"
+	android:paddingBottom="16dp"
+	android:paddingRight="16dp"
+	android:paddingLeft="16dp"
+	android:paddingStart="16dp"
+	android:paddingEnd="16dp">
+
+	<me.grantland.widget.AutofitTextView
+		android:id="@+id/subject"
+		android:textSize="20sp"
+		android:text="國文"
+		android:lines="1"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="3"
+		android:textColor="@color/black"/>
+
+	<TextView
+		android:id="@+id/first"
+		android:textSize="20sp"
+		android:text="80"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:textColor="@color/gray"
+		android:gravity="end"/>
+
+	<TextView
+		android:id="@+id/second"
+		android:textSize="20sp"
+		android:text="40"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:textColor="@color/gray"
+		android:gravity="end"/>
+	<TextView
+		android:id="@+id/third"
+		android:textSize="20sp"
+		android:text="40"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:textColor="@color/gray"
+		android:gravity="end"/>
+	<TextView
+		android:id="@+id/per"
+		android:textSize="20sp"
+		android:text="40"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:textColor="@color/gray"
+		android:gravity="end"/>
+	<TextView
+		android:id="@+id/avg"
+		android:textSize="20sp"
+		android:text="40"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:textColor="@color/gray"
+		android:gravity="end"/>
+</LinearLayout>

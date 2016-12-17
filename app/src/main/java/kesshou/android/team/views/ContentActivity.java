@@ -46,7 +46,7 @@ public class ContentActivity extends AppCompatActivity {
 		title_help.setText(bundle.getString("title_help"));
 
 		final LinearLayout layout = (LinearLayout) findViewById(R.id.content);
-		View fragment = ContentRouter.getFragment(bundle.getInt("type"),getApplicationContext());
+		View fragment = ContentRouter.getFragment(bundle.getInt("type"),ContentActivity.this);
 		layout.addView(fragment);
 
 		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);

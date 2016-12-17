@@ -8,9 +8,9 @@ import java.util.List;
 import io.realm.Realm;
 import kesshou.android.team.models.Setting;
 import kesshou.android.team.util.network.api.AccountApi;
+import kesshou.android.team.util.network.api.InforApi;
 import kesshou.android.team.util.network.api.MenuApi;
 import kesshou.android.team.util.network.api.NewsApi;
-import kesshou.android.team.util.network.api.InforApi;
 import kesshou.android.team.util.network.api.holder.AbsentstateResponse;
 import kesshou.android.team.util.network.api.holder.AnnounceResponse;
 import kesshou.android.team.util.network.api.holder.AttitudeStatusResponse;
@@ -232,6 +232,7 @@ public class NetworkingClient {
 	    Call<List<HistoryScoreResponse>> call = inforApi.queryHScore(grade,semester);
         call.enqueue(callback);
     }
+
 
     /*
         Author: Charles Lien(lienching),IU(yoyo930021)

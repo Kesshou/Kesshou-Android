@@ -105,6 +105,7 @@ public class ItemActivity extends AppCompatActivity {
 						CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
 						builder.setToolbarColor(ContextCompat.getColor(getApplicationContext(),R.color.colorPrimary));
 						CustomTabsIntent customTabsIntent = builder.build();
+						customTabsIntent.intent.setPackage("com.android.chrome");
 						customTabsIntent.launchUrl(ItemActivity.this, Uri.parse(url));
 					} else {
 						Uri uri = Uri.parse(url);
@@ -130,6 +131,7 @@ public class ItemActivity extends AppCompatActivity {
 						CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
 						builder.setToolbarColor(ContextCompat.getColor(getApplicationContext(),R.color.colorPrimary));
 						CustomTabsIntent customTabsIntent = builder.build();
+						customTabsIntent.intent.setPackage("com.android.chrome");
 						customTabsIntent.launchUrl(ItemActivity.this, request.getUrl());
 					} else {
 						Uri uri = request.getUrl();

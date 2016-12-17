@@ -116,7 +116,8 @@ public class LinkFragment {
 					CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
 					builder.setToolbarColor(ContextCompat.getColor(context,R.color.colorPrimary));
 					CustomTabsIntent customTabsIntent = builder.build();
-					customTabsIntent.launchUrl(context.getApplicationContext(), Uri.parse(links.get(iter).link));
+					customTabsIntent.intent.setPackage("com.android.chrome");
+					customTabsIntent.launchUrl(context, Uri.parse(links.get(iter).link));
 				}
 			},0,links.get(i).link.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 			stringBuilder.append(iter+1+".");

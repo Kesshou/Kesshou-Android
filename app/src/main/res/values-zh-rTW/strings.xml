@@ -109,4 +109,6 @@
 
 	<string name="infor_grade2_semember1">上學期</string>
 	<string name="infor_grade2_semember2">下學期</string>
+
+	<string name="no_data">無資料</string>
 </resources>
