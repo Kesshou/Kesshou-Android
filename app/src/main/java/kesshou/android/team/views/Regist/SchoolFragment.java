@@ -1,4 +1,4 @@
-package kesshou.android.team.views.Regist;
+package kesshou.android.team.views.regist;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
@@ -11,8 +11,10 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import kesshou.android.team.R;
+import kesshou.android.team.util.component.ToastUtils;
 import kesshou.android.team.util.network.MyCallBack;
 import kesshou.android.team.util.network.NetworkingClient;
 import kesshou.android.team.util.network.api.holder.CheckRegist;
@@ -83,7 +85,7 @@ public class SchoolFragment extends Fragment {
 
 					@Override
 					public void onErr(Error error) {
-
+						ToastUtils.makeTextAndShow(getActivity().getApplicationContext(),"學校帳號錯誤", Toast.LENGTH_SHORT);
 					}
 				});
 

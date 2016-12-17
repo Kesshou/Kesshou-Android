@@ -1,4 +1,4 @@
-package kesshou.android.team.views.Infor;
+package kesshou.android.team.views.infor;
 
 
 import android.content.Context;
@@ -19,11 +19,14 @@ import java.util.Locale;
 import io.realm.Realm;
 import kesshou.android.team.R;
 import kesshou.android.team.models.NetWorkCache;
+import kesshou.android.team.util.BeautifulColor;
 import kesshou.android.team.util.network.MyCallBack;
 import kesshou.android.team.util.network.NetworkingClient;
 import kesshou.android.team.util.network.api.holder.AbsentstateResponse;
 import kesshou.android.team.util.network.api.holder.Error;
 import retrofit2.Response;
+
+import static kesshou.android.team.R.id.date;
 
 /**
  * A simple class.
@@ -35,14 +38,22 @@ public class RecordFragment {
 		// Required empty public constructor
 	}
 
+	int public_leave_color;
+	int sick_leave_color;
+	int thing_leave_color;
+	int dead_leave_color;
+	int absence_color;
+	int late_color;
+	int cutting_color;
+
 
 	public View onCreateView(final Context context) {
 		// Inflate the layout for this fragment
 		final View view = LayoutInflater.from(context).inflate(R.layout.fragment_record, null);
 
-		final Realm realm = Realm.getDefaultInstance();
+		Realm realm = Realm.getDefaultInstance();
 
-		final NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+		NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
 		NetworkingClient networkingClient = new NetworkingClient(context.getApplicationContext());
 		final Gson gson = new Gson();
 
@@ -50,9 +61,12 @@ public class RecordFragment {
 			networkingClient.getABS(new MyCallBack<List<AbsentstateResponse>>(context) {
 				@Override
 				public void onSuccess(Response<List<AbsentstateResponse>> response) {
+					Realm realm = Realm.getDefaultInstance();
+					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
 					realm.beginTransaction();
 					netWorkCache.record=gson.toJson(response.body());
 					realm.commitTransaction();
+					realm.close();
 
 					drawTop(view,response.body());
 					drawBody(context,view,response.body());
@@ -72,9 +86,12 @@ public class RecordFragment {
 			networkingClient.getABS(new MyCallBack<List<AbsentstateResponse>>(context) {
 				@Override
 				public void onSuccess(Response<List<AbsentstateResponse>> response) {
+					Realm realm = Realm.getDefaultInstance();
+					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
 					realm.beginTransaction();
 					netWorkCache.record=gson.toJson(response.body());
 					realm.commitTransaction();
+					realm.close();
 
 					drawTop(view,response.body());
 					drawBody(context,view,response.body());
@@ -95,33 +112,47 @@ public class RecordFragment {
 	private void drawTop(View view,List<AbsentstateResponse> absentstate){
 		ArrayMap<String,Integer> date = parseData(absentstate);
 		int public_leave = (date.get("公")!=null?date.get("公"):0);
+		public_leave_color = BeautifulColor.getRandomColor();
 		int sick_leave = (date.get("病")!=null?date.get("病"):0);
+		sick_leave_color = BeautifulColor.getRandomColor();
 		int thing_leave = (date.get("事")!=null?date.get("事"):0);
+		thing_leave_color = BeautifulColor.getRandomColor();
 		int dead_leave = (date.get("喪")!=null?date.get("喪"):0);
+		dead_leave_color = BeautifulColor.getRandomColor();
 		int absence = (date.get("缺")!=null?date.get("缺"):0);
+		absence_color = BeautifulColor.getRandomColor();
 		int late = (date.get("遲")!=null?date.get("遲"):0);
+		late_color = BeautifulColor.getRandomColor();
 		int cutting = (date.get("曠")!=null?date.get("曠"):0);
+		cutting_color = BeautifulColor.getRandomColor();
 
 		TextView textView = (TextView) view.findViewById(R.id.public_leave);
 		textView.setText(String.valueOf(public_leave));
+		textView.setTextColor(public_leave_color);
 
 		textView = (TextView) view.findViewById(R.id.sick_leave);
 		textView.setText(String.valueOf(sick_leave));
+		textView.setTextColor(sick_leave_color);
 
 		textView = (TextView) view.findViewById(R.id.thing_leave);
 		textView.setText(String.valueOf(thing_leave));
+		textView.setTextColor(thing_leave_color);
 
 		textView = (TextView) view.findViewById(R.id.dead_leave);
 		textView.setText(String.valueOf(dead_leave));
+		textView.setTextColor(dead_leave_color);
 
 		textView = (TextView) view.findViewById(R.id.absence);
 		textView.setText(String.valueOf(absence));
+		textView.setTextColor(absence_color);
 
 		textView = (TextView) view.findViewById(R.id.late);
 		textView.setText(String.valueOf(late));
+		textView.setTextColor(late_color);
 
 		textView = (TextView) view.findViewById(R.id.cutting);
 		textView.setText(String.valueOf(cutting));
+		textView.setTextColor(cutting_color);
 	}
 
 	private void drawBody(Context context,View view,List<AbsentstateResponse> absentstate){
@@ -132,7 +163,7 @@ public class RecordFragment {
 
 		for(int i=0;i<absentstate.size();i++) {
 			View item = LayoutInflater.from(context).inflate(R.layout.record_list_item, null);
-			TextView txtDate = (TextView) item.findViewById(R.id.date);
+			TextView txtDate = (TextView) item.findViewById(date);
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
 			txtDate.setText(simpleDateFormat.format(absentstate.get(i).date));
 
@@ -141,6 +172,7 @@ public class RecordFragment {
 
 			TextView txtText = (TextView) item.findViewById(R.id.text);
 			txtText.setText(convertAll(absentstate.get(i).type));
+			txtText.setTextColor(convertColor(absentstate.get(i).type));
 
 			layout.addView(item);
 		}
@@ -164,6 +196,27 @@ public class RecordFragment {
 				return "缺席";
 			default:
 				return "";
+		}
+	}
+
+	private int convertColor(String text){
+		switch (text){
+			case "公":
+				return public_leave_color;
+			case "事":
+				return thing_leave_color;
+			case "病":
+				return sick_leave_color;
+			case "喪":
+				return dead_leave_color;
+			case "遲":
+				return late_color;
+			case "曠":
+				return cutting_color;
+			case "缺":
+				return absence_color;
+			default:
+				return 0;
 		}
 	}
 

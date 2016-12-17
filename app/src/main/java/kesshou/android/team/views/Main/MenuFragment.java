@@ -1,6 +1,7 @@
-package kesshou.android.team.views.Main;
+package kesshou.android.team.views.main;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -14,10 +15,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import io.realm.Realm;
 import kesshou.android.team.R;
+import kesshou.android.team.models.Setting;
+import kesshou.android.team.util.ActivityUtils;
 import kesshou.android.team.util.Adapter.MenuTableAdapter;
 import kesshou.android.team.util.Adapter.TableDecoration;
 import kesshou.android.team.util.Adapter.holder.Menu;
+import kesshou.android.team.views.StartActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,13 +66,31 @@ public class MenuFragment extends Fragment {
 				}
 			});
 			menus.add(noti);
-			Menu opinion = new Menu(R.drawable.ic_infor_accent, "意見回饋", "", new View.OnClickListener() {
+			Menu opinion = new Menu(R.drawable.ic_infor_accent, getString(R.string.main_menu_opinion), "", new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(getActivity().getApplicationContext(), "i am touch grade", Toast.LENGTH_SHORT).show();
+					ActivityUtils.openContent(getActivity(),R.string.main_menu_opinion,R.string.main_menu_opinion,R.string.main_menu_opinion_help);
 				}
 			});
 			menus.add(opinion);
+			Menu logout = new Menu(R.drawable.ic_infor_accent, "登出", "", new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+
+					Realm realm = Realm.getDefaultInstance();
+					Setting setting = realm.where(Setting.class).findFirst();
+					realm.beginTransaction();
+					setting.logined=false;
+					realm.commitTransaction();
+					realm.close();
+
+					Intent intent = new Intent();
+					intent.setClass(getActivity(), StartActivity.class);
+					startActivity(intent);
+					getActivity().finish();
+				}
+			});
+			menus.add(logout);
 
 			RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.menu_list);
 			MenuTableAdapter menuListAdapter = new MenuTableAdapter(menus);

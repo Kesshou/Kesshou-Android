@@ -1,7 +1,8 @@
-package kesshou.android.team.views.Infor;
+package kesshou.android.team.views.infor;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -41,9 +42,8 @@ public class TimeTableFragment{
 
 		Realm realm = Realm.getDefaultInstance();
 
-		final NetWorkCache netWorkCache =realm.where(NetWorkCache.class).findFirst();
+		NetWorkCache netWorkCache =realm.where(NetWorkCache.class).findFirst();
 
-		realm.close();
 
 		Log.w("TAG",netWorkCache.toString());
 
@@ -56,12 +56,10 @@ public class TimeTableFragment{
 				@Override
 				public void onSuccess(final Response<TimeTableResponse> response) {
 					Realm realm = Realm.getDefaultInstance();
-					realm.executeTransaction(new Realm.Transaction() {
-						@Override
-						public void execute(Realm realm) {
-							netWorkCache.timeTable = gson.toJson(response.body(),TimeTableResponse.class);
-						}
-					});
+					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+					realm.beginTransaction();
+					netWorkCache.timeTable = gson.toJson(response.body(),TimeTableResponse.class);
+					realm.commitTransaction();
 					realm.close();
 					TimeTableResponse timeTableResponse = response.body();
 					ArrayList<List<TimeTableResponse.Week>> list = new ArrayList<>();
@@ -92,12 +90,10 @@ public class TimeTableFragment{
 				@Override
 				public void onSuccess(final Response<TimeTableResponse> response) {
 					Realm realm = Realm.getDefaultInstance();
-					realm.executeTransaction(new Realm.Transaction() {
-						@Override
-						public void execute(Realm realm) {
-							netWorkCache.timeTable = gson.toJson(response.body(),TimeTableResponse.class);
-						}
-					});
+					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+					realm.beginTransaction();
+					netWorkCache.timeTable = gson.toJson(response.body(),TimeTableResponse.class);
+					realm.commitTransaction();
 					realm.close();
 					TimeTableResponse timeTableResponse = response.body();
 					ArrayList<List<TimeTableResponse.Week>> list = new ArrayList<>();
@@ -121,7 +117,7 @@ public class TimeTableFragment{
 		return view;
 	}
 
-	public void drawTable(View view,Context context,ArrayList<List<TimeTableResponse.Week>> timeTable){
+	private void drawTable(View view,Context context,ArrayList<List<TimeTableResponse.Week>> timeTable){
 		LinearLayout tableRow1 = (LinearLayout) view.findViewById(R.id.TableRow1);
 		LinearLayout tableRow2 = (LinearLayout) view.findViewById(R.id.TableRow2);
 		LinearLayout tableRow3 = (LinearLayout) view.findViewById(R.id.TableRow3);
@@ -177,6 +173,7 @@ public class TimeTableFragment{
 			TableRow.LayoutParams.MATCH_PARENT, 1.0f);
 		textView.setLayoutParams(param);
 		textView.setGravity(Gravity.CENTER);
+		textView.setTextColor(Color.GRAY);
 		textView.setText(text);
 		return textView;
 	}

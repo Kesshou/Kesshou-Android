@@ -1,4 +1,4 @@
-package kesshou.android.team.views.Regist;
+package kesshou.android.team.views.regist;
 
 
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.util.regex.Pattern;
 
 import kesshou.android.team.R;
+import kesshou.android.team.util.component.ToastUtils;
 import kesshou.android.team.util.network.MyCallBack;
 import kesshou.android.team.util.network.NetworkingClient;
 import kesshou.android.team.util.network.api.holder.CheckRegist;
@@ -125,11 +126,11 @@ public class AccountFragment extends Fragment {
 					inputRePassword.getText().toString();
 
 				if(strInputAccount.equals("")||strInputPassword.equals("")||strInputNick.equals("")||strInputRePassword.equals("")) {
-					Toast.makeText(getActivity().getApplicationContext(),R.string.regist_error_empty,Toast.LENGTH_SHORT).show();
+					ToastUtils.makeTextAndShow(getActivity().getApplicationContext(), R.string.regist_error_empty ,Toast.LENGTH_SHORT);
 				}else if(!strInputAccount.contains("@")){
-					Toast.makeText(getActivity().getApplicationContext(),R.string.regist_error_email,Toast.LENGTH_SHORT).show();
+					ToastUtils.makeTextAndShow(getActivity().getApplicationContext(),R.string.regist_error_email,Toast.LENGTH_SHORT);
 				}else if(!strInputPassword.equals(strInputRePassword)){
-					Toast.makeText(getActivity().getApplicationContext(),R.string.regist_error_pwd,Toast.LENGTH_SHORT).show();
+					ToastUtils.makeTextAndShow(getActivity().getApplicationContext(),R.string.regist_error_pwd,Toast.LENGTH_SHORT);
 				}else{
 					register.usr_email = strInputAccount;
 					register.usr_passwd= strInputPassword;

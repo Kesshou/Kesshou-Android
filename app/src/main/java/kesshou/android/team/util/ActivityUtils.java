@@ -14,7 +14,7 @@ import kesshou.android.team.views.ContentActivity;
 public class ActivityUtils {
 	public static void openContent(Context context, int type, int title, int titleHelp){
 		Intent intent = new Intent();
-		intent.setClass(context, ContentActivity.class);
+		intent.setClass(context.getApplicationContext(), ContentActivity.class);
 		Bundle bundle = new Bundle();
 		bundle.putInt("type", type);
 		bundle.putString("title",context.getString(title));

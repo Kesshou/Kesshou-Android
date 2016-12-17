@@ -6,6 +6,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true"
+	android:theme="@style/AppTheme.NoActionBar"
 	tools:context="kesshou.android.team.views.ContentActivity">
 
 	<android.support.design.widget.AppBarLayout
@@ -20,8 +21,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="?attr/actionBarSize"
 			android:background="@android:color/transparent"
-			app:theme="@style/ToolbarColoredBackArrow"
-			app:popupTheme="@style/AppTheme.PopupOverlay"/>
+			android:theme="@style/ToolbarColoredBackArrow"
+			android:popupTheme="@style/AppTheme.PopupOverlay"/>
 	</android.support.design.widget.AppBarLayout>
 
 	<!--<ScrollView-->
@@ -29,37 +30,37 @@
 		<!--android:layout_width="match_parent"-->
 		<!--android:layout_height="match_parent"-->
 		<!--android:fitsSystemWindows="true">-->
-		<LinearLayout
-			android:id="@+id/content"
-			android:orientation="vertical"
-			android:gravity="center_horizontal"
+	<LinearLayout
+		android:id="@+id/content"
+		android:orientation="vertical"
+		android:gravity="center_horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="50dp"
+		android:fitsSystemWindows="true">
+
+		<TextView
+			android:text="課表查詢"
+			android:textSize="30sp"
+			android:textColor="@color/black"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:layout_marginTop="50dp"
-			android:fitsSystemWindows="true">
+			android:layout_height="wrap_content"
+			android:id="@+id/title"
+			android:layout_marginTop="0dp"
+			android:background="@color/white"
+			android:gravity="center"/>
 
-			<TextView
-				android:text="課表查詢"
-				android:textSize="30sp"
-				android:textColor="@color/black"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:id="@+id/title"
-				android:layout_marginTop="0dp"
-				android:background="@color/white"
-				android:gravity="center"/>
-
-			<TextView
-				android:text="這學期的課表"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:id="@+id/title_help"
-				android:gravity="center"
-				android:background="@color/white"
-				/>
+		<TextView
+			android:text="這學期的課表"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/title_help"
+			android:gravity="center"
+			android:background="@color/white"
+			/>
 
 
-		</LinearLayout>
+	</LinearLayout>
 	<!--</ScrollView>-->
 
 

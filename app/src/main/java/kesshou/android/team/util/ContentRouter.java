@@ -5,11 +5,15 @@ import android.content.Context;
 import android.view.View;
 
 import kesshou.android.team.R;
-import kesshou.android.team.views.Infor.Grade1Fragment;
-import kesshou.android.team.views.Infor.Grade2Fragment;
-import kesshou.android.team.views.Infor.PrizeFragment;
-import kesshou.android.team.views.Infor.RecordFragment;
-import kesshou.android.team.views.Infor.TimeTableFragment;
+import kesshou.android.team.views.infor.Grade1Fragment;
+import kesshou.android.team.views.infor.Grade2Fragment;
+import kesshou.android.team.views.infor.PrizeFragment;
+import kesshou.android.team.views.infor.RecordFragment;
+import kesshou.android.team.views.infor.TimeTableFragment;
+import kesshou.android.team.views.menu.FeedBackFragment;
+import kesshou.android.team.views.news.CalcFragment;
+import kesshou.android.team.views.news.LinkFragment;
+import kesshou.android.team.views.news.QandAFragment;
 
 /**
  * Created by yoyoIU on 2016/11/8.
@@ -33,6 +37,18 @@ public class ContentRouter {
 				break;
 			case R.string.main_infor_grade2:
 				fg = new Grade2Fragment().onCreateView(context);
+				break;
+			case R.string.main_news_calc:
+				fg = new CalcFragment().onCreateView(context);
+				break;
+			case R.string.main_news_qanda:
+				fg = new QandAFragment().onCreateView(context);
+				break;
+			case R.string.main_news_daanabout:
+				fg = new LinkFragment().onCreateView(context);
+				break;
+			case R.string.main_menu_opinion:
+				fg = new FeedBackFragment().onCreateView(context);
 				break;
 			default:
 				fg = new View(context);

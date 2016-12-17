@@ -25,7 +25,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="成績查詢"
-		android:textColor="@color/black"
+		android:textColor="@color/grey_900"
 		android:textSize="20sp"
 		android:layout_marginStart="24dp"
 		app:layout_constraintLeft_toRightOf="@+id/icon"

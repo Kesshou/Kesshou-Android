@@ -16,7 +16,7 @@ public class UnitConvert {
 	 * @return pixel
 	 */
 	public static float Dp2Pixel(float dp, Context context){
-		float px = dp * getDensity(context);
+		float px = dp * getDensity(context.getApplicationContext());
 		return px;
 	}
 	/**
@@ -26,7 +26,7 @@ public class UnitConvert {
 	 * @return dp
 	 */
 	public static float Pixel2Dp(float px, Context context){
-		float dp = px / getDensity(context);
+		float dp = px / getDensity(context.getApplicationContext());
 		return dp;
 	}
 	/**
@@ -38,8 +38,17 @@ public class UnitConvert {
 	 * @return
 	 */
 	public static float getDensity(Context context){
-		DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+		DisplayMetrics metrics = context.getApplicationContext().getResources().getDisplayMetrics();
 		return metrics.density;
 	}
 
+	public static float getScreenWidth(Context context){
+		DisplayMetrics metrics = context.getApplicationContext().getResources().getDisplayMetrics();
+		return metrics.widthPixels;
+	}
+
+	public static float getScreenHeight(Context context){
+		DisplayMetrics metrics = context.getApplicationContext().getResources().getDisplayMetrics();
+		return metrics.heightPixels;
+	}
 }

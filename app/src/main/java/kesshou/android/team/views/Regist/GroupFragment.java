@@ -1,9 +1,9 @@
-package kesshou.android.team.views.Regist;
+package kesshou.android.team.views.regist;
 
 
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.AppCompatButton;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -69,7 +69,7 @@ public class GroupFragment extends Fragment {
 				register.school_account="";
 				register.school_pwd="";
 
-				ToastUtils.makeTextAndShow(getActivity().getApplicationContext(),"請注意夜校不開放查詢成績課表等等功能", Toast.LENGTH_LONG, Gravity.CENTER);
+				ToastUtils.makeTextAndShow(getActivity().getApplicationContext(),"請注意夜校\n不開放查詢成績\n課表等等功能", Toast.LENGTH_LONG, Gravity.CENTER,12);
 
 				FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);

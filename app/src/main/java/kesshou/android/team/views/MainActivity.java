@@ -1,10 +1,12 @@
 package kesshou.android.team.views;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -12,10 +14,10 @@ import java.util.ArrayList;
 
 import kesshou.android.team.R;
 import kesshou.android.team.util.Adapter.FragmentViewPagerAdapter;
-import kesshou.android.team.views.Main.ForumFragment;
-import kesshou.android.team.views.Main.InforFragment;
-import kesshou.android.team.views.Main.MenuFragment;
-import kesshou.android.team.views.Main.NewsFragment;
+import kesshou.android.team.views.main.ForumFragment;
+import kesshou.android.team.views.main.InforFragment;
+import kesshou.android.team.views.main.MenuFragment;
+import kesshou.android.team.views.main.NewsFragment;
 
 /*
     Author: Charles Lien (lienching)
@@ -28,7 +30,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_main);
-	    getSupportActionBar().setElevation(0);
+	    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+	    toolbar.setElevation(0);
+	    toolbar.setPopupTheme(R.style.AppTheme);
+	    toolbar.setBackgroundResource(R.color.colorPrimary);
+	    toolbar.setTitle(getTitle());
+	    toolbar.setTitleTextColor(Color.WHITE);
+	    //getSupportActionBar().setElevation(0);
 
 	    ViewPager viewPager=(ViewPager) findViewById(R.id.container);
 	    ArrayList<Fragment> fragments= new ArrayList<Fragment>() {};
@@ -54,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 	    View imgMenu =  getLayoutInflater().inflate(R.layout.custom_tab,null);
 	    ((ImageView)imgMenu.findViewById(R.id.tab)).setImageResource(R.drawable.btn_menu_selector);
 	    tabLayout.getTabAt(3).setCustomView(imgMenu);
-
     }
 
     @Override

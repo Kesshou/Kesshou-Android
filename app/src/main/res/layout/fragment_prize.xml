@@ -30,6 +30,7 @@
 				<TextView
 					android:id="@+id/smallcite"
 					android:text=""
+					android:textColor="@color/blue_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_value"/>
@@ -50,6 +51,7 @@
 				<TextView
 					android:id="@+id/middlecite"
 					android:text=""
+					android:textColor="@color/blue_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_value"/>
@@ -70,6 +72,7 @@
 				<TextView
 					android:id="@+id/bigcite"
 					android:text=""
+					android:textColor="@color/blue_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_value"/>
@@ -99,6 +102,7 @@
 				<TextView
 					android:id="@+id/smallfault"
 					android:text=""
+					android:textColor="@color/red_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_value"/>
@@ -119,6 +123,7 @@
 				<TextView
 					android:id="@+id/middlefault"
 					android:text=""
+					android:textColor="@color/red_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_value"/>
@@ -139,6 +144,7 @@
 				<TextView
 					android:id="@+id/bigfault"
 					android:text=""
+					android:textColor="@color/red_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_value"/>

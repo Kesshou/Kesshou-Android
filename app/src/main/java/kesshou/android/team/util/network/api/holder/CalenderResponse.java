@@ -4,17 +4,22 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
-
 /*
    Author: Charles Lien(lienching)
    Description: Calender Response JSON holder
 */
 public class CalenderResponse{
 
-    @SerializedName("date")
-    public Date data;
+	/**
+	 * start : 2017/2/13
+	 * end : 2017/2/14
+	 * content : (教)第 2 學期開學、正式上課
+	 */
 
-    @SerializedName("content")
-    public String content;
-
+	@SerializedName("start")
+	public Date start;
+	@SerializedName("end")
+	public Date end;
+	@SerializedName("content")
+	public String content;
 }

@@ -13,7 +13,7 @@ import kesshou.android.team.R;
 import kesshou.android.team.models.NetWorkCache;
 import kesshou.android.team.models.Setting;
 import kesshou.android.team.util.network.api.holder.Register;
-import kesshou.android.team.views.Regist.LoginFragment;
+import kesshou.android.team.views.regist.LoginFragment;
 
 public class StartActivity extends AppCompatActivity {
 

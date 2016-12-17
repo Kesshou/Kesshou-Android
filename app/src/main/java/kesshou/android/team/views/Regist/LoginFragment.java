@@ -1,4 +1,4 @@
-package kesshou.android.team.views.Regist;
+package kesshou.android.team.views.regist;
 
 
 import android.app.Dialog;

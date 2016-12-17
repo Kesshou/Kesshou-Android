@@ -8,15 +8,19 @@ import java.util.List;
 import io.realm.Realm;
 import kesshou.android.team.models.Setting;
 import kesshou.android.team.util.network.api.AccountApi;
-import kesshou.android.team.util.network.api.CalenderApi;
+import kesshou.android.team.util.network.api.MenuApi;
+import kesshou.android.team.util.network.api.NewsApi;
 import kesshou.android.team.util.network.api.InforApi;
 import kesshou.android.team.util.network.api.holder.AbsentstateResponse;
+import kesshou.android.team.util.network.api.holder.AnnounceResponse;
 import kesshou.android.team.util.network.api.holder.AttitudeStatusResponse;
 import kesshou.android.team.util.network.api.holder.CalenderResponse;
 import kesshou.android.team.util.network.api.holder.CheckRegist;
 import kesshou.android.team.util.network.api.holder.HistoryScoreResponse;
 import kesshou.android.team.util.network.api.holder.Login;
+import kesshou.android.team.util.network.api.holder.QandaResponse;
 import kesshou.android.team.util.network.api.holder.Register;
+import kesshou.android.team.util.network.api.holder.RelatedlinkResponse;
 import kesshou.android.team.util.network.api.holder.SectionalExamResponse;
 import kesshou.android.team.util.network.api.holder.StatusResponse;
 import kesshou.android.team.util.network.api.holder.TimeTableResponse;
@@ -38,7 +42,8 @@ public class NetworkingClient {
 	private Retrofit retrofit;
     private AccountApi accountApi;
     private InforApi inforApi;
-    private CalenderApi calenderApi;
+    private NewsApi newsApi;
+	private MenuApi menuApi;
 	private Context mContext;
 
 
@@ -48,7 +53,8 @@ public class NetworkingClient {
 
         accountApi = retrofit.create(AccountApi.class);
         inforApi = retrofit.create(InforApi.class);
-        calenderApi = retrofit.create(CalenderApi.class);
+        newsApi = retrofit.create(NewsApi.class);
+	    menuApi = retrofit.create(MenuApi.class);
     }
 
     // Account System
@@ -263,15 +269,68 @@ public class NetworkingClient {
           This function's purpose is to communicate with calender query api
       Usage:
           parameter:
-              SectionalExamScore score : Query Information:
 	          Callback<List<CalenderResponse>> callback: Callback
-   */
+    */
     public void getCalender(Callback<List<CalenderResponse>> callback) {
-        Call<List<CalenderResponse>> call = calenderApi.getCalender();
+        Call<List<CalenderResponse>> call = newsApi.getCalender();
         call.enqueue(callback);
     }
 
+	/*
+      Author: IU(yoyo930021)
+      Description:
+          This function's purpose is to communicate with Announce query api
+      Usage:
+          parameter:
+              String sort : Query Information:
+	          Callback<List<AnnounceResponse>> callback: Callback
+    */
+	public void getAnnounce(String sort,Callback<List<AnnounceResponse>> callback) {
+		Call<List<AnnounceResponse>> call = newsApi.getAnnounce(sort);
+		call.enqueue(callback);
+	}
 
+	/*
+      Author: IU(yoyo930021)
+      Description:
+          This function's purpose is to communicate with QandA query api
+      Usage:
+          parameter:
+	          Callback<List<QandaResponse>> callback: Callback
+    */
+	public void getQanda(Callback<List<QandaResponse>> callback) {
+		Call<List<QandaResponse>> call = newsApi.getQandA();
+		call.enqueue(callback);
+	}
+
+	/*
+      Author: IU(yoyo930021)
+      Description:
+          This function's purpose is to communicate with relatedlink query api
+      Usage:
+          parameter:
+	          Callback<List<RelatedlinkResponse>> callback: Callback
+    */
+	public void getLink(Callback<List<RelatedlinkResponse>> callback) {
+		Call<List<RelatedlinkResponse>> call = newsApi.getLink();
+		call.enqueue(callback);
+	}
+
+	/*
+      Author: IU(yoyo930021)
+      Description:
+          This function's purpose is to communicate with feedback api
+      Usage:
+	      feedClass : feed class
+	      commit : feed body
+	      system : mobile info
+          parameter:
+
+    */
+	public void postFB(String feedClass,String commit,String system,Callback<StatusResponse> callback) {
+		Call<StatusResponse> call = menuApi.postFB(feedClass,commit,system);
+		call.enqueue(callback);
+	}
 
 }
 

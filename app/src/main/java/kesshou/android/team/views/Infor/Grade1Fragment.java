@@ -1,4 +1,4 @@
-package kesshou.android.team.views.Infor;
+package kesshou.android.team.views.infor;
 
 
 import android.content.Context;
@@ -21,14 +21,16 @@ import com.github.mikephil.charting.data.RadarEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import io.realm.Realm;
 import kesshou.android.team.R;
 import kesshou.android.team.models.NetWorkCache;
+import kesshou.android.team.util.BeautifulColor;
 import kesshou.android.team.util.network.MyCallBack;
 import kesshou.android.team.util.network.NetworkingClient;
 import kesshou.android.team.util.network.api.holder.Error;
@@ -50,9 +52,9 @@ public class Grade1Fragment {
 		// Inflate the layout for this fragment
 		final View view = LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.fragment_grade1,null);
 
-		final Realm realm = Realm.getDefaultInstance();
+		Realm realm = Realm.getDefaultInstance();
 
-		final NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+		NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
 
 		final NetworkingClient networkingClient = new NetworkingClient(context.getApplicationContext());
 
@@ -66,61 +68,15 @@ public class Grade1Fragment {
 			networkingClient.querySEScore(1, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
 				@Override
 				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
+					Realm realm = Realm.getDefaultInstance();
 					realm.executeTransaction(new Realm.Transaction() {
 						@Override
 						public void execute(Realm realm) {
+							NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
 							netWorkCache.sectionalexamscore1=gson.toJson(response.body());
 						}
 					});
-					//drawChart(radarChart1,"上學期",response.body());
-				}
-
-				@Override
-				public void onErr(Error error) {
-
-				}
-			});
-
-			networkingClient.querySEScore(2, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
-				@Override
-				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
-					realm.executeTransaction(new Realm.Transaction() {
-						@Override
-						public void execute(Realm realm) {
-							netWorkCache.sectionalexamscore2=gson.toJson(response.body());
-						}
-					});
-					//drawChart(radarChart2,"下學期",response.body());
-				}
-
-				@Override
-				public void onErr(Error error) {
-
-				}
-			});
-
-		}else{
-
-//			String section1 = realm.where(NetWorkCache.class).findFirst().sectionalexamscore1;
-//			String section2 = realm.where(NetWorkCache.class).findFirst().sectionalexamscore2;
-//
-//			Type listType = new TypeToken<List<SectionalExamResponse>>() {}.getType();
-//			List<SectionalExamResponse> examResponses1= gson.fromJson(section1,listType);
-//			drawChart(radarChart1,"上學期",examResponses1);
-//
-//			List<SectionalExamResponse> examResponses2= gson.fromJson(section2,listType);
-//			drawChart(radarChart2,"上學期",examResponses2);
-
-			networkingClient.querySEScore(1, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
-				@Override
-				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
-					//Log.d("oao",response.body().toString());
-					realm.executeTransaction(new Realm.Transaction() {
-						@Override
-						public void execute(Realm realm) {
-							netWorkCache.sectionalexamscore1=gson.toJson(response.body());
-						}
-					});
+					realm.close();
 					drawChart(radarChart1,"上學期",response.body());
 				}
 
@@ -133,12 +89,67 @@ public class Grade1Fragment {
 			networkingClient.querySEScore(2, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
 				@Override
 				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
+					Realm realm = Realm.getDefaultInstance();
 					realm.executeTransaction(new Realm.Transaction() {
 						@Override
 						public void execute(Realm realm) {
+							NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
 							netWorkCache.sectionalexamscore2=gson.toJson(response.body());
 						}
 					});
+					realm.close();
+					drawChart(radarChart2,"下學期",response.body());
+				}
+
+				@Override
+				public void onErr(Error error) {
+
+				}
+			});
+
+		}else{
+
+			Type listType = new TypeToken<List<SectionalExamResponse>>() {}.getType();
+			List<SectionalExamResponse> examResponses1= gson.fromJson(netWorkCache.sectionalexamscore1,listType);
+			drawChart(radarChart1,"上學期",examResponses1);
+
+			List<SectionalExamResponse> examResponses2= gson.fromJson(netWorkCache.sectionalexamscore2,listType);
+			drawChart(radarChart2,"上學期",examResponses2);
+
+			networkingClient.querySEScore(1, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
+				@Override
+				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
+					//Log.d("oao",response.body().toString());
+					Realm realm = Realm.getDefaultInstance();
+					realm.executeTransaction(new Realm.Transaction() {
+						@Override
+						public void execute(Realm realm) {
+							NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+							netWorkCache.sectionalexamscore1=gson.toJson(response.body());
+						}
+					});
+					realm.close();
+					drawChart(radarChart1,"上學期",response.body());
+				}
+
+				@Override
+				public void onErr(Error error) {
+
+				}
+			});
+
+			networkingClient.querySEScore(2, new MyCallBack<List<SectionalExamResponse>>(context.getApplicationContext()) {
+				@Override
+				public void onSuccess(final Response<List<SectionalExamResponse>> response) {
+					Realm realm = Realm.getDefaultInstance();
+					realm.executeTransaction(new Realm.Transaction() {
+						@Override
+						public void execute(Realm realm) {
+							NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+							netWorkCache.sectionalexamscore2=gson.toJson(response.body());
+						}
+					});
+					realm.close();
 					drawChart(radarChart2,"下學期",response.body());
 				}
 
@@ -194,7 +205,7 @@ public class Grade1Fragment {
 				}
 			}
 
-			int randomColor = getRandomColor();
+			int randomColor = BeautifulColor.getRandomColor();
 			RadarDataSet set1 = new RadarDataSet(yVals1, "第一次段考");
 			set1.setColor(randomColor);
 			set1.setFillColor(randomColor);
@@ -204,45 +215,45 @@ public class Grade1Fragment {
 			set1.setDrawHighlightCircleEnabled(true);
 			set1.setDrawHighlightIndicators(false);
 
-			randomColor = getRandomColor();
+			randomColor = BeautifulColor.getRandomColor();
 			RadarDataSet set2 = new RadarDataSet(yVals2, "第二次段考");
-			set1.setColor(randomColor);
-			set1.setFillColor(randomColor);
-			set1.setDrawFilled(true);
-			set1.setFillAlpha(180);
-			set1.setLineWidth(2f);
-			set1.setDrawHighlightCircleEnabled(true);
-			set1.setDrawHighlightIndicators(false);
+			set2.setColor(randomColor);
+			set2.setFillColor(randomColor);
+			set2.setDrawFilled(true);
+			set2.setFillAlpha(180);
+			set2.setLineWidth(2f);
+			set2.setDrawHighlightCircleEnabled(true);
+			set2.setDrawHighlightIndicators(false);
 
-			randomColor = getRandomColor();
+			randomColor = BeautifulColor.getRandomColor();
 			RadarDataSet set3 = new RadarDataSet(yVals3, "第三次段考");
-			set1.setColor(randomColor);
-			set1.setFillColor(randomColor);
-			set1.setDrawFilled(true);
-			set1.setFillAlpha(180);
-			set1.setLineWidth(2f);
-			set1.setDrawHighlightCircleEnabled(true);
-			set1.setDrawHighlightIndicators(false);
+			set3.setColor(randomColor);
+			set3.setFillColor(randomColor);
+			set3.setDrawFilled(true);
+			set3.setFillAlpha(180);
+			set3.setLineWidth(2f);
+			set3.setDrawHighlightCircleEnabled(true);
+			set3.setDrawHighlightIndicators(false);
 
-			randomColor = getRandomColor();
+			randomColor = BeautifulColor.getRandomColor();
 			RadarDataSet set4 = new RadarDataSet(yVals4, "平時成績");
-			set1.setColor(randomColor);
-			set1.setFillColor(randomColor);
-			set1.setDrawFilled(true);
-			set1.setFillAlpha(180);
-			set1.setLineWidth(2f);
-			set1.setDrawHighlightCircleEnabled(true);
-			set1.setDrawHighlightIndicators(false);
+			set4.setColor(randomColor);
+			set4.setFillColor(randomColor);
+			set4.setDrawFilled(true);
+			set4.setFillAlpha(180);
+			set4.setLineWidth(2f);
+			set4.setDrawHighlightCircleEnabled(true);
+			set4.setDrawHighlightIndicators(false);
 
-			randomColor = getRandomColor();
+			randomColor = BeautifulColor.getRandomColor();
 			RadarDataSet set5 = new RadarDataSet(yVals5, "期末平均");
-			set1.setColor(randomColor);
-			set1.setFillColor(randomColor);
-			set1.setDrawFilled(true);
-			set1.setFillAlpha(180);
-			set1.setLineWidth(2f);
-			set1.setDrawHighlightCircleEnabled(true);
-			set1.setDrawHighlightIndicators(false);
+			set5.setColor(randomColor);
+			set5.setFillColor(randomColor);
+			set5.setDrawFilled(true);
+			set5.setFillAlpha(180);
+			set5.setLineWidth(2f);
+			set5.setDrawHighlightCircleEnabled(true);
+			set5.setDrawHighlightIndicators(false);
 
 			ArrayList<IRadarDataSet> sets = new ArrayList<>();
 			sets.add(set1);
@@ -305,11 +316,11 @@ public class Grade1Fragment {
 			limitLine.setLineWidth(2);
 
 			LimitLine limitLine1 = new LimitLine(100);
-			limitLine1.setLineColor(Color.BLUE);
+			limitLine1.setLineColor(Color.LTGRAY);
 			limitLine1.setLineWidth(2);
 
 			yAxis.addLimitLine(limitLine);
-			yAxis.addLimitLine(limitLine1);
+			//yAxis.addLimitLine(limitLine1);
 
 			Legend l = radarChart.getLegend();
 			l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
@@ -323,10 +334,5 @@ public class Grade1Fragment {
 
 			radarChart.invalidate();
 		}
-	}
-
-	public int getRandomColor(){
-		Random rnd = new Random();
-		return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
 	}
 }

@@ -1,4 +1,4 @@
-package kesshou.android.team.views.Infor;
+package kesshou.android.team.views.infor;
 
 
 import android.content.Context;
@@ -35,9 +35,9 @@ public class PrizeFragment {
 		// Inflate the layout for this fragment
 		final View view = LayoutInflater.from(context).inflate(R.layout.fragment_prize, null);
 
-		final Realm realm = Realm.getDefaultInstance();
+		Realm realm = Realm.getDefaultInstance();
 
-		final NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+		NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
 
 		final Gson gson = new Gson();
 
@@ -47,9 +47,12 @@ public class PrizeFragment {
 			networkingClient.getATS(new MyCallBack<AttitudeStatusResponse>(context) {
 				@Override
 				public void onSuccess(Response<AttitudeStatusResponse> response) {
+					Realm realm = Realm.getDefaultInstance();
+					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
 					realm.beginTransaction();
 					netWorkCache.prize=gson.toJson(response.body());
 					realm.commitTransaction();
+					realm.close();
 
 					drawTop(view,response.body().count);
 					drawBody(context,view,response.body().status);
@@ -64,9 +67,12 @@ public class PrizeFragment {
 			networkingClient.getATS(new MyCallBack<AttitudeStatusResponse>(context) {
 				@Override
 				public void onSuccess(Response<AttitudeStatusResponse> response) {
+					Realm realm = Realm.getDefaultInstance();
+					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
 					realm.beginTransaction();
 					netWorkCache.prize=gson.toJson(response.body());
 					realm.commitTransaction();
+					realm.close();
 
 					drawTop(view,response.body().count);
 					drawBody(context,view,response.body().status);
@@ -123,6 +129,7 @@ public class PrizeFragment {
 
 			layout.addView(item);
 		}
+
 	}
 
 }

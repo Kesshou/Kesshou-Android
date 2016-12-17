@@ -1,6 +1,5 @@
 package kesshou.android.team.models;
 
-import io.realm.RealmList;
 import io.realm.RealmObject;
 
 /**
@@ -13,6 +12,13 @@ public class NetWorkCache extends RealmObject {
 	public String timeTable;
 	public String record;
 	public String prize;
-	public RealmList<Strings> histroyScore1;
-	public RealmList<Strings> histroyScore2;
+	public String histroyScore11;
+	public String histroyScore12;
+	public String histroyScore21;
+	public String histroyScore22;
+	public String histroyScore31;
+	public String histroyScore32;
+	public String calc;
+	public String qanda;
+	public String relatedlink;
 }

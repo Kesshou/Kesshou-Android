@@ -1,4 +1,4 @@
-package kesshou.android.team.views.Main;
+package kesshou.android.team.views.main;
 
 
 import android.os.Bundle;

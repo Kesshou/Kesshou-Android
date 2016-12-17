@@ -59,7 +59,7 @@ public abstract class MyCallBack<t> implements Callback<t> {
 	@Override
 	public void onFailure(Call<t> call, Throwable t) {
 		Log.e("network error",t.getMessage());
-		ToastUtils.makeTextAndShow(context,"網路錯誤",Toast.LENGTH_SHORT, Gravity.CENTER);
+		ToastUtils.makeTextAndShow(context,"網路錯誤或無網路",Toast.LENGTH_SHORT, Gravity.CENTER);
 	}
 
 	public abstract void onSuccess(Response<t> response);

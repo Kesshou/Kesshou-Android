@@ -106,4 +106,7 @@
 	<string name="infor_grade2_grade1">一年級</string>
 	<string name="infor_grade2_grade2">二年級</string>
 	<string name="infor_grade2_grade3">三年級</string>
+
+	<string name="infor_grade2_semember1">上學期</string>
+	<string name="infor_grade2_semember2">下學期</string>
 </resources>

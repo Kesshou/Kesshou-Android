@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="true"
+	android:theme="@style/AppTheme.NoActionBar"
+	android:background="@color/white"
+	tools:context="kesshou.android.team.views.ContentActivity">
+
+	<android.support.design.widget.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:elevation="0dp"
+		android:background="@color/white"
+		android:theme="@style/AppTheme.AppBarOverlay">
+
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:background="@android:color/transparent"
+			android:theme="@style/ToolbarColoredBackArrow"
+			android:popupTheme="@style/AppTheme.PopupOverlay"/>
+	</android.support.design.widget.AppBarLayout>
+
+	<!--<ScrollView-->
+		<!--android:layout_marginTop="70dp"-->
+		<!--android:layout_width="match_parent"-->
+		<!--android:layout_height="match_parent"-->
+		<!--android:fitsSystemWindows="true">-->
+	<LinearLayout
+		android:id="@+id/content"
+		android:orientation="vertical"
+		android:gravity="center_horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="40dp"
+		android:background="@color/white"
+		android:layout_marginLeft="16dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginRight="16dp"
+		android:layout_marginEnd="16dp">
+
+		<TextView
+			android:layout_margin="0dp"
+			android:text="「2017 台灣彰化燈會」全國花燈競賽實施計畫"
+			android:textSize="18sp"
+			android:textColor="@color/black"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/title"
+			android:layout_marginTop="0dp"
+			android:background="@color/white"/>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:paddingTop="5dp">
+			<TextView
+				android:text="學務處/陳育誠"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:id="@+id/author"
+				android:textColor="@color/gray"
+				android:textSize="16sp"
+				android:gravity="left"
+				android:layout_weight="1"/>
+			<TextView
+				android:text="學生事務"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:id="@+id/sort"
+				android:textColor="@color/gray"
+				android:textSize="16sp"
+				android:gravity="center"
+				android:layout_weight="1"/>
+			<TextView
+				android:text="2016/12/5"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:id="@+id/date"
+				android:textColor="@color/gray"
+				android:textSize="16sp"
+				android:gravity="right"
+				android:layout_weight="1"/>
+		</LinearLayout>
+
+		<WebView
+			android:id="@+id/content_main"
+			android:layout_marginTop="10dp"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/white"/>
+
+	</LinearLayout>
+	<!--</ScrollView>-->
+
+
+</android.support.design.widget.CoordinatorLayout>

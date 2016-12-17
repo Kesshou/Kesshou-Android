@@ -26,10 +26,10 @@
 				android:padding="8dp"
 				android:text="@string/infor_grade2_grade3"/>
 
-			<com.github.mikephil.charting.charts.BarChart
+			<com.github.mikephil.charting.charts.HorizontalBarChart
 				android:id="@+id/chart3"
 				android:layout_width="match_parent"
-				android:layout_height="400dp" />
+				android:layout_height="500dp" />
 		</LinearLayout>
 
 		<LinearLayout
@@ -52,10 +52,10 @@
 				android:padding="8dp"
 				android:text="@string/infor_grade2_grade2"/>
 
-			<com.github.mikephil.charting.charts.BarChart
+			<com.github.mikephil.charting.charts.HorizontalBarChart
 				android:id="@+id/chart2"
 				android:layout_width="match_parent"
-				android:layout_height="400dp" />
+				android:layout_height="500dp" />
 		</LinearLayout>
 
 		<LinearLayout
@@ -78,10 +78,10 @@
 				android:padding="8dp"
 				android:text="@string/infor_grade2_grade1"/>
 
-			<com.github.mikephil.charting.charts.BarChart
+			<com.github.mikephil.charting.charts.HorizontalBarChart
 				android:id="@+id/chart1"
 				android:layout_width="match_parent"
-				android:layout_height="400dp" />
+				android:layout_height="500dp" />
 		</LinearLayout>
 
 	</LinearLayout>

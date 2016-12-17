@@ -32,6 +32,7 @@
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:textColor="@color/gray"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -52,6 +53,7 @@
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:textColor="@color/gray"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -72,6 +74,7 @@
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:textColor="@color/gray"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -101,6 +104,7 @@
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:textColor="@color/gray"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -121,6 +125,7 @@
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:textColor="@color/gray"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -141,6 +146,7 @@
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:textColor="@color/gray"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -161,6 +167,7 @@
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:textColor="@color/gray"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 

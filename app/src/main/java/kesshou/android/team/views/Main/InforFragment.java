@@ -1,4 +1,4 @@
-package kesshou.android.team.views.Main;
+package kesshou.android.team.views.main;
 
 
 import android.graphics.drawable.GradientDrawable;
@@ -51,8 +51,8 @@ public class InforFragment extends Fragment {
 			gd.setShape(GradientDrawable.OVAL);
 			gd.setStroke(8, ContextCompat.getColor(getActivity().getApplicationContext(), R.color.white));
 			headerImage.setBackground(gd);
-			headerImage.setText(setting.classX.charAt(0)+"");
-			headerImage.setTextSize(48);
+			headerImage.setText(String.valueOf(setting.classX.charAt(0)));
+			headerImage.setTextSize(36);
 
 			TextView headerName = (TextView) rootView.findViewById(R.id.header_name);
 			headerName.setText(setting.name);
@@ -104,6 +104,7 @@ public class InforFragment extends Fragment {
 			recyclerView.addItemDecoration(new ListDecoration());
 			recyclerView.setItemAnimator(new DefaultItemAnimator());
 
+			realm.close();
 		}
 
 		return rootView;
