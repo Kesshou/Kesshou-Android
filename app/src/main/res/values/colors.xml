@@ -3,6 +3,7 @@
 	<color name="colorPrimary">@color/amber_700</color>
 	<color name="colorPrimaryDark">@color/orange_500</color>
 	<color name="colorAccent">@color/blue_500</color>
+	<color name="colorImAccent">@color/blue_800</color>
 
 	<!--
 	    Google Material Design Color Palette for Android http://www.google.com/design/spec/style/color.html#color-ui-color-palette
@@ -294,4 +295,8 @@
 
 	<color name="transparent_half">#88000000</color>
 	<color name="gray">#808080</color>
+
+	<color name="black_transparent">#c8000000</color>
+	<color name="white_transparent">#8dffffff</color>
+	<color name="grey_transparent">#8dbdbdbd</color>
 </resources>

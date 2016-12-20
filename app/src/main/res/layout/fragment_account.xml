@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	tools:context=".views.Regist.AccountFragment">
+	tools:context=".views.regist.AccountFragment">
 
 	<ScrollView
 		android:layout_width="match_parent"
@@ -17,9 +18,9 @@
 			<TextView
 				android:id="@+id/topPanel"
 				android:layout_width="match_parent"
-				android:layout_height="200dp"
+				android:layout_height="150dp"
 				android:text="@string/regist_account"
-				android:textSize="30sp"
+				android:textSize="24sp"
 				android:textColor="@color/white"
 				android:background="@color/colorPrimary"
 
@@ -39,7 +40,7 @@
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="32dp"
 				android:paddingBottom="16dp"
-				android:textSize="20sp"
+				android:textSize="18sp"
 				android:textColor="@color/black"
 				android:text="@string/regist_account_help"/>
 
@@ -60,7 +61,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:inputType="text"
-					android:textSize="20sp"
+					android:textSize="18sp"
 					android:hint="@string/regist_account_nick" />
 			</android.support.design.widget.TextInputLayout>
 
@@ -81,7 +82,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:inputType="textEmailAddress"
-					android:textSize="20sp"
+					android:textSize="18sp"
 					android:hint="@string/regist_account_account" />
 			</android.support.design.widget.TextInputLayout>
 
@@ -105,7 +106,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:inputType="textPassword"
-					android:textSize="20sp"
+					android:textSize="18sp"
 					android:hint="@string/regist_account_pwd"/>
 			</android.support.design.widget.TextInputLayout>
 
@@ -120,6 +121,8 @@
 				android:paddingTop="0dp"
 				android:paddingBottom="0dp"
 
+				android:layout_marginBottom="60dp"
+
 				app:counterEnabled="true"
 				app:counterMaxLength="40"
 				app:counterOverflowTextAppearance="@style/TextInputError"
@@ -129,7 +132,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:inputType="textPassword"
-					android:textSize="20sp"
+					android:textSize="18sp"
 					android:hint="@string/regist_account_repwd"/>
 			</android.support.design.widget.TextInputLayout>
 		</LinearLayout>
@@ -143,29 +146,25 @@
 		android:orientation="horizontal"
 		android:layout_alignParentBottom="true"
 		android:background="@color/grey_300"
-		android:paddingStart="@dimen/regist_hl_padding"
-		android:paddingEnd="@dimen/regist_hl_padding"
-		android:paddingTop="16dp"
-		android:paddingBottom="16dp">
+		android:paddingStart="26dp"
+		android:paddingEnd="26dp"
+		android:paddingTop="8dp"
+		android:paddingBottom="8dp">
 
 		<android.support.v7.widget.AppCompatButton
 			android:id="@+id/PreButton"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:background="@color/grey_300"
 			android:text="@string/regist_step_pre"
-			android:textColor="@color/gray"
 			android:textSize="20sp"
-			style="?android:buttonBarButtonStyle"/>
+			style="@style/GreyButton"/>
 
-		<LinearLayout
+		<ImageView
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:orientation="horizontal"
-			android:layout_weight="1">
-
-		</LinearLayout>
+			android:layout_weight="1"
+			android:src="@drawable/flow3"/>
 
 
 		<android.support.v7.widget.AppCompatButton
@@ -173,11 +172,9 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
-			android:background="@color/grey_300"
 			android:text="@string/regist_step_next"
-			android:textColor="@color/gray"
 			android:textSize="20sp"
-			style="?android:buttonBarButtonStyle" />
+			style="@style/GreyButton" />
 	</LinearLayout>
 </RelativeLayout>
 

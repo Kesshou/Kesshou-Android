@@ -4,4 +4,8 @@
 	<dimen name="activity_vertical_margin">16dp</dimen>
 
 	<dimen name="regist_hl_padding">36dp</dimen>
+	<dimen name="fab_margin">16dp</dimen>
+
+	<dimen name="attend_top_item_name">20sp</dimen>
+	<dimen name="attend_top_item_value">38sp</dimen>
 </resources>

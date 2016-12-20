@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout
+		android:id="@+id/list"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="16dp"
+		android:gravity="center"
+		android:theme="@style/AppTheme"
+		android:background="@color/white">
+
+		<RadioGroup
+			android:id="@+id/rd_group"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+
+			<android.support.v7.widget.AppCompatRadioButton
+				android:id="@+id/rd_lose"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:lines="1"
+				android:text="功能失效" />
+
+			<android.support.v7.widget.AppCompatRadioButton
+				android:id="@+id/rd_lag"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:lines="1"
+				android:text="lag問題" />
+
+			<android.support.v7.widget.AppCompatRadioButton
+				android:id="@+id/rd_crash"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:lines="1"
+				android:text="程式崩潰" />
+
+			<android.support.v7.widget.AppCompatRadioButton
+				android:id="@+id/rd_sug"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:lines="1"
+				android:text="意見建議" />
+		</RadioGroup>
+
+
+		<android.support.design.widget.TextInputEditText
+			android:id="@+id/fb_commit"
+			android:layout_width="match_parent"
+			android:layout_height="200dp"
+			android:gravity="start"
+			android:inputType="textImeMultiLine|textLongMessage|textMultiLine" />
+
+		<android.support.v7.widget.AppCompatButton
+			android:id="@+id/btn_submit"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:theme="@style/BlueButton"
+			style="@style/BlueButton"
+			android:text="送出"
+			android:textSize="24sp" />
+	</LinearLayout>
+</ScrollView>
