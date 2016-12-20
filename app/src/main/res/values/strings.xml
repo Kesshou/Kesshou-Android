@@ -86,6 +86,7 @@
 	<string name="main_menu_opinion_help">Feedback</string>
 	<string name="main_menu_about">About</string>
 	<string name="main_menu_about_help">About</string>
+	<string name="main_menu_logout">Logout</string>
 
 	<string name="infor_top_item_absence">Absence</string>
 	<string name="infor_top_item_late">Late</string>
@@ -108,6 +109,17 @@
 
 	<string name="infor_grade2_semember1">Last semester</string>
 	<string name="infor_grade2_semember2">Next semester</string>
+
+	<string name="menu_info_info">Enter Old Password,Enter All.</string>
+	<string name="menu_info_old_password">Old Password（Required）</string>
+	<string name="menu_info_new_school_pwd">New School Password（Required）</string>
+	<string name="menu_info_new_nick">New Nick（Required）</string>
+	<string name="menu_info_new_account">New Email（Required）</string>
+	<string name="menu_info_new_password">New Password（Required）</string>
+	
+	<string name="menu_is_noti">Do you want to get  Notification?</string>
+
+	<string name="version">Powered by Kesshou® , DaanX v2.0.0</string>
 
 	<string name="no_data">No Data</string>
 </resources>

@@ -7,7 +7,7 @@
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true"
 	android:theme="@style/AppTheme.NoActionBar"
-	tools:context="kesshou.android.team.views.ContentActivity">
+	tools:context="kesshou.android.daanx.views.ContentActivity">
 
 	<android.support.design.widget.AppBarLayout
 		android:layout_width="match_parent"
@@ -21,8 +21,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="?attr/actionBarSize"
 			android:background="@android:color/transparent"
-			android:theme="@style/ToolbarColoredBackArrow"
-			android:popupTheme="@style/AppTheme.PopupOverlay"/>
+			android:theme="@style/ToolbarColoredBackArrow"/>
 	</android.support.design.widget.AppBarLayout>
 
 	<!--<ScrollView-->

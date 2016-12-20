@@ -19,11 +19,13 @@
 			android:layout_height="wrap_content"
 			android:orientation="horizontal">
 
+
 			<android.support.v7.widget.AppCompatRadioButton
 				android:id="@+id/rd_lose"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
+				android:lines="1"
 				android:text="功能失效" />
 
 			<android.support.v7.widget.AppCompatRadioButton
@@ -31,6 +33,7 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
+				android:lines="1"
 				android:text="lag問題" />
 
 			<android.support.v7.widget.AppCompatRadioButton
@@ -38,12 +41,14 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
+				android:lines="1"
 				android:text="程式崩潰" />
 
 			<android.support.v7.widget.AppCompatRadioButton
 				android:id="@+id/rd_sug"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:lines="1"
 				android:text="意見建議" />
 		</RadioGroup>
 
@@ -60,6 +65,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:theme="@style/BlueButton"
+			style="@style/BlueButton"
 			android:text="送出"
 			android:textSize="24sp" />
 	</LinearLayout>

@@ -12,9 +12,10 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/icon"
-		app:srcCompat="@drawable/ic_infor_gray"
+		android:src="@drawable/ic_infor"
 		android:layout_marginTop="16dp"
 		app:layout_constraintTop_toTopOf="parent"
+		android:layout_marginLeft="32dp"
 		android:layout_marginStart="32dp"
 		app:layout_constraintLeft_toLeftOf="parent"
 		app:layout_constraintBottom_toBottomOf="parent"
@@ -28,6 +29,7 @@
 		android:textColor="@color/grey_900"
 		android:textSize="18sp"
 		android:layout_marginStart="24dp"
+		android:layout_marginLeft="24dp"
 		app:layout_constraintLeft_toRightOf="@+id/icon"
 		app:layout_constraintBottom_toBottomOf="parent"
 		android:layout_marginBottom="16dp"
@@ -47,7 +49,8 @@
 		app:layout_constraintTop_toTopOf="parent"
 		app:layout_constraintBottom_toBottomOf="parent"
 		android:layout_marginBottom="16dp"
-		android:layout_marginEnd="32dp"/>
+		android:layout_marginEnd="32dp"
+		android:layout_marginRight="32dp"/>
 
 	<TextView
 		android:textSize="20sp"
@@ -59,5 +62,6 @@
 		app:layout_constraintBottom_toBottomOf="parent"
 		android:layout_marginBottom="16dp"
 		app:layout_constraintRight_toLeftOf="@+id/textView2"
+		android:layout_marginRight="32dp"
 		android:layout_marginEnd="32dp"/>
 </android.support.constraint.ConstraintLayout>

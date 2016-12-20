@@ -6,7 +6,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true"
-	tools:context="kesshou.android.team.views.news.NewsActivity">
+	tools:context="kesshou.android.daanx.views.news.NewsActivity">
 
 	<android.support.design.widget.AppBarLayout
 		android:layout_width="match_parent"
@@ -23,6 +23,7 @@
 	</android.support.design.widget.AppBarLayout>
 
 	<LinearLayout
+		android:id="@+id/content"
 		android:orientation="vertical"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"

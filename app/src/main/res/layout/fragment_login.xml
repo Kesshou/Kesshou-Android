@@ -9,7 +9,7 @@
               android:paddingEnd="@dimen/regist_hl_padding"
               android:paddingTop="0dp"
               android:paddingBottom="0dp"
-              tools:context="kesshou.android.team.views.regist.LoginFragment">
+              tools:context="kesshou.android.daanx.views.regist.LoginFragment">
 
 	<!-- TODO: Update blank fragment layout -->
 

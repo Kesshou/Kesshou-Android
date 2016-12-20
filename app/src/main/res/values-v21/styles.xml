@@ -1,2 +1,60 @@
 <resources>
+
+	<!-- Base application theme. -->
+	<style name="AppTheme" parent="Theme.AppCompat.Light">
+		<!-- Customize your theme here. -->
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+		<item name="android:textColor">#FF808080</item>
+		<item name="android:colorEdgeEffect">@color/gray</item>
+	</style>
+
+	<style name="AppTheme.NoActionBar" parent="AppTheme">
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+		<item name="android:textColor">#FF808080</item>
+	</style>
+
+	<style name="TextInputError" parent="TextAppearance.AppCompat.Small">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">#ff0000</item>
+	</style>
+
+	<style name="BlueButton" parent="Widget.AppCompat.Button.Colored">
+		<item name="android:textColor">@color/white</item>
+		<item name="colorButtonNormal">@color/blue_500</item>
+	</style>
+
+	<style name="RedButton" parent="Widget.AppCompat.Button.Colored">
+		<item name="android:textColor">@color/white</item>
+		<item name="colorButtonNormal">@color/red_500</item>
+	</style>
+
+	<style name="GreyButton" parent="@style/Base.Widget.AppCompat.Button.Borderless">
+		<item name="android:textColor">@color/gray</item>
+		<item name="colorButtonNormal">@color/grey_300</item>
+	</style>
+
+	<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+	<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+	<style name="loading_dialog" parent="Base.Animation.AppCompat.Dialog">
+		<item name="android:windowFrame">@null</item>       <!-- Dialog的windowFrame框为无 -->
+		<item name="android:windowBackground">@drawable/bg_black_transparent
+		</item> <!-- 设置dialog的背景 -->
+		<item name="android:windowNoTitle">true</item>      <!-- 是否显示title -->
+		<item name="android:windowIsTranslucent">false</item>    <!-- 是否半透明 -->
+		<item name="android:windowIsFloating">true</item>       <!-- 是否浮现在activity之上 -->
+		<item name="android:windowContentOverlay">@android:color/transparent
+		</item>  <!-- 也是个drawable，定义contentoverlay的背景 -->
+		<item name="android:backgroundDimEnabled">false</item>  <!-- 背景是否模糊显示 -->
+	</style>
+
+	<style name="ToolbarColoredBackArrow" parent="AppTheme">
+		<item name="android:textColorSecondary">@color/colorImAccent</item>
+	</style>
+
+
 </resources>

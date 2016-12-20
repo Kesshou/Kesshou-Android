@@ -49,6 +49,8 @@
 -dontwarn android.test.**
 -dontwarn android.support.test.**
 -dontwarn org.junit.**
+-dontwarn java.lang.invoke**
+-dontwarn sun.misc.**
 
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
