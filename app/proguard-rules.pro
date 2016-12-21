@@ -84,7 +84,7 @@
 -keep interface okhttp3.** { *; }
 -dontwarn okhttp3.**
 
-
+-printmapping build/outputs/mapping/release/mapping.txt
 -keep class com.bumptech.glide.integration.okhttp3.OkHttpGlideModule
 
 -keepattributes InnerClasses

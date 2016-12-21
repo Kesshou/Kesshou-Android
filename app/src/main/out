@@ -1,0 +1,210 @@
+[01;34m./[00m
+├── AndroidManifest.xml
+├── ic_launcher-web.png
+├── [01;34mjava[00m
+│   └── [01;34mkesshou[00m
+│       └── [01;34mandroid[00m
+│           └── [01;34mdaanx[00m
+│               ├── MyApplication.java
+│               ├── [01;34mmodels[00m
+│               │   ├── NetWorkCache.java
+│               │   ├── NotiSetting.java
+│               │   └── Setting.java
+│               ├── [01;34mservice[00m
+│               │   ├── MyFirebaseInstanceIDService.java
+│               │   └── MyFirebaseMessagingService.java
+│               ├── [01;34mutil[00m
+│               │   ├── ActivityUtils.java
+│               │   ├── [01;34mAdapter[00m
+│               │   │   ├── FragmentViewPagerAdapter.java
+│               │   │   ├── ListDecoration.java
+│               │   │   ├── MenuListAdapter.java
+│               │   │   ├── MenuTableAdapter.java
+│               │   │   ├── NewsListAdapter.java
+│               │   │   ├── NewsListDecoration.java
+│               │   │   ├── TableDecoration.java
+│               │   │   └── [01;34mholder[00m
+│               │   │       └── Menu.java
+│               │   ├── BeautifulColor.java
+│               │   ├── ChromeTabHelper.java
+│               │   ├── ContentRouter.java
+│               │   ├── UnitConvert.java
+│               │   ├── ViewShareUtils.java
+│               │   ├── [01;34mcomponent[00m
+│               │   │   ├── DialogUtils.java
+│               │   │   └── ToastUtils.java
+│               │   ├── [01;34mimage[00m
+│               │   │   └── ImageLoader.java
+│               │   └── [01;34mnetwork[00m
+│               │       ├── Config.java
+│               │       ├── ErrorUtils.java
+│               │       ├── MyCallBack.java
+│               │       ├── NetworkingClient.java
+│               │       ├── [01;34mapi[00m
+│               │       │   ├── AccountApi.java
+│               │       │   ├── InforApi.java
+│               │       │   ├── MenuApi.java
+│               │       │   ├── NewsApi.java
+│               │       │   └── [01;34mholder[00m
+│               │       │       ├── AbsentstateResponse.java
+│               │       │       ├── AnnounceResponse.java
+│               │       │       ├── AttitudeStatusResponse.java
+│               │       │       ├── CalenderResponse.java
+│               │       │       ├── CheckRegist.java
+│               │       │       ├── Error.java
+│               │       │       ├── HistoryScoreResponse.java
+│               │       │       ├── Login.java
+│               │       │       ├── QandaResponse.java
+│               │       │       ├── Register.java
+│               │       │       ├── RelatedlinkResponse.java
+│               │       │       ├── SectionalExamResponse.java
+│               │       │       ├── StatusResponse.java
+│               │       │       ├── TimeTableResponse.java
+│               │       │       ├── Token.java
+│               │       │       ├── Update.java
+│               │       │       └── UserInfoResponse.java
+│               │       └── [01;34mclient[00m
+│               │           ├── OkHttpUtil.java
+│               │           └── RetrofitClient.java
+│               └── [01;34mviews[00m
+│                   ├── ContentActivity.java
+│                   ├── MainActivity.java
+│                   ├── StartActivity.java
+│                   ├── [01;34minfor[00m
+│                   │   ├── Grade1Fragment.java
+│                   │   ├── Grade2Fragment.java
+│                   │   ├── PrizeFragment.java
+│                   │   ├── RecordFragment.java
+│                   │   └── TimeTableFragment.java
+│                   ├── [01;34mmain[00m
+│                   │   ├── ForumFragment.java
+│                   │   ├── InforFragment.java
+│                   │   ├── MenuFragment.java
+│                   │   └── NewsFragment.java
+│                   ├── [01;34mmenu[00m
+│                   │   ├── FeedBackFragment.java
+│                   │   ├── InfoFragment.java
+│                   │   └── NotiFragment.java
+│                   ├── [01;34mnews[00m
+│                   │   ├── CalcActivity.java
+│                   │   ├── ItemActivity.java
+│                   │   ├── LinkFragment.java
+│                   │   ├── NewsActivity.java
+│                   │   └── QandAFragment.java
+│                   └── [01;34mregist[00m
+│                       ├── AccountFragment.java
+│                       ├── GroupFragment.java
+│                       ├── LoadingFragment.java
+│                       ├── LoginFragment.java
+│                       ├── SchoolFragment.java
+│                       └── TermsFragment.java
+├── out
+└── [01;34mres[00m
+    ├── [01;34manim[00m
+    │   └── loading_animation.xml
+    ├── [01;34mdrawable[00m
+    │   ├── bg_black_transparent.xml
+    │   ├── btn_back_blue.xml
+    │   ├── btn_back_white.xml
+    │   ├── btn_share_blue.xml
+    │   ├── btn_share_white.xml
+    │   ├── flow1.xml
+    │   ├── flow2.xml
+    │   ├── flow3.xml
+    │   ├── flow4.xml
+    │   ├── flow5.xml
+    │   ├── ic_book.xml
+    │   ├── ic_calc.xml
+    │   ├── ic_close.xml
+    │   ├── ic_event_seat.xml
+    │   ├── ic_feedback.xml
+    │   ├── ic_forum.xml
+    │   ├── ic_grade1.xml
+    │   ├── ic_grade2.xml
+    │   ├── ic_info.xml
+    │   ├── ic_infor.xml
+    │   ├── ic_map.xml
+    │   ├── ic_menu.xml
+    │   ├── ic_news.xml
+    │   ├── ic_notifications.xml
+    │   ├── ic_prize.xml
+    │   ├── ic_question_answer.xml
+    │   ├── ic_record.xml
+    │   ├── ic_school.xml
+    │   ├── ic_settings.xml
+    │   ├── ic_view_list.xml
+    │   ├── line_divide.xml
+    │   ├── loading_anim.xml
+    │   ├── login_background.xml
+    │   ├── touch_bg.xml
+    │   └── touch_tab.xml
+    ├── [01;34mdrawable-v21[00m
+    │   ├── touch_bg.xml
+    │   └── touch_tab.xml
+    ├── [01;34mlayout[00m
+    │   ├── activity_calc.xml
+    │   ├── activity_content.xml
+    │   ├── activity_login.xml
+    │   ├── activity_main.xml
+    │   ├── activity_news.xml
+    │   ├── activity_news_item.xml
+    │   ├── activity_start.xml
+    │   ├── custom_tab.xml
+    │   ├── fragment_account.xml
+    │   ├── fragment_feed_back.xml
+    │   ├── fragment_forum.xml
+    │   ├── fragment_grade1.xml
+    │   ├── fragment_grade2.xml
+    │   ├── fragment_group.xml
+    │   ├── fragment_info.xml
+    │   ├── fragment_infor.xml
+    │   ├── fragment_loading.xml
+    │   ├── fragment_login.xml
+    │   ├── fragment_menu.xml
+    │   ├── fragment_news.xml
+    │   ├── fragment_noti.xml
+    │   ├── fragment_prize.xml
+    │   ├── fragment_qanda.xml
+    │   ├── fragment_record.xml
+    │   ├── fragment_school.xml
+    │   ├── fragment_terms.xml
+    │   ├── fragment_time_table.xml
+    │   ├── grade1_list_item.xml
+    │   ├── grade2_list_item.xml
+    │   ├── loading_dialog.xml
+    │   ├── menu_list.xml
+    │   ├── menu_table.xml
+    │   ├── news_list.xml
+    │   ├── prize_list_item.xml
+    │   ├── record_list_item.xml
+    │   └── toast_layout.xml
+    ├── [01;34mmenu[00m
+    │   ├── content_toolbar_menu_blue.xml
+    │   └── content_toolbar_menu_white.xml
+    ├── [01;34mmipmap-hdpi[00m
+    │   ├── [01;35mheader.jpg[00m
+    │   ├── ic_launcher.png
+    │   ├── kesshou.png
+    │   ├── nodev.png
+    │   └── spinner.png
+    ├── [01;34mmipmap-mdpi[00m
+    │   └── ic_launcher.png
+    ├── [01;34mmipmap-xhdpi[00m
+    │   └── ic_launcher.png
+    ├── [01;34mmipmap-xxhdpi[00m
+    │   └── ic_launcher.png
+    ├── [01;34mmipmap-xxxhdpi[00m
+    │   └── ic_launcher.png
+    ├── [01;34mvalues[00m
+    │   ├── colors.xml
+    │   ├── dimens.xml
+    │   ├── strings.xml
+    │   └── styles.xml
+    ├── [01;34mvalues-v21[00m
+    │   └── styles.xml
+    ├── [01;34mvalues-w820dp[00m
+    │   └── dimens.xml
+    └── [01;34mvalues-zh-rTW[00m
+        └── strings.xml
+
+36 directories, 171 files
