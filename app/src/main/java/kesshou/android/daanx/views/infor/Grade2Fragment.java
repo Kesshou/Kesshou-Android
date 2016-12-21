@@ -317,55 +317,60 @@ public class Grade2Fragment {
 	}
 
 	private void serPager(Context context,View view,int i){
-		switch (i){
-			case 1:
-				if(whoLast.get(i)) {
-					nowPager = 1;
-					Realm realm = Realm.getDefaultInstance();
-					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
-					Type listType = new TypeToken<List<HistoryScoreResponse>>() {}.getType();
-					Gson gson = new Gson();
-					List<HistoryScoreResponse> historyScore11= gson.fromJson(netWorkCache.histroyScore11,listType);
-					List<HistoryScoreResponse> historyScore12= gson.fromJson(netWorkCache.histroyScore12,listType);
-					realm.close();
-					drawBody(context,view,parserDate(historyScore11,historyScore12));
-				}else{
-					nowPager = 1;
-					drawNull(context,view);
-				}
-				break;
-			case 2:
-				if(whoLast.get(i)) {
-					nowPager = 2;
-					Realm realm = Realm.getDefaultInstance();
-					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
-					Type listType = new TypeToken<List<HistoryScoreResponse>>() {}.getType();
-					Gson gson = new Gson();
-					List<HistoryScoreResponse> historyScore21= gson.fromJson(netWorkCache.histroyScore21,listType);
-					List<HistoryScoreResponse> historyScore22= gson.fromJson(netWorkCache.histroyScore22,listType);
-					realm.close();
-					drawBody(context,view,parserDate(historyScore21,historyScore22));
-				}else{
-					nowPager = 2;
-					drawNull(context,view);
-				}
-				break;
-			case 3:
-				if(whoLast.get(i)){
-					nowPager = 3;
-					Realm realm = Realm.getDefaultInstance();
-					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
-					Type listType = new TypeToken<List<HistoryScoreResponse>>() {}.getType();
-					Gson gson = new Gson();
-					List<HistoryScoreResponse> historyScore31= gson.fromJson(netWorkCache.histroyScore31,listType);
-					List<HistoryScoreResponse> historyScore32= gson.fromJson(netWorkCache.histroyScore32,listType);
-					realm.close();
-					drawBody(context,view,parserDate(historyScore31,historyScore32));
-				}else{
-					nowPager = 3;
-					drawNull(context,view);
-				}
-				break;
+		if(whoLast.containsKey(i)) {
+			switch (i) {
+				case 1:
+					if (whoLast.get(i)) {
+						nowPager = 1;
+						Realm realm = Realm.getDefaultInstance();
+						NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+						Type listType = new TypeToken<List<HistoryScoreResponse>>() {
+						}.getType();
+						Gson gson = new Gson();
+						List<HistoryScoreResponse> historyScore11 = gson.fromJson(netWorkCache.histroyScore11, listType);
+						List<HistoryScoreResponse> historyScore12 = gson.fromJson(netWorkCache.histroyScore12, listType);
+						realm.close();
+						drawBody(context, view, parserDate(historyScore11, historyScore12));
+					} else {
+						nowPager = 1;
+						drawNull(context, view);
+					}
+					break;
+				case 2:
+					if (whoLast.get(i)) {
+						nowPager = 2;
+						Realm realm = Realm.getDefaultInstance();
+						NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+						Type listType = new TypeToken<List<HistoryScoreResponse>>() {
+						}.getType();
+						Gson gson = new Gson();
+						List<HistoryScoreResponse> historyScore21 = gson.fromJson(netWorkCache.histroyScore21, listType);
+						List<HistoryScoreResponse> historyScore22 = gson.fromJson(netWorkCache.histroyScore22, listType);
+						realm.close();
+						drawBody(context, view, parserDate(historyScore21, historyScore22));
+					} else {
+						nowPager = 2;
+						drawNull(context, view);
+					}
+					break;
+				case 3:
+					if (whoLast.get(i)) {
+						nowPager = 3;
+						Realm realm = Realm.getDefaultInstance();
+						NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+						Type listType = new TypeToken<List<HistoryScoreResponse>>() {
+						}.getType();
+						Gson gson = new Gson();
+						List<HistoryScoreResponse> historyScore31 = gson.fromJson(netWorkCache.histroyScore31, listType);
+						List<HistoryScoreResponse> historyScore32 = gson.fromJson(netWorkCache.histroyScore32, listType);
+						realm.close();
+						drawBody(context, view, parserDate(historyScore31, historyScore32));
+					} else {
+						nowPager = 3;
+						drawNull(context, view);
+					}
+					break;
+			}
 		}
 	}
 

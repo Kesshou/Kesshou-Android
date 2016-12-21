@@ -221,39 +221,41 @@ public class Grade1Fragment {
 	}
 
 	private void serPager(Context context,View view,int i){
-		switch (i){
-			case 1:
-				if(whoLast.get(i)) {
-					nowPager = 1;
-					Realm realm = Realm.getDefaultInstance();
-					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
-					Type listType = new TypeToken<List<SectionalExamResponse>>() {
-					}.getType();
-					Gson gson = new Gson();
-					List<SectionalExamResponse> examResponses1 = gson.fromJson(netWorkCache.sectionalexamscore1, listType);
-					realm.close();
-					drawBody(context, view, examResponses1);
-				}else{
-					nowPager = 1;
-					drawNull(context,view);
-				}
-				break;
-			case 2:
-				if(whoLast.get(i)) {
-					nowPager = 2;
-					Realm realm = Realm.getDefaultInstance();
-					NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
-					Type listType = new TypeToken<List<SectionalExamResponse>>() {
-					}.getType();
-					Gson gson = new Gson();
-					List<SectionalExamResponse> examResponses2 = gson.fromJson(netWorkCache.sectionalexamscore2, listType);
-					realm.close();
-					drawBody(context, view, examResponses2);
-				}else{
-					nowPager = 2;
-					drawNull(context,view);
-				}
-				break;
+		if(whoLast.containsKey(i)) {
+			switch (i) {
+				case 1:
+					if (whoLast.get(i)) {
+						nowPager = 1;
+						Realm realm = Realm.getDefaultInstance();
+						NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+						Type listType = new TypeToken<List<SectionalExamResponse>>() {
+						}.getType();
+						Gson gson = new Gson();
+						List<SectionalExamResponse> examResponses1 = gson.fromJson(netWorkCache.sectionalexamscore1, listType);
+						realm.close();
+						drawBody(context, view, examResponses1);
+					} else {
+						nowPager = 1;
+						drawNull(context, view);
+					}
+					break;
+				case 2:
+					if (whoLast.get(i)) {
+						nowPager = 2;
+						Realm realm = Realm.getDefaultInstance();
+						NetWorkCache netWorkCache = realm.where(NetWorkCache.class).findFirst();
+						Type listType = new TypeToken<List<SectionalExamResponse>>() {
+						}.getType();
+						Gson gson = new Gson();
+						List<SectionalExamResponse> examResponses2 = gson.fromJson(netWorkCache.sectionalexamscore2, listType);
+						realm.close();
+						drawBody(context, view, examResponses2);
+					} else {
+						nowPager = 2;
+						drawNull(context, view);
+					}
+					break;
+			}
 		}
 	}
 
