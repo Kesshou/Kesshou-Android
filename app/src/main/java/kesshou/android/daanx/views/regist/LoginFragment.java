@@ -84,16 +84,13 @@ public class LoginFragment extends Fragment {
 							public void onSuccess(final Response<UserInfoResponse> response) {
 								Realm realm = Realm.getDefaultInstance();
 
-								realm.executeTransaction(new Realm.Transaction() {
-									@Override
-									public void execute(Realm realm) {
-										Setting setting=realm.where(Setting.class).findFirst();
-										setting.nick=response.body().nick;
-										setting.usr_group=response.body().group;
-										setting.classX=response.body().classX;
-										setting.name=response.body().name;
-									}
-								});
+								realm.beginTransaction();
+								Setting setting=realm.where(Setting.class).findFirst();
+								setting.nick=response.body().nick;
+								setting.usr_group=response.body().group;
+								setting.classX=response.body().classX;
+								setting.name=response.body().name;
+								realm.commitTransaction();
 
 								realm.close();
 

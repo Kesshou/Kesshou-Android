@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">木棉手札</string>
-    <string name="team_name">Kesshou</string>
-    <string name="unauthorized">帳號密碼錯誤</string>
-    <string name="illegalcontent">非法內容</string>
-    <string name="school_unauthorized">學校驗證失敗</string>
-    <string name="token_expired">Token過期</string>
-    <string name="id_used">帳號已被使用</string>
+	<string name="app_name">木棉手札</string>
+	<string name="team_name">Kesshou</string>
+	<string name="unauthorized">帳號密碼錯誤</string>
+	<string name="illegalcontent">非法內容</string>
+	<string name="school_unauthorized">學校驗證失敗</string>
+	<string name="token_expired">Token過期</string>
+	<string name="id_used">帳號已被使用</string>
 
 	<string name="login_account">登入</string>
 	<string name="login_account_account">請輸入帳號(email)</string>
@@ -76,7 +76,7 @@
 	<string name="main_news_qanda_help">學校常見問題</string>
 	<string name="main_news_daanabout">大安相關</string>
 	<string name="main_news_daanabout_help">大安相關的網路資源</string>
-	
+
 	<string name="main_menu_medata">個人資料</string>
 	<string name="main_menu_medata_help">修改個人資料</string>
 	<string name="main_meun_wifi">自動連線學校Wi-Fi</string>
