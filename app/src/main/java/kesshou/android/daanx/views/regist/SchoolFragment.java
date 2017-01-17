@@ -77,11 +77,13 @@ public class SchoolFragment extends Fragment {
 						register.school_account = strInputAccount;
 						register.school_pwd = strInputPassword;
 
-						FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-						ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-						Fragment fg = new AccountFragment();
-						ft.replace(R.id.fm, fg, "f_m");
-						ft.commit();
+						if(getActivity()!=null) {
+                            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                            Fragment fg = new AccountFragment();
+                            ft.replace(R.id.fm, fg, "f_m");
+                            ft.commit();
+                        }
 					}
 
 					@Override

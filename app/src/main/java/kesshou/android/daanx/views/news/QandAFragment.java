@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -119,6 +121,8 @@ public class QandAFragment{
 			txtQ.setText(qandas.get(i).Q);
 			txtQ.setTextSize(16);
 			txtQ.setTextColor(Color.BLACK);
+			txtQ.setAutoLinkMask(Linkify.ALL);
+			txtQ.setMovementMethod(LinkMovementMethod.getInstance());
 			if(Build.VERSION.SDK_INT >= 16) {
 				txtQ.setBackground(gdQ);
 			}else{
@@ -143,6 +147,8 @@ public class QandAFragment{
 				txtA.setBackgroundDrawable(gdA);
 			}
 			txtA.setGravity(Gravity.RIGHT);
+			txtA.setAutoLinkMask(Linkify.ALL);
+			txtA.setMovementMethod(LinkMovementMethod.getInstance());
 			txtA.setPadding((int)UnitConvert.Dp2Pixel(10,context),(int)UnitConvert.Dp2Pixel(10,context),(int)UnitConvert.Dp2Pixel(10,context),(int)UnitConvert.Dp2Pixel(10,context));
 			LinearLayout.LayoutParams llpA = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 			llpA.setMargins((int)UnitConvert.Dp2Pixel(6,context),(int)UnitConvert.Dp2Pixel(6,context),(int)UnitConvert.Dp2Pixel(6,context),(int)UnitConvert.Dp2Pixel(6,context));

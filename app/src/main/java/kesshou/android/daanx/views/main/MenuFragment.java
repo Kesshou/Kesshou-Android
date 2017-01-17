@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.util.ArrayList;
 
 import io.realm.Realm;
@@ -23,6 +25,8 @@ import kesshou.android.daanx.util.Adapter.ListDecoration;
 import kesshou.android.daanx.util.Adapter.MenuListAdapter;
 import kesshou.android.daanx.util.Adapter.holder.Menu;
 import kesshou.android.daanx.util.BeautifulColor;
+import kesshou.android.daanx.util.LanguageUtil;
+import kesshou.android.daanx.views.MainActivity;
 import kesshou.android.daanx.views.StartActivity;
 
 /**
@@ -49,6 +53,11 @@ public class MenuFragment extends Fragment {
 			Menu meData = new Menu(R.drawable.ic_info, BeautifulColor.getColor(1), getString(R.string.main_menu_medata), "", new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
+					Bundle bundle = new Bundle();
+					bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "meData");
+					bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "meData");
+					bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fn");
+					((MainActivity)getActivity()).mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle);
 					ActivityUtils.openContent(getActivity(),R.string.main_menu_medata,R.string.main_menu_medata,R.string.main_menu_medata_help);
 				}
 			});
@@ -63,6 +72,11 @@ public class MenuFragment extends Fragment {
 			Menu noti = new Menu(R.drawable.ic_notifications,BeautifulColor.getColor(2), getString(R.string.main_menu_noti), "", new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
+					Bundle bundle = new Bundle();
+					bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "noti");
+					bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "noti");
+					bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fn");
+					((MainActivity)getActivity()).mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle);
 					ActivityUtils.openContent(getActivity(),R.string.main_menu_noti,R.string.main_menu_noti,R.string.main_menu_noti_help);
 				}
 			});
@@ -70,13 +84,72 @@ public class MenuFragment extends Fragment {
 			Menu opinion = new Menu(R.drawable.ic_feedback,BeautifulColor.getColor(3), getString(R.string.main_menu_opinion), "", new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
+					Bundle bundle = new Bundle();
+					bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Feedback");
+					bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Feedback");
+					bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fn");
+					((MainActivity)getActivity()).mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle);
 					ActivityUtils.openContent(getActivity(),R.string.main_menu_opinion,R.string.main_menu_opinion,R.string.main_menu_opinion_help);
 				}
 			});
 			menus.add(opinion);
+			Menu language = new Menu(R.drawable.ic_language, BeautifulColor.getColor(5), getString(R.string.main_menu_lang), "", new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					final String[] single_list = {"Auto","正體中文", "English"};
+					int chosen = 0;
+
+					AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+					builder.setTitle("選擇語言 (Set Language)");
+					Realm realm = Realm.getDefaultInstance();
+					Setting setting = realm.where(Setting.class).findFirst();
+
+					switch (setting.locale) {
+						case "Auto":
+							chosen = 0;
+							break;
+						case "正體中文":
+							chosen = 1;
+							break;
+						case "English":
+							chosen = 2;
+							break;
+					}
+					realm.close();
+
+					builder.setSingleChoiceItems(single_list, chosen, new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+
+							String str = single_list[which];
+
+							Realm realm = Realm.getDefaultInstance();
+							Setting setting = realm.where(Setting.class).findFirst();
+							realm.beginTransaction();
+							setting.locale = str;
+							realm.commitTransaction();
+							realm.close();
+
+
+							dialog.dismiss();
+
+							LanguageUtil.restart(getActivity());
+						}
+					});
+
+					AlertDialog dialog = builder.create();
+					dialog.show();
+				}
+			});
+			menus.add(language);
 			Menu logout = new Menu(R.drawable.ic_close,BeautifulColor.getColor(4), getString(R.string.main_menu_logout), "", new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
+					Bundle bundle = new Bundle();
+					bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Logout");
+					bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Logout");
+					bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fn");
+					((MainActivity)getActivity()).mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle);
 					AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 					builder.setMessage("是否登出?");
 					builder.setTitle("登出");

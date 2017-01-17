@@ -10,8 +10,8 @@ android {
         applicationId "kesshou.android.daanx"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 4
+        versionName "1.0.6"
         vectorDrawables.generatedDensities = ['hdpi']
     }
     buildTypes {
@@ -50,10 +50,15 @@ dependencies {
     compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0'
     compile 'com.github.tibolte:agendacalendarview:1.0.4'
-    compile 'me.grantland:autofittextview:0.2.+'
+    compile 'me.grantland:autofittextview:0.2.1'
+    compile 'com.zzhoujay.richtext:richtext:2.3.7'
+    compile 'com.zzhoujay.glideimagegetter:glideimagegetter:1.0.1'
+
     compile 'com.google.firebase:firebase-core:10.0.1'
     compile 'com.google.firebase:firebase-crash:10.0.1'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
+
+
 }
 
 //compile 'com.android.support:multidex:1.0.1'

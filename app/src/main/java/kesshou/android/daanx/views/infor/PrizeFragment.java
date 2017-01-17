@@ -67,6 +67,12 @@ public class PrizeFragment {
 				}
 			});
 		}else{
+			//Type listType = new TypeToken<AttitudeStatusResponse>() {}.getType();
+			AttitudeStatusResponse attitudeStatus = gson.fromJson(netWorkCache.prize,AttitudeStatusResponse.class);
+			drawTop(view,attitudeStatus.count);
+			drawBody(context,view,attitudeStatus.status);
+
+
 			networkingClient.getATS(new MyCallBack<AttitudeStatusResponse>(context) {
 				@Override
 				public void onSuccess(Response<AttitudeStatusResponse> response) {

@@ -10,7 +10,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -20,6 +19,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 
+import kesshou.android.daanx.BaseActivity;
 import kesshou.android.daanx.R;
 import kesshou.android.daanx.util.Adapter.FragmentViewPagerAdapter;
 import kesshou.android.daanx.views.main.ForumFragment;
@@ -32,9 +32,9 @@ import kesshou.android.daanx.views.main.NewsFragment;
     Description: This is the main activity of this app.
 */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
-	private FirebaseAnalytics mFirebaseAnalytics;
+	public FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

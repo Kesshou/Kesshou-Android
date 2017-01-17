@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import io.realm.Realm;
 import kesshou.android.daanx.R;
 import kesshou.android.daanx.models.NetWorkCache;
@@ -75,6 +77,7 @@ public class LoginFragment extends Fragment {
 						setting.email=inputAccount.getText().toString();
 						setting.password=inputPassword.getText().toString();
 						setting.token=token.body().token;
+						setting.locale="Auto";
 						realm.commitTransaction();
 
 
@@ -93,6 +96,12 @@ public class LoginFragment extends Fragment {
 								realm.commitTransaction();
 
 								realm.close();
+
+								Bundle bundle = new Bundle();
+								bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Login");
+								bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Login");
+								bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "doing");
+								((StartActivity)getActivity()).mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, bundle);
 
 								((StartActivity)getActivity()).toMainActivity();
 

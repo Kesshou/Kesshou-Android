@@ -7,7 +7,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -31,10 +30,11 @@ import kesshou.android.daanx.util.network.MyCallBack;
 import kesshou.android.daanx.util.network.NetworkingClient;
 import kesshou.android.daanx.util.network.api.holder.AnnounceResponse;
 import kesshou.android.daanx.util.network.api.holder.Error;
+import kesshou.android.daanx.BaseActivity;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class NewsActivity extends AppCompatActivity {
+public class NewsActivity extends BaseActivity {
 
 	List<AnnounceResponse> announces;
 	Dialog dialog;
@@ -104,6 +104,11 @@ public class NewsActivity extends AppCompatActivity {
 			public boolean onMenuItemClick(MenuItem item) {
 				switch (item.getItemId()){
 					case R.id.menu_share:
+						Bundle bundle = new Bundle();
+						bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Share");
+						bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Share");
+						bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fn");
+						mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SHARE, bundle);
 						ViewShareUtils.share(getApplicationContext(),NewsActivity.this,findViewById(R.id.content));
 						break;
 				}

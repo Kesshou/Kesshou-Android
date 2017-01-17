@@ -3,6 +3,7 @@ package kesshou.android.daanx.views.infor;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -144,27 +145,43 @@ public class TimeTableFragment{
 			}
 		}
 
-		tableRow1.addView(createTextView(context,""));
+		tableRow1.addView(createTextView(context,"",R.color.grey_300));
 		for(int i=0;i<max_value;i++) {
-			tableRow1.addView(createTextView(context,timeTable.get(max_item).get(i).start+"\n"+timeTable.get(max_item).get(i).end));
+			if(i%2==0)
+				tableRow1.addView(createTextView(context,timeTable.get(max_item).get(i).start+"\n"+timeTable.get(max_item).get(i).end));
+			else
+				tableRow1.addView(createTextView(context,timeTable.get(max_item).get(i).start+"\n"+timeTable.get(max_item).get(i).end,R.color.grey_300));
 		}
 
-		tableRow2.addView(createTextView(context,"星期一"));
-		tableRow3.addView(createTextView(context,"星期二"));
-		tableRow4.addView(createTextView(context,"星期三"));
-		tableRow5.addView(createTextView(context,"星期四"));
-		tableRow6.addView(createTextView(context,"星期五"));
+		tableRow2.addView(createTextView(context,"星期一",R.color.grey_300));
+		tableRow3.addView(createTextView(context,"星期二",R.color.grey_300));
+		tableRow4.addView(createTextView(context,"星期三",R.color.grey_300));
+		tableRow5.addView(createTextView(context,"星期四",R.color.grey_300));
+		tableRow6.addView(createTextView(context,"星期五",R.color.grey_300));
 		for(int i=0;i<max_value;i++){
-			if(i<timeTable.get(0).size()) tableRow2.addView(createTextView(context,timeTable.get(0).get(i).subject));
-			else tableRow2.addView(createTextView(context,""));
-			if(i<timeTable.get(1).size()) tableRow3.addView(createTextView(context,timeTable.get(1).get(i).subject));
-			else tableRow3.addView(createTextView(context,""));
-			if(i<timeTable.get(2).size()) tableRow4.addView(createTextView(context,timeTable.get(2).get(i).subject));
-			else tableRow4.addView(createTextView(context,""));
-			if(i<timeTable.get(3).size()) tableRow5.addView(createTextView(context,timeTable.get(3).get(i).subject));
-			else tableRow5.addView(createTextView(context,""));
-			if(i<timeTable.get(4).size()) tableRow6.addView(createTextView(context,timeTable.get(4).get(i).subject));
-			else tableRow6.addView(createTextView(context,""));
+			if(i%2==1){
+				if(i<timeTable.get(0).size()) tableRow2.addView(createTextView(context,timeTable.get(0).get(i).subject,R.color.grey_300));
+				else tableRow2.addView(createTextView(context,""));
+				if(i<timeTable.get(1).size()) tableRow3.addView(createTextView(context,timeTable.get(1).get(i).subject,R.color.grey_300));
+				else tableRow3.addView(createTextView(context,""));
+				if(i<timeTable.get(2).size()) tableRow4.addView(createTextView(context,timeTable.get(2).get(i).subject,R.color.grey_300));
+				else tableRow4.addView(createTextView(context,""));
+				if(i<timeTable.get(3).size()) tableRow5.addView(createTextView(context,timeTable.get(3).get(i).subject,R.color.grey_300));
+				else tableRow5.addView(createTextView(context,""));
+				if(i<timeTable.get(4).size()) tableRow6.addView(createTextView(context,timeTable.get(4).get(i).subject,R.color.grey_300));
+				else tableRow6.addView(createTextView(context,""));
+			}else{
+				if(i<timeTable.get(0).size()) tableRow2.addView(createTextView(context,timeTable.get(0).get(i).subject));
+				else tableRow2.addView(createTextView(context,""));
+				if(i<timeTable.get(1).size()) tableRow3.addView(createTextView(context,timeTable.get(1).get(i).subject));
+				else tableRow3.addView(createTextView(context,""));
+				if(i<timeTable.get(2).size()) tableRow4.addView(createTextView(context,timeTable.get(2).get(i).subject));
+				else tableRow4.addView(createTextView(context,""));
+				if(i<timeTable.get(3).size()) tableRow5.addView(createTextView(context,timeTable.get(3).get(i).subject));
+				else tableRow5.addView(createTextView(context,""));
+				if(i<timeTable.get(4).size()) tableRow6.addView(createTextView(context,timeTable.get(4).get(i).subject));
+				else tableRow6.addView(createTextView(context,""));
+			}
 		}
 	}
 
@@ -177,6 +194,19 @@ public class TimeTableFragment{
 		textView.setLayoutParams(param);
 		textView.setGravity(Gravity.CENTER);
 		textView.setTextColor(Color.GRAY);
+		textView.setText(text);
+		return textView;
+	}
+
+	private TextView createTextView(Context context,String text,int color){
+		TextView textView = new TextView(context);
+		TableRow.LayoutParams param = new TableRow.LayoutParams(
+				TableRow.LayoutParams.MATCH_PARENT,
+				TableRow.LayoutParams.MATCH_PARENT, 1.0f);
+		textView.setLayoutParams(param);
+		textView.setGravity(Gravity.CENTER);
+		textView.setTextColor(Color.GRAY);
+		textView.setBackgroundColor(ContextCompat.getColor(context,color));
 		textView.setText(text);
 		return textView;
 	}

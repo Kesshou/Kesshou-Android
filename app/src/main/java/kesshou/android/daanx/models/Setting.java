@@ -14,4 +14,5 @@ public class Setting extends RealmObject {
 	public String password;
 	public String usr_group;
 	public String classX;
+	public String locale;
 }

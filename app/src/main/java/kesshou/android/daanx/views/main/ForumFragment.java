@@ -28,6 +28,11 @@ public class ForumFragment extends Fragment {
 		if(rootView == null){
 			rootView = inflater.inflate(R.layout.fragment_forum, container, false);
 		}
+//		Bundle bundle = new Bundle();
+//		bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Forum Forum");
+//		bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Forum Start");
+//		bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Forum");
+//		((MainActivity)getActivity()).mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle);
 		return rootView;
 	}
 
