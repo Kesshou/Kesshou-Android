@@ -49,6 +49,9 @@
 
 	<string name="loading_text">載入中</string>
 
+	<string name="main_infor_username">用戶組</string>
+	<string name="main_infor_name">姓名</string>
+	<string name="main_infor_nick">暱稱</string>
 	<string name="main_infor_timetable">班級課表</string>
 	<string name="main_infor_timetable_help">這學期的課表</string>
 	<string name="main_infor_record">出勤紀錄</string>
@@ -85,6 +88,8 @@
 	<string name="main_menu_noti_help">通知設定</string>
 	<string name="main_menu_opinion">意見回饋</string>
 	<string name="main_menu_opinion_help">提供我們意見 讓App更好</string>
+	<string name="main_menu_lang">語言設定</string>
+	<string name="main_menu_lang_help">語言設定</string>
 	<string name="main_menu_about">關於我們</string>
 	<string name="main_menu_about_help">關於我們</string>
 	<string name="main_menu_logout">登出</string>

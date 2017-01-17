@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,8 +27,9 @@ import kesshou.android.daanx.R;
 import kesshou.android.daanx.util.ChromeTabHelper;
 import kesshou.android.daanx.util.ViewShareUtils;
 import kesshou.android.daanx.util.network.api.holder.AnnounceResponse;
+import kesshou.android.daanx.BaseActivity;
 
-public class ItemActivity extends AppCompatActivity {
+public class ItemActivity extends BaseActivity {
 
 	private FirebaseAnalytics mFirebaseAnalytics;
 
@@ -170,6 +170,11 @@ public class ItemActivity extends AppCompatActivity {
 			public boolean onMenuItemClick(MenuItem item) {
 				switch (item.getItemId()){
 					case R.id.menu_share:
+						Bundle bundle = new Bundle();
+						bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Share");
+						bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Share");
+						bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fn");
+						mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SHARE, bundle);
 						ViewShareUtils.share(getApplicationContext(),ItemActivity.this,findViewById(R.id.content));
 						break;
 				}

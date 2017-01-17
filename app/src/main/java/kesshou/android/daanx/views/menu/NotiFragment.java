@@ -42,32 +42,36 @@ public class NotiFragment {
 		NotiSetting notiSetting = realm.where(NotiSetting.class).findFirst();
 
 		SwitchCompat switchCompat = (SwitchCompat) view.findViewById(R.id.noti_switch);
-		switchCompat.setChecked(notiSetting.is_noti);
-		switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton compoundButton,final boolean b) {
-				Realm realm = Realm.getDefaultInstance();
-				NotiSetting notiSetting = realm.where(NotiSetting.class).findFirst();
-				networkingClient.setNoti(notiSetting.fcm_token, b, new MyCallBack<StatusResponse>(context) {
-					@Override
-					public void onSuccess(Response<StatusResponse> response) {
-						Realm realm = Realm.getDefaultInstance();
-						NotiSetting notiSetting = realm.where(NotiSetting.class).findFirst();
-						realm.beginTransaction();
-						notiSetting.is_noti = b;
-						realm.commitTransaction();
-						realm.close();
-						Toast.makeText(context,"修改成功",Toast.LENGTH_SHORT).show();
-					}
+		if(notiSetting == null){
+            switchCompat.setEnabled(false);
+        }else {
+            switchCompat.setChecked(notiSetting.is_noti);
+            switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, final boolean b) {
+                    Realm realm = Realm.getDefaultInstance();
+                    NotiSetting notiSetting = realm.where(NotiSetting.class).findFirst();
+                    networkingClient.setNoti(notiSetting.fcm_token, b, new MyCallBack<StatusResponse>(context) {
+                        @Override
+                        public void onSuccess(Response<StatusResponse> response) {
+                            Realm realm = Realm.getDefaultInstance();
+                            NotiSetting notiSetting = realm.where(NotiSetting.class).findFirst();
+                            realm.beginTransaction();
+                            notiSetting.is_noti = b;
+                            realm.commitTransaction();
+                            realm.close();
+                            Toast.makeText(context, "修改成功", Toast.LENGTH_SHORT).show();
+                        }
 
-					@Override
-					public void onErr(Error error, Call<StatusResponse> call) {
+                        @Override
+                        public void onErr(Error error, Call<StatusResponse> call) {
 
-					}
-				});
-				realm.close();
-			}
-		});
+                        }
+                    });
+                    realm.close();
+                }
+            });
+        }
 
 
 		realm.close();

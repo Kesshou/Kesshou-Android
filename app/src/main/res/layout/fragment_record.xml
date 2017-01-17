@@ -21,18 +21,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_absence"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/absence"
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textColor="@color/gray"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -42,18 +44,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_late"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/late"
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textColor="@color/gray"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -63,18 +67,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_cutting"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/cutting"
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textColor="@color/gray"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -93,18 +99,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_public_leave"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/public_leave"
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textColor="@color/gray"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -114,18 +122,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_sick_leave"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/sick_leave"
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textColor="@color/gray"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -135,18 +145,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_thing_leave"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/thing_leave"
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textColor="@color/gray"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -156,18 +168,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_dead_leave"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_name"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/dead_leave"
 					android:text=""
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textColor="@color/gray"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 

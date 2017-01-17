@@ -1,7 +1,6 @@
 package kesshou.android.daanx.views.news;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -31,12 +30,13 @@ import kesshou.android.daanx.util.network.MyCallBack;
 import kesshou.android.daanx.util.network.NetworkingClient;
 import kesshou.android.daanx.util.network.api.holder.CalenderResponse;
 import kesshou.android.daanx.util.network.api.holder.Error;
+import kesshou.android.daanx.BaseActivity;
 import retrofit2.Call;
 import retrofit2.Response;
 
 import static com.github.mikephil.charting.charts.Chart.LOG_TAG;
 
-public class CalcActivity extends AppCompatActivity  implements CalendarPickerController {
+public class CalcActivity extends BaseActivity implements CalendarPickerController {
 
 
 	private FirebaseAnalytics mFirebaseAnalytics;
@@ -118,6 +118,11 @@ public class CalcActivity extends AppCompatActivity  implements CalendarPickerCo
 			public boolean onMenuItemClick(MenuItem item) {
 				switch (item.getItemId()){
 					case R.id.menu_share:
+						Bundle bundle = new Bundle();
+						bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Share");
+						bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Share");
+						bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fn");
+						mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SHARE, bundle);
 						ViewShareUtils.share(getApplicationContext(),CalcActivity.this,findViewById(R.id.agenda_calendar_view));
 						break;
 				}

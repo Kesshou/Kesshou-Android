@@ -48,6 +48,9 @@
 
 	<string name="loading_text">Loading</string>
 
+    <string name="main_infor_username">User Group</string>
+    <string name="main_infor_name">Name</string>
+    <string name="main_infor_nick">Nick</string>
 	<string name="main_infor_timetable">Curriculum</string>
 	<string name="main_infor_timetable_help">Curriculum</string>
 	<string name="main_infor_record">Attendance record</string>
@@ -84,6 +87,8 @@
 	<string name="main_menu_noti_help">Notification settings</string>
 	<string name="main_menu_opinion">Feedback</string>
 	<string name="main_menu_opinion_help">Feedback</string>
+	<string name="main_menu_lang">Language settings</string>
+	<string name="main_menu_lang_help">Language settings</string>
 	<string name="main_menu_about">About</string>
 	<string name="main_menu_about_help">About</string>
 	<string name="main_menu_logout">Logout</string>
@@ -103,9 +108,9 @@
 	<string name="infor_top_item_middlefault">Middlefault</string>
 	<string name="infor_top_item_bigfault">Bigfault</string>
 
-	<string name="infor_grade2_grade1">First grade</string>
-	<string name="infor_grade2_grade2">Second grade</string>
-	<string name="infor_grade2_grade3">Third grade</string>
+	<string name="infor_grade2_grade1">Sophomore</string>
+	<string name="infor_grade2_grade2">Junior</string>
+	<string name="infor_grade2_grade3">Freshman</string>
 
 	<string name="infor_grade2_semember1">Last semester</string>
 	<string name="infor_grade2_semember2">Next semester</string>

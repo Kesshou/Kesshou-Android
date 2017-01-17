@@ -78,14 +78,16 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
 			}
 		});
 		GradientDrawable gd = new GradientDrawable();
-		gd.setColor(getAuthorColor(announces.get(position).author.charAt(0)));
+		if(!announces.get(position).author.isEmpty())
+			gd.setColor(getAuthorColor(announces.get(position).author.charAt(0)));
 		gd.setShape(GradientDrawable.OVAL);
 		if(Build.VERSION.SDK_INT >= 16) {
 			holder.imageIcon.setBackground(gd);
 		}else{
 			holder.imageIcon.setBackgroundDrawable(gd);
 		}
-		holder.imageIcon.setText(String.valueOf(announces.get(position).author.charAt(0)));
+		if(!announces.get(position).author.isEmpty())
+			holder.imageIcon.setText(String.valueOf(announces.get(position).author.charAt(0)));
 		holder.txtTitle.setText(announces.get(position).title);
 		holder.txtContent.setText(announces.get(position).summary);
 	}

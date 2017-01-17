@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import io.realm.Realm;
 import kesshou.android.daanx.R;
 import kesshou.android.daanx.models.NetWorkCache;
@@ -57,6 +59,7 @@ public class LoadingFragment extends Fragment {
 				setting.nick=register.nickname;
 				setting.usr_group=register.usr_group;
 				setting.token=token.body().token;
+				setting.locale="Auto";
 				realm.commitTransaction();
 
 
@@ -74,6 +77,12 @@ public class LoadingFragment extends Fragment {
 							}
 						});
 						realm.close();
+
+						Bundle bundle = new Bundle();
+						bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Sign up");
+						bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Sign up");
+						bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "doing");
+						((StartActivity)getActivity()).mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SIGN_UP, bundle);
 
 						((StartActivity)getActivity()).toMainActivity();
 					}

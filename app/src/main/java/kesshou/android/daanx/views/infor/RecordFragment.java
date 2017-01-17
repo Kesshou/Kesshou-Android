@@ -12,9 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Locale;
 
 import io.realm.Realm;
 import kesshou.android.daanx.R;
@@ -167,8 +165,7 @@ public class RecordFragment {
 		for(int i=0;i<absentstate.size();i++) {
 			View item = LayoutInflater.from(context).inflate(R.layout.record_list_item, null);
 			TextView txtDate = (TextView) item.findViewById(date);
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
-			txtDate.setText(simpleDateFormat.format(absentstate.get(i).date));
+			txtDate.setText(absentstate.get(i).date);
 
 			TextView txtNum = (TextView) item.findViewById(R.id.num);
 			txtNum.setText(absentstate.get(i).classX);

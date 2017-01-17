@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import kesshou.android.daanx.BaseActivity;
 import kesshou.android.daanx.R;
 import kesshou.android.daanx.models.NetWorkCache;
 import kesshou.android.daanx.models.Setting;
@@ -23,10 +23,10 @@ import kesshou.android.daanx.views.regist.LoginFragment;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class StartActivity extends AppCompatActivity {
+public class StartActivity extends BaseActivity {
 
 	public Register register;
-	private FirebaseAnalytics mFirebaseAnalytics;
+	public FirebaseAnalytics mFirebaseAnalytics;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,12 @@ public class StartActivity extends AppCompatActivity {
 
 		// Obtain the FirebaseAnalytics instance.
 		mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+		Bundle bundle = new Bundle();
+		bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "App open");
+		bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "App open");
+		bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "doing");
+		mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.APP_OPEN, bundle);
 
 		Realm realm=Realm.getDefaultInstance();
 

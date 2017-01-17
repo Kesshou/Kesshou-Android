@@ -2,8 +2,6 @@ package kesshou.android.daanx.util.network.api.holder;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-
 /**
  * Created by yoyoIU on 2016/11/12.
  */
@@ -18,7 +16,7 @@ public class AbsentstateResponse{
 	 */
 
 	@SerializedName("date")
-	public Date date;
+	public String date;
 	@SerializedName("type")
 	public String type;
 	@SerializedName("class")

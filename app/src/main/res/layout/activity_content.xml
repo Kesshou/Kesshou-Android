@@ -38,7 +38,7 @@
 		android:layout_marginTop="50dp"
 		android:fitsSystemWindows="true">
 
-		<TextView
+		<me.grantland.widget.AutofitTextView
 			android:text="課表查詢"
 			android:textSize="30sp"
 			android:textColor="@color/black"
@@ -49,7 +49,7 @@
 			android:background="@color/white"
 			android:gravity="center"/>
 
-		<TextView
+		<me.grantland.widget.AutofitTextView
 			android:text="這學期的課表"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
