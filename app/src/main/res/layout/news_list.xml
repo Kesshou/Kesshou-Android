@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/list_item"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="80dp"
+	android:gravity="center_vertical"
+	android:background="@drawable/touch_bg"
+	android:paddingLeft="16dp"
+	android:paddingStart="16dp"
+	android:paddingRight="16dp"
+	android:paddingEnd="16dp">
+
+	<TextView
+		android:id="@+id/item_head"
+		android:gravity="center"
+		android:textColor="@color/white"
+		android:textSize="30sp"
+		android:layout_width="60dp"
+		android:layout_height="60dp"/>
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dp"
+		android:layout_marginStart="10dp"
+		android:layout_marginRight="10dp"
+		android:layout_marginEnd="10dp">
+
+		<TextView
+			android:text="aslfdslkfjsdfksdlgj;sgjls;"
+			android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:lines="1"
+			android:textSize="20sp"
+			android:textColor="@color/black"/>
+
+		<TextView
+			android:text="sjodlkjsdgljdfkjgssdvdsvlkbvgjsjodlkjsdgljdfkjgssdvdsvlkbvgj"
+			android:id="@+id/content"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="15sp"
+			android:lines="1"
+			android:textColor="@color/gray"/>
+	</LinearLayout>
+</LinearLayout>

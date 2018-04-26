@@ -21,17 +21,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_smallcite"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/smallcite"
 					android:text=""
+					android:textColor="@color/blue_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -41,17 +44,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_middlecite"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/middlecite"
 					android:text=""
+					android:textColor="@color/blue_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -61,17 +67,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_bigcite"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/bigcite"
 					android:text=""
+					android:textColor="@color/blue_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -90,17 +99,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_smallfault"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/smallfault"
 					android:text=""
+					android:textColor="@color/red_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -110,17 +122,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_middlefault"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/middlefault"
 					android:text=""
+					android:textColor="@color/red_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 
@@ -130,17 +145,20 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:gravity="center">
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:text="@string/infor_top_item_bigfault"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="@dimen/attend_top_item_name"
+					android:lines="1"
 					android:textColor="@color/black"/>
-				<TextView
+				<me.grantland.widget.AutofitTextView
 					android:id="@+id/bigfault"
 					android:text=""
+					android:textColor="@color/red_500"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:lines="1"
 					android:textSize="@dimen/attend_top_item_value"/>
 			</LinearLayout>
 

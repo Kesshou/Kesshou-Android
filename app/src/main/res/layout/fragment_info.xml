@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout
+
+		android:id="@+id/list"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="16dp"
+		android:theme="@style/AppTheme"
+		android:background="@color/white">
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+		    android:text="@string/menu_info_info"
+		    android:gravity="center"
+		    android:textSize="16sp"
+			/>
+
+		<!-- Password Label -->
+		<android.support.design.widget.TextInputLayout
+			android:id="@+id/til_input_old_password"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+
+			android:paddingStart="@dimen/regist_hl_padding"
+			android:paddingEnd="@dimen/regist_hl_padding"
+			android:paddingTop="0dp"
+			android:paddingBottom="0dp"
+
+			app:counterEnabled="true"
+			app:counterMaxLength="40"
+			app:counterOverflowTextAppearance="@style/TextInputError"
+			app:errorTextAppearance="@style/TextInputError">
+
+			<android.support.design.widget.TextInputEditText
+				android:id="@+id/input_old_password"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textPassword"
+				android:textSize="18sp"
+				android:hint="@string/menu_info_old_password"/>
+		</android.support.design.widget.TextInputLayout>
+
+		<!-- Password Label -->
+		<android.support.design.widget.TextInputLayout
+			android:id="@+id/til_input_school_password"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+
+			android:paddingStart="@dimen/regist_hl_padding"
+			android:paddingEnd="@dimen/regist_hl_padding"
+			android:paddingTop="0dp"
+			android:paddingBottom="0dp"
+
+			app:counterEnabled="true"
+			app:counterMaxLength="10"
+			app:counterOverflowTextAppearance="@style/TextInputError"
+			app:errorTextAppearance="@style/TextInputError">
+
+			<android.support.design.widget.TextInputEditText
+				android:id="@+id/input_school_password"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textPassword"
+				android:textSize="18sp"
+				android:hint="@string/menu_info_new_school_pwd"/>
+		</android.support.design.widget.TextInputLayout>
+
+		<!-- Nick Label -->
+		<android.support.design.widget.TextInputLayout
+			android:id="@+id/til_input_new_nick"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+
+			android:paddingStart="@dimen/regist_hl_padding"
+			android:paddingEnd="@dimen/regist_hl_padding"
+			android:paddingTop="0dp"
+			android:paddingBottom="0dp"
+
+			app:errorTextAppearance="@style/TextInputError">
+
+			<android.support.design.widget.TextInputEditText
+				android:id="@+id/input_new_nick"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:textSize="18sp"
+				android:hint="@string/menu_info_new_nick" />
+		</android.support.design.widget.TextInputLayout>
+
+
+		<!-- Account Label -->
+		<android.support.design.widget.TextInputLayout
+			android:id="@+id/til_input_new_account"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+
+			android:paddingStart="@dimen/regist_hl_padding"
+			android:paddingEnd="@dimen/regist_hl_padding"
+			android:paddingTop="0dp"
+			android:paddingBottom="0dp"
+
+			app:errorTextAppearance="@style/TextInputError">
+			<android.support.design.widget.TextInputEditText
+				android:id="@+id/input_new_account"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textEmailAddress"
+				android:textSize="18sp"
+				android:hint="@string/menu_info_new_account" />
+		</android.support.design.widget.TextInputLayout>
+
+		<!-- Repeat Password Label -->
+		<android.support.design.widget.TextInputLayout
+			android:id="@+id/til_input_new_password"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+
+			android:paddingStart="@dimen/regist_hl_padding"
+			android:paddingEnd="@dimen/regist_hl_padding"
+			android:paddingTop="0dp"
+			android:paddingBottom="0dp"
+
+			android:layout_marginBottom="60dp"
+
+			app:counterEnabled="true"
+			app:counterMaxLength="40"
+			app:counterOverflowTextAppearance="@style/TextInputError"
+			app:errorTextAppearance="@style/TextInputError">
+			<android.support.design.widget.TextInputEditText
+				android:id="@+id/input_new_password"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textPassword"
+				android:textSize="18sp"
+				android:hint="@string/menu_info_new_password"/>
+		</android.support.design.widget.TextInputLayout>
+
+		<android.support.v7.widget.AppCompatButton
+			android:id="@+id/btn_submit"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:theme="@style/BlueButton"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:layout_marginStart="16dp"
+			android:layout_marginEnd="16dp"
+			style="@style/BlueButton"
+			android:text="送出"
+			android:textSize="24sp" />
+	</LinearLayout>
+
+</ScrollView>

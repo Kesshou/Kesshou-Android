@@ -3,26 +3,16 @@ apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "24.0.1"
+    buildToolsVersion "25.0.2"
 
-    productFlavors {
-        // Define separate dev and prod product flavors.
-        dev {
-            minSdkVersion 21
-        }
-        prod {
-            // The actual minSdkVersion for the application.
-            minSdkVersion 15
-        }
-    }
 
     defaultConfig {
-        applicationId "kesshou.android.team"
+        applicationId "kesshou.android.daanx"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-        //multiDexEnabled true
+        versionCode 4
+        versionName "1.0.6"
+        vectorDrawables.generatedDensities = ['hdpi']
     }
     buildTypes {
         release {
@@ -31,20 +21,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 buildscript {
 
-    ext.support_version = '25.0.0'
+    ext.support_version = '25.1.0'
 
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
-        classpath "io.realm:realm-gradle-plugin:2.1.1"
-    }
 }
 
 dependencies {
@@ -52,11 +36,12 @@ dependencies {
 
     compile "com.android.support:support-v4:$support_version"
     compile "com.android.support:appcompat-v7:$support_version"
-    compile "com.android.support:support-v4:$support_version"
     compile "com.android.support:design:$support_version"
     compile "com.android.support:recyclerview-v7:$support_version"
+    compile "com.android.support:customtabs:$support_version"
 
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta2'
+
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
@@ -64,8 +49,19 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0'
+    compile 'com.github.tibolte:agendacalendarview:1.0.4'
+    compile 'me.grantland:autofittextview:0.2.1'
+    compile 'com.zzhoujay.richtext:richtext:2.3.7'
+    compile 'com.zzhoujay.glideimagegetter:glideimagegetter:1.0.1'
+
+    compile 'com.google.firebase:firebase-core:10.0.1'
+    compile 'com.google.firebase:firebase-crash:10.0.1'
+    compile 'com.google.firebase:firebase-messaging:10.0.1'
+
 
 }
 
 //compile 'com.android.support:multidex:1.0.1'
 
+
+apply plugin: 'com.google.gms.google-services'

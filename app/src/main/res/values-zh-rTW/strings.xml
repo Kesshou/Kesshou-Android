@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">木棉手札(大安高工學生助理)</string>
+    <string name="app_name">木棉手札</string>
     <string name="team_name">Kesshou</string>
     <string name="unauthorized">帳號密碼錯誤</string>
     <string name="illegalcontent">非法內容</string>
@@ -38,7 +38,7 @@
 
 	<string name="regist_terms">使用者條款</string>
 	<string name="regist_terms_help">請詳閱使用者條款(以下連結)，同意者請按下一步。</string>
-	<string name="regist_terms_href">https://drive.google.com/file/d/0Bz-PYkk7mye2Y2hBcVlSUVlrblU/view?usp=sharing</string>
+	<string name="regist_terms_href">https://kesshou.dacsc.club/v1/static/userterm.pdf</string>
 
 	<string name="regist_loading">註冊中&#8230;&#8230;&#8230;</string>
 	<string name="regist_loading_help">祝你學校生活愉快</string>
@@ -49,6 +49,9 @@
 
 	<string name="loading_text">載入中</string>
 
+	<string name="main_infor_username">用戶組</string>
+	<string name="main_infor_name">姓名</string>
+	<string name="main_infor_nick">暱稱</string>
 	<string name="main_infor_timetable">班級課表</string>
 	<string name="main_infor_timetable_help">這學期的課表</string>
 	<string name="main_infor_record">出勤紀錄</string>
@@ -68,8 +71,8 @@
 	<string name="main_news_map_help">目前校園導覽圖</string>
 	<string name="main_news_foodmap">美食地圖</string>
 	<string name="main_news_foodmap_help">學校附近的小吃餐廳</string>
-	<string name="main_news_seatstate">自習室座位狀態</string>
-	<string name="main_news_seatstate_help">現在自習室位置登記狀態</string>
+	<string name="main_news_seatstate">自修室座位狀態</string>
+	<string name="main_news_seatstate_help">現在自修室位置登記狀態</string>
 	<string name="main_news_rule">校規查詢</string>
 	<string name="main_news_rule_help">現在學校規定</string>
 	<string name="main_news_qanda">學校Q&#38;A</string>
@@ -85,8 +88,11 @@
 	<string name="main_menu_noti_help">通知設定</string>
 	<string name="main_menu_opinion">意見回饋</string>
 	<string name="main_menu_opinion_help">提供我們意見 讓App更好</string>
+	<string name="main_menu_lang">語言設定</string>
+	<string name="main_menu_lang_help">語言設定</string>
 	<string name="main_menu_about">關於我們</string>
 	<string name="main_menu_about_help">關於我們</string>
+	<string name="main_menu_logout">登出</string>
 
 	<string name="infor_top_item_absence">缺席</string>
 	<string name="infor_top_item_late">遲到</string>
@@ -106,4 +112,20 @@
 	<string name="infor_grade2_grade1">一年級</string>
 	<string name="infor_grade2_grade2">二年級</string>
 	<string name="infor_grade2_grade3">三年級</string>
+
+	<string name="infor_grade2_semember1">上學期</string>
+	<string name="infor_grade2_semember2">下學期</string>
+
+	<string name="menu_info_info">請輸入原密碼後，需全部填寫</string>
+	<string name="menu_info_old_password">請輸入原密碼（必填）</string>
+	<string name="menu_info_new_school_pwd">請輸入新學校密碼（身分證字號）（必填）</string>
+	<string name="menu_info_new_nick">請輸入新暱稱（必填）</string>
+	<string name="menu_info_new_account">請輸入新email（必填）</string>
+	<string name="menu_info_new_password">請輸入新密碼（必填）</string>
+
+	<string name="menu_is_noti">是否接受通知?</string>
+
+	<string name="version">Powered by Kesshou® , DaanX v2.0.0</string>
+
+	<string name="no_data">無資料</string>
 </resources>

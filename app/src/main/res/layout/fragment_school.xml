@@ -4,7 +4,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	tools:context=".views.Regist.SchoolFragment">
+	tools:context=".views.regist.SchoolFragment">
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -16,9 +16,9 @@
 			<TextView
 				android:id="@+id/topPanel"
 				android:layout_width="match_parent"
-				android:layout_height="200dp"
+				android:layout_height="150dp"
 				android:text="@string/regist_school"
-				android:textSize="30sp"
+				android:textSize="24sp"
 				android:textColor="@color/white"
 				android:background="@color/colorPrimary"
 
@@ -38,7 +38,7 @@
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="32dp"
 				android:paddingBottom="32dp"
-				android:textSize="20sp"
+				android:textSize="18sp"
 				android:textColor="@color/black"
 				android:text="@string/regist_school_help"/>
 
@@ -59,7 +59,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:inputType="text"
-					android:textSize="20sp"
+					android:textSize="18sp"
 					android:hint="@string/regist_school_account" />
 			</android.support.design.widget.TextInputLayout>
 
@@ -83,7 +83,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:inputType="textPassword"
-					android:textSize="20sp"
+					android:textSize="18sp"
 					android:hint="@string/regist_school_pwd"/>
 			</android.support.design.widget.TextInputLayout>
 		</LinearLayout>
@@ -109,7 +109,7 @@
 			android:layout_height="match_parent"
 			android:layout_weight="1"
 			android:text="@string/regist_step_pre"
-			android:textSize="20sp"
+			android:textSize="18sp"
 			style="@style/GreyButton"/>
 
 		<ImageView
@@ -125,7 +125,7 @@
 			android:layout_height="match_parent"
 			android:layout_weight="1"
 			android:text="@string/regist_step_next"
-			android:textSize="20sp"
+			android:textSize="18sp"
 			style="@style/GreyButton" />
 	</LinearLayout>
 </RelativeLayout>

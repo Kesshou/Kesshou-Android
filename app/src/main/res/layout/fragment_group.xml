@@ -4,7 +4,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:id="@+id/rel"
-tools:context=".views.Regist.GroupFragment">
+tools:context=".views.regist.GroupFragment">
 
 	<ScrollView
 		android:layout_width="match_parent"
@@ -18,9 +18,9 @@ tools:context=".views.Regist.GroupFragment">
 			<TextView
 				android:id="@+id/topPanel"
 				android:layout_width="match_parent"
-				android:layout_height="200dp"
+				android:layout_height="150dp"
 				android:text="@string/regist_group"
-				android:textSize="30sp"
+				android:textSize="24sp"
 				android:textColor="@color/white"
 				android:background="@color/colorPrimary"
 
@@ -40,7 +40,7 @@ tools:context=".views.Regist.GroupFragment">
 				android:paddingEnd="@dimen/regist_hl_padding"
 				android:paddingTop="32dp"
 				android:paddingBottom="14dp"
-				android:textSize="20sp"
+				android:textSize="18sp"
 				android:textColor="@color/black"
 				android:text="@string/regist_group_help"/>
 

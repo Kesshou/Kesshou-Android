@@ -49,6 +49,8 @@
 -dontwarn android.test.**
 -dontwarn android.support.test.**
 -dontwarn org.junit.**
+-dontwarn java.lang.invoke**
+-dontwarn sun.misc.**
 
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
@@ -82,7 +84,7 @@
 -keep interface okhttp3.** { *; }
 -dontwarn okhttp3.**
 
-
+-printmapping build/outputs/mapping/release/mapping.txt
 -keep class com.bumptech.glide.integration.okhttp3.OkHttpGlideModule
 
 -keepattributes InnerClasses
