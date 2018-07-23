@@ -185,6 +185,9 @@ public class InforFragment extends Fragment {
 			case "綜高":
 				result = "高";
 				break;
+			case "綜職":
+			    result = "職";
+			    break;
 		}
 		return result;
 	}
