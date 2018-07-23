@@ -108,50 +108,59 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-10.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-10.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-fragment-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.13.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: me.grantland:autofittextview-0.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-core-16.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-base-16.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-15.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-messaging-17.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.7@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common-10.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-25.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.zzhoujay.markdown:markdown-1.0.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-compat-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: se.emilsjolander:stickylistheaders-2.5.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-1.0.0-beta4" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: io.reactivex:rxjava:1.0.16@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:25.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl-10.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.github.PhilJay:MPAndroidChart:v3.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-messaging-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-26.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:26.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-v4-26.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.github.tibolte:agendacalendarview-1.0.4" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:transition-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-v4-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-crash-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.0.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-26.1.0" level="project" />
     <orderEntry type="library" name="Gradle: io.realm:realm-android-library-object-server-5.4.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.9.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils-26.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:customtabs-25.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.0.0-beta4@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.zzhoujay.richtext:richtext-2.3.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-16.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:design-25.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-15.0.1" level="project" />
     <orderEntry type="library" name="Gradle: io.realm:realm-annotations:5.4.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-core-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:okhttp3-integration-1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl-16.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.zzhoujay.glideimagegetter:glideimagegetter-1.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:3.7.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.getkeepsafe.relinker:relinker-1.2.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.13.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: me.grantland:autofittextview-0.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-25.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: se.emilsjolander:stickylistheaders-2.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-25.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-fragment-26.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.core:common:1.0.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base-15.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.reactivex:rxjava:1.0.16@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.PhilJay:MPAndroidChart:v3.0.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-compat-26.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-identifier-15.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:transition-25.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector-impl-16.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.9.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-stats-15.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.0.0-beta4@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-16.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-interop-16.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.zzhoujay.richtext:richtext-2.3.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector-16.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common-16.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:logging-interceptor:3.4.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils-25.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime-1.0.0" level="project" />
   </component>
 </module>

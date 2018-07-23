@@ -51,12 +51,9 @@ dependencies {
     implementation 'me.grantland:autofittextview:0.2.1'
     implementation 'com.zzhoujay.richtext:richtext:2.3.7'
     implementation 'com.zzhoujay.glideimagegetter:glideimagegetter:1.0.1'
-    implementation 'com.google.firebase:firebase-core:10.0.1'
-    implementation 'com.google.firebase:firebase-crash:10.0.1'
-    implementation 'com.google.firebase:firebase-messaging:10.0.1'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-messaging:17.1.0'
 }
 
-//compile 'com.android.support:multidex:1.0.1'
-
-
 apply plugin: 'com.google.gms.google-services'
+//compile 'com.android.support:multidex:1.0.1'
