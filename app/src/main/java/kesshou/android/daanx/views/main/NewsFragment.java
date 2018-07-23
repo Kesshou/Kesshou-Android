@@ -83,7 +83,7 @@ public class NewsFragment extends Fragment {
 					bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "School map");
 					bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fn");
 					((MainActivity)getActivity()).mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle);
-					ChromeTabHelper.openTabs(getActivity(),"http://www.taivs.tp.edu.tw/images/img-building.jpg");
+					ChromeTabHelper.openTabs(getActivity(),"http://docs.google.com/gview?embedded=true&url=www.taivs.tp.edu.tw/tw/doc/daan-buildings.pdf");
 				}
 			});
 			menus.add(map);
@@ -95,7 +95,7 @@ public class NewsFragment extends Fragment {
 					bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "School map");
 					bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fn");
 					((MainActivity)getActivity()).mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle);
-					ChromeTabHelper.openTabs(getActivity(),"https://dev.dacsc.club/v1/seatstate");
+					ChromeTabHelper.openTabs(getActivity(),"https://kesshou.dacsc.club/v1/seatstate");
 				}
 			});
 			menus.add(seatState);
