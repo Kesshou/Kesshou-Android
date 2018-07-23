@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 25
@@ -53,6 +54,7 @@ dependencies {
     implementation 'com.zzhoujay.glideimagegetter:glideimagegetter:1.0.1'
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-messaging:17.1.0'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.3'
 }
 
 apply plugin: 'com.google.gms.google-services'
