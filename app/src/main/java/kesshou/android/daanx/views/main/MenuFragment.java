@@ -182,14 +182,13 @@ public class MenuFragment extends Fragment {
 			menus.add(logout);
 
 			// Crashlytics test code
-            // FIXME: Remove before merge
-			Menu crashTest = new Menu(R.drawable.ic_close,BeautifulColor.getRandomColor(),"Force Crashlytics Crash", "", new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Crashlytics.getInstance().crash();
-                }
-            });
-			menus.add(crashTest);
+//			Menu crashTest = new Menu(R.drawable.ic_close,BeautifulColor.getRandomColor(),"Force Crashlytics Crash", "", new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Crashlytics.getInstance().crash();
+//                }
+//            });
+//			menus.add(crashTest);
 
 			RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.menu_list);
 			MenuListAdapter menuListAdapter = new MenuListAdapter(menus,getActivity().getApplicationContext());
