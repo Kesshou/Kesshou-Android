@@ -40,7 +40,7 @@
 			agendaCalendar:theme="@style/AppTheme"
 			agendaCalendar:agendaCurrentDayTextColor="@color/colorAccent"
 			agendaCalendar:calendarColor="@color/colorAccent"
-			agendaCalendar:calendarCurrentDayTextColor="@color/black"
+			agendaCalendar:calendarCurrentDayTextColor="@color/yellow_500"
 			agendaCalendar:calendarDayTextColor="@color/white"
 			agendaCalendar:calendarHeaderColor="@color/colorImAccent"
 			agendaCalendar:calendarPastDayTextColor="@color/light_blue_100"
