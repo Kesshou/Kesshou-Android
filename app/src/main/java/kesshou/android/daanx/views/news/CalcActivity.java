@@ -18,6 +18,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -131,13 +132,29 @@ public class CalcActivity extends BaseActivity implements CalendarPickerControll
 		});
 	}
 
+	private Date getMinDate(List<CalenderResponse> calenders){
+		Date result = calenders.get(0).start;
+        for(int i = 0; i<calenders.size(); i++) {
+			if (calenders.get(i).start.before(result)) result = calenders.get(i).start;
+		}
+		return result;
+	}
+
+    private Date getMaxDate(List<CalenderResponse> calenders){
+        Date result = calenders.get(0).end;
+        for(int i = 0; i<calenders.size(); i++) {
+            if (calenders.get(i).end.after(result)) result = calenders.get(i).end;
+        }
+        return result;
+    }
+
 
 	private void drawBody(AgendaCalendarView calendarView,List<CalenderResponse> calenders){
 		Calendar minDate = Calendar.getInstance();
 		Calendar maxDate = Calendar.getInstance();
 
-		minDate.setTime(calenders.get(calenders.size()-1).start);
-		maxDate.setTime(calenders.get(0).end);
+		minDate.setTime(getMinDate(calenders));
+		maxDate.setTime(getMaxDate(calenders));
 
 		List<CalendarEvent> eventList = new ArrayList<>();
 		mockList(eventList,calenders);
