@@ -9,8 +9,8 @@ android {
         applicationId "kesshou.android.daanx"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 6
-        versionName "1.1.0"
+        versionCode 7
+        versionName "1.1.1"
         vectorDrawables.useSupportLibrary = true
         vectorDrawables.generatedDensities = ['hdpi']
     }
@@ -22,10 +22,6 @@ android {
         }
     }
 
-}
-
-realm{
-    syncEnabled = true
 }
 
 buildscript {
