@@ -121,6 +121,12 @@
 	<string name="menu_info_new_nick">New NicknameRRequired</string>
 	<string name="menu_info_new_account">New Email Required</string>
 	<string name="menu_info_new_password">New PasswordRRequired</string>
+	<string name="menu_info_send">Send</string>
+
+	<string name="opinion_something_fail">Something Fail</string>
+	<string name="opinion_lag_issue">Lag Issue</string>
+	<string name="opinion_program_error">Program Error</string>
+	<string name="opinion_suggestion">Suggestion</string>
 
 	<string name="menu_is_noti">Do you want to get notifications?</string>
 

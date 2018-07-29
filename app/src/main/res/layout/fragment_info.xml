@@ -151,7 +151,7 @@
 			android:layout_marginStart="16dp"
 			android:layout_marginEnd="16dp"
 			style="@style/BlueButton"
-			android:text="送出"
+			android:text="@string/menu_info_send"
 			android:textSize="24sp" />
 	</LinearLayout>
 

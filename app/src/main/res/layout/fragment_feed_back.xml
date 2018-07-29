@@ -16,40 +16,39 @@
 		<RadioGroup
 			android:id="@+id/rd_group"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
+			android:layout_height="wrap_content">
 
 
 			<android.support.v7.widget.AppCompatRadioButton
 				android:id="@+id/rd_lose"
-				android:layout_width="wrap_content"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:lines="1"
-				android:text="功能失效" />
+				android:text="@string/opinion_something_fail" />
 
 			<android.support.v7.widget.AppCompatRadioButton
 				android:id="@+id/rd_lag"
-				android:layout_width="wrap_content"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:lines="1"
-				android:text="lag問題" />
+				android:text="@string/opinion_lag_issue" />
 
 			<android.support.v7.widget.AppCompatRadioButton
 				android:id="@+id/rd_crash"
-				android:layout_width="wrap_content"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:lines="1"
-				android:text="程式崩潰" />
+				android:text="@string/opinion_program_error" />
 
 			<android.support.v7.widget.AppCompatRadioButton
 				android:id="@+id/rd_sug"
-				android:layout_width="wrap_content"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:lines="1"
-				android:text="意見建議" />
+				android:text="@string/opinion_suggestion" />
 		</RadioGroup>
 
 
@@ -66,7 +65,7 @@
 			android:layout_height="wrap_content"
 			android:theme="@style/BlueButton"
 			style="@style/BlueButton"
-			android:text="送出"
+			android:text="@string/menu_info_send"
 			android:textSize="24sp" />
 	</LinearLayout>
 </ScrollView>

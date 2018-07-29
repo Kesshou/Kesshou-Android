@@ -122,6 +122,13 @@
 	<string name="menu_info_new_nick">請輸入新暱稱（必填）</string>
 	<string name="menu_info_new_account">請輸入新email（必填）</string>
 	<string name="menu_info_new_password">請輸入新密碼（必填）</string>
+	<string name="menu_info_send">送出</string>
+
+	<string name="opinion_something_fail">功能失效</string>
+	<string name="opinion_lag_issue">lag問題</string>
+	<string name="opinion_program_error">程式崩潰</string>
+	<string name="opinion_suggestion">意見建議</string>
+
 
 	<string name="menu_is_noti">是否接受通知?</string>
 
